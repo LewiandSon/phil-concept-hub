@@ -34,15 +34,17 @@ body {
     padding: 0 2rem;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-heading);
-    color: var(--primary-color);
+/* --- Globale Typografie --- */
+
+h1, h2 {
+    font-family: var(--font-body);
     font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
 }
 
 h1 {
     font-size: clamp(2.2rem, 5vw, 3.5rem); /* Schriftgröße leicht reduziert */
-    line-height: 1.1;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -51,6 +53,7 @@ h2 {
     text-align: center;
     margin-bottom: 4rem;
     position: relative;
+    padding-bottom: 0.8rem;
 }
 
 /* Dekorative Unterstreichung für H2 */
@@ -176,12 +179,10 @@ section {
     animation: fadeIn 1s ease-out;
 }
 .hero-content h1 {
-    font-family: var(--font-body);
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     color: var(--primary-color);
     margin: 0 0 1rem;
     line-height: 1.2;
-    font-weight: 700;
 }
 .hero-content .subtitle {
     color: var(--text-color);
