@@ -604,11 +604,12 @@ section {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        justify-items: start; /* Richtet Gitter-Elemente linksbündig aus */
     }
     .feature-item {
         border-right: none;
         padding: 0;
-        justify-content: center; /* Zentriert Items, wenn sie umbrechen */
+        /* justify-content: center; wird durch justify-items ersetzt */
     }
 }
 
