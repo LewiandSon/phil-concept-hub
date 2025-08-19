@@ -44,4 +44,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Modal / Popup Logik ---
+    const modal = document.getElementById('booking-modal');
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+
+    const openModal = () => { if(modal) modal.style.display = 'block'; };
+    const closeModal = () => { if(modal) modal.style.display = 'none'; };
+
+    openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+    if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+    // Schließen bei Klick außerhalb des Modals
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+
+
+    // --- Formular-Einreichung behandeln ---
+    const contactForm = document.getElementById('contact-form');
+    const formWrapper = document.getElementById('form-wrapper'); // existiert nicht mehr, muss angepasst werden
+    const successMessage = document.getElementById('success-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Verhindert das Neuladen der Seite
+
+            const formContent = this; // das Formular selbst
+            const modalContent = this.parentElement; // der übergeordnete .modal-content div
+
+            // Hier würde man normalerweise die Formulardaten an einen Server senden.
+            if (formContent && successMessage) {
+                // Blende alle Elemente im modal-content außer der Erfolgsnachricht aus
+                Array.from(modalContent.children).forEach(child => {
+                    if(child.id !== 'success-message') child.style.display = 'none';
+                });
+                successMessage.style.display = 'block';
+            }
+        });
+    }
+
 });

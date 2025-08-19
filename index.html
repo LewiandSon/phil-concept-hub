@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>phil concept hub</title>
+    <title>phil concept hub – Workshopraum in Wien mieten</title>
     <meta name="description" content="Der kreative Space für Meetings, Seminare & Events (20–80 Personen) im Herzen von Wien Mariahilf. Jetzt unverbindlich anfragen!">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -19,50 +20,99 @@
                 <a href="#usp" class="nav-link">Das Konzept</a>
                 <a href="#gallery" class="nav-link">Räume</a>
                 <a href="#preise" class="nav-link">Preise</a>
-                <a href="#anfrage" class="nav-link cta-nav">Jetzt anfragen</a>
+                <a href="#anfrage" class="nav-link cta-nav">Jetzt buchen</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- 1. Hero-Bereich -->
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>Workshops mit Charakter – mitten in Wien</h1>
-                <p class="subtitle">Der kreative Space für Meetings, Seminare & Events (20–80 Personen).</p>
-                <a href="#anfrage" class="cta-button">Jetzt unverbindlich anfragen</a>
-            </div>
-        </section>
+    <!-- 1. Hero -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Workshops mit Charakter – mitten in Wien</h1>
+            <p class="subtitle">Miete deinen Workshop-Space im Herzen Wiens – für Kreative und Corporates, mit Büchern, Espresso & Wiener Charme statt steriler Hotelräume.</p>
+            <button class="cta-button open-modal-btn">Jetzt buchen</button>
+        </div>
+    </section>
 
-        <!-- 2. Warum unser Space? -->
-        <section id="usp" class="usp-section">
+
+    <!-- 2. Warum unser Space? -->
+    <section id="usp" class="usp-section">
+        <div class="container">
+            <h2>Ein Raum, der den Unterschied macht.</h2>
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <div class="usp-icon">📍</div>
+                    <h3>Zentrale Lage</h3>
+                    <p>Mariahilf, nur wenige Minuten zum ersten Bezirk, perfekt erreichbar.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-icon">✨</div>
+                    <h3>Einzigartige Atmosphäre</h3>
+                    <p>Historisches Souterrain-Gewölbe trifft auf modernes Design. Keine sterile 08/15-Location.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-icon">🤸‍♀️</div>
+                    <h3>Flexible Nutzung</h3>
+                    <p>Ideal für Workshops, Seminare, Symposien und exklusive Team-Events.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-icon">💡</div>
+                    <h3>Kreativ-Atmosphäre</h3>
+                    <p>Einzigartiges Gewölbe-Ambiente, das inspiriert und den üblichen Büro-Look vermeidet.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-icon">☕️</div>
+                    <h3>Barista-Kaffee</h3>
+                    <p>Bester Kaffee aus der Siebträgermaschine für kreative Pausen und Energie-Boosts.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-icon">🍰</div>
+                    <h3>Snacks & Kuchen</h3>
+                    <p>Aus der hauseigenen Bäckerei, für die kleine Stärkung zwischendurch dazubuchbar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- NEUE AUSSTATTUNGS-SEKTION -->
+        <section class="features-section">
             <div class="container">
-                <h2>Ein Raum, der den Unterschied macht.</h2>
-                <div class="usp-grid">
-                    <div class="usp-item">
-                        <div class="usp-icon">📍</div>
-                        <h3>Zentrale Lage</h3>
-                        <p>Mariahilf, nur wenige Gehminuten von der Mariahilfer Straße entfernt, perfekt erreichbar.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-snowflake feature-icon"></i>
+                        <span class="feature-name">Klimaanlage</span>
                     </div>
-                    <div class="usp-item">
-                        <div class="usp-icon">✨</div>
-                        <h3>Einzigartige Atmosphäre</h3>
-                        <p>Historisches Souterrain-Gewölbe trifft auf modernes Design. Keine sterile 08/15-Location.</p>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-wifi feature-icon"></i>
+                        <span class="feature-name">WLAN</span>
                     </div>
-                    <div class="usp-item">
-                        <div class="usp-icon">🤸‍♀️</div>
-                        <h3>Flexible Nutzung</h3>
-                        <p>Ideal für Workshops, Seminare, Symposien und exklusive Team-Events.</p>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-chalkboard-user feature-icon"></i>
+                        <span class="feature-name">Meeting Board</span>
                     </div>
-                    <div class="usp-item">
-                        <div class="usp-icon">💡</div>
-                        <h3>Kreativ-Atmosphäre</h3>
-                        <p>Einzigartiges Gewölbe-Ambiente, das inspiriert und den üblichen Büro-Look vermeidet.</p>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-video feature-icon"></i>
+                        <span class="feature-name">Teams on Demand</span>
                     </div>
-                    <div class="usp-item">
-                        <div class="usp-icon">☕️</div>
-                        <h3>Barista-Kaffee</h3>
-                        <p>Bester Kaffee aus der Siebträgermaschine für kreative Pausen und Energie-Boosts.</p>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-pen-ruler feature-icon"></i>
+                        <span class="feature-name">Moderationsmaterial</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-chalkboard feature-icon"></i>
+                        <span class="feature-name">Whiteboard</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-person-chalkboard feature-icon"></i>
+                        <span class="feature-name">Flip-Chart</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-microphone feature-icon"></i>
+                        <span class="feature-name">Mikrofone</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-volume-high feature-icon"></i>
+                        <span class="feature-name">BOSE-Sound</span>
                     </div>
                 </div>
             </div>
@@ -75,15 +125,12 @@
                 <div class="gallery-grid">
                     <figure>
                         <img src="images/gallery_1.jpg" alt="Großer Workshop-Raum mit Holztisch">
-                        <figcaption>Boardroom-Setup für bis zu 20 Personen</figcaption>
                     </figure>
                     <figure>
                         <img src="images/gallery_2.jpg" alt="Kreativ-Ecke mit gemütlichen Sesseln">
-                        <figcaption>Breakout-Zone für kleinere Gruppen</figcaption>
                     </figure>
                     <figure>
                         <img src="images/gallery_3.jpg" alt="Team bei einem Brainstorming am Whiteboard">
-                        <figcaption>Agiles Arbeiten am Whiteboard</figcaption>
                     </figure>
                 </div>
             </div>
@@ -91,41 +138,50 @@
 
         <!-- 4. Beispiel-Formate & Preise -->
         <section id="preise" class="pricing-section">
-            <div class="container pricing-container">
-                <div class="pricing-text">
-                    <h2>Transparent und einfach geplant.</h2>
-                    <p>Ob für einen ganzen Tag oder einen besonderen Abend – wir haben das passende Paket. Unsere Konditionen sind fair und auf deine Bedürfnisse zugeschnitten.</p>
-                     <ul>
-                        <li><strong>Workshop:</strong> 9–17 Uhr, ideal für 20–60 Personen</li>
-                        <li><strong>Abend-Event:</strong> ab 18 Uhr, für 30–100 Personen</li>
-                        <li><strong>Symposien & Runden:</strong> Flexible Zeiten nach Absprache</li>
-                    </ul>
-                </div>
-                <div class="pricing-box">
-                    <p class="price-label">Ganztagesmiete</p>
-                    <p class="price">ab 490 €</p>
-                    <p class="price-details">inkl. Nutzung der Räume & Technik, zzgl. Catering nach Wunsch.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. Kontaktformular -->
-        <section id="anfrage" class="form-section">
             <div class="container">
-                <h2>Frühbucher sichern sich die ersten Termine 2025</h2>
-                <p style="max-width: 700px; margin: 0 auto 2rem;">Hinterlassen Sie hier Ihre unverbindliche Vormerkung. Wir melden uns bei Ihnen, sobald die Buchungen offiziell starten.</p>
-                <form action="#" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Name / Firma" required>
-                        <input type="email" name="email" placeholder="E-Mail" required>
+                <div class="pricing-container">
+                    <div class="pricing-text">
+                        <h2>Raum mieten: Preise & Formate</h2>
+                        <p>
+                            Ob für ein intensives Halbtages-Meeting oder ein ganztägiges Kreativ-Seminar – wir haben das passende Format für Sie. Alle Preise sind Richtwerte und verstehen sich exkl. USt.
+                        </p>
+                         <ul>
+                            <li><strong>Workshop:</strong> 9–17 Uhr, ideal für 20–60 Personen</li>
+                            <li><strong>Abend-Event:</strong> ab 18 Uhr, für 30–100 Personen</li>
+                            <li><strong>Symposien & Runden:</strong> Flexible Zeiten nach Absprache</li>
+                        </ul>
                     </div>
-                    <textarea name="nachricht" placeholder="Was planen Sie? (Optional)"></textarea>
-                    <button type="submit" class="cta-button">Unverbindlich anfragen</button>
-                </form>
+                    <div class="pricing-box">
+                        <p class="price-label">Ganztagesmiete</p>
+                        <p class="price">ab 490 €</p>
+                        <p class="price-details">inkl. Nutzung der Räume & Technik, zzgl. Catering nach Wunsch.</p>
+                        <button class="cta-button open-modal-btn" style="margin-top: 1.5rem;">Jetzt buchen</button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 6. Social Proof -->
+        <!-- NEUE SEKTION -->
+        <section class="connection-section">
+            <div class="container">
+                <div class="connection-grid">
+                    <div class="connection-text">
+                        <h2>In bester Gesellschaft.</h2>
+                        <p>Der phil concept hub befindet sich direkt unterhalb des bekannten Café Phil im Souterrain. Profitieren Sie von der einzigartigen Atmosphäre, dem exzellenten Barista-Kaffee und dem kreativen Spirit, der das Grätzl seit Jahren prägt.</p>
+                    </div>
+                    <div class="connection-image">
+                        <img src="images/phil-entrance.jpeg" alt="Eingangsbereich des Café Phil">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 7. Kontakt / Anfrage -->
+        <section id="anfrage" class="form-section" style="display: none;"></section>
+
+
+        <!-- 8. Social Proof / Testimonials -->
         <section id="social-proof" class="social-proof-section">
             <div class="container">
                 <h2>Was unsere Gäste sagen.</h2>
@@ -163,13 +219,33 @@
             <p>
                 <strong>phil concept hub</strong><br>
                 Gumpendorfer Straße 10-12, 1060 Wien<br>
-                <strong>Hinweis:</strong> Eröffnung geplant 2025 – aktuell nehmen wir Voranmeldungen entgegen.<br>
                 <strong>Kontakt:</strong> <a href="mailto:events@phil.info">events@phil.info</a>
             </p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- MODAL / POPUP -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Reservierungsanfrage</h2>
+            <p>Sichern Sie sich Ihren Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze.</p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name / Firma" required>
+                    <input type="email" name="email" placeholder="E-Mail" required>
+                </div>
+                <textarea name="nachricht" placeholder="Was planen Sie? (Optional)"></textarea>
+                <button type="submit" class="cta-button">Anfrage senden</button>
+            </form>
+            <div id="success-message" style="display: none; text-align: center;">
+                <h3>Vielen Dank für Ihr Interesse!</h3>
+                <p>Wir melden uns bei Ihnen, sobald die Buchungen offiziell starten.</p>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
