@@ -76,24 +76,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Formular-Einreichung behandeln ---
     const contactForm = document.getElementById('contact-form');
-    const formWrapper = document.getElementById('form-wrapper'); // existiert nicht mehr, muss angepasst werden
     const successMessage = document.getElementById('success-message');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Verhindert das Neuladen der Seite
 
-            const formContent = this; // das Formular selbst
-            const modalContent = this.parentElement; // der übergeordnete .modal-content div
+            const form = e.target;
+            const data = new FormData(form);
+            const modalContent = this.parentElement;
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sende...';
+            
+            // Die URL zu deinem Google Apps Script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwtiz83g3cGQwPdRKIrFFEBAiOZuUGbg_Y-Ms2_txzEouAxKF4eIYTIs4DYPhdjWXGm9w/exec';
 
-            // Hier würde man normalerweise die Formulardaten an einen Server senden.
-            if (formContent && successMessage) {
-                // Blende alle Elemente im modal-content außer der Erfolgsnachricht aus
-                Array.from(modalContent.children).forEach(child => {
-                    if(child.id !== 'success-message') child.style.display = 'none';
+            fetch(scriptURL, { method: 'POST', body: data})
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                         // Blende alle Elemente im modal-content außer der Erfolgsnachricht aus
+                        Array.from(modalContent.children).forEach(child => {
+                            if(child.id !== 'success-message') child.style.display = 'none';
+                        });
+                        successMessage.style.display = 'block';
+                    } else {
+                        // Optional: Fehlerbehandlung, falls etwas schiefgeht
+                        console.error('Error:', data.error);
+                        alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Anfrage senden';
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                    alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Anfrage senden';
                 });
-                successMessage.style.display = 'block';
-            }
         });
     }
 
