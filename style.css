@@ -168,9 +168,8 @@ section {
 /* --- Hero Section --- */
 .hero-section-split {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    min-height: 75vh;
+    grid-template-columns: 1fr 2fr; /* 1 Teil Text, 2 Teile Bild */
+    align-items: center; /* Zentriert die Blöcke vertikal */
     background-color: var(--background-color);
     max-width: 1300px;
     margin: 2rem auto;
@@ -181,18 +180,14 @@ section {
 .hero-text-container {
     padding: 3rem;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Zentriert den Inhalt vertikal */
 }
 .hero-image-container {
-    overflow: hidden;
-    align-self: stretch; /* Stellt sicher, dass der Container die volle Höhe einnimmt */
+    /* Keine Stile notwendig, passt sich dem Bild an */
 }
 .hero-image-container img {
     width: 100%;
-    height: auto; /* Höhe passt sich automatisch an */
-    object-fit: initial; /* Setzt object-fit zurück */
+    height: auto;
+    display: block; /* Verhindert Leerraum unter dem Bild */
 }
 
 .cta-button {
