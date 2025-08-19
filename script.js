@@ -86,4 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Logik für "Anderes" Dropdown ---
+    const eventTypeSelect = document.getElementById('event-type-select');
+    const otherEventWrapper = document.getElementById('other-event-wrapper');
+    const otherEventInput = document.getElementById('other-event-type-input');
+
+    if (eventTypeSelect && otherEventWrapper && otherEventInput) {
+        eventTypeSelect.addEventListener('change', function() {
+            if (this.value === 'Anderes') {
+                otherEventWrapper.style.display = 'block';
+                otherEventInput.required = true;
+            } else {
+                otherEventWrapper.style.display = 'none';
+                otherEventInput.required = false;
+                otherEventInput.value = ''; // Feld leeren
+            }
+        });
+    }
+
 });

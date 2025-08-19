@@ -1,16 +1,18 @@
 /* --- Grundlegende Stile --- */
 :root {
-    --primary-color: #1a2a3a; /* Ein tieferes, satteres Navy */
-    --secondary-color: #d35400; /* Ein warmer, erdiger Orangeton */
-    --accent-color: #e67e22;
-    --background-color: #f8f9fa; /* Ein sehr helles, fast weißes Grau */
+    --primary-color: #2c3e50;
+    --secondary-color: #d35400;
+    --secondary-color-dark: #a84300;
+    --background-color: #f8f9fa;
     --text-color: #34495e;
-    --light-gray: #ecf0f1;
+    --text-color-light: #5f7a95;
     --white: #ffffff;
+    --light-gray: #ecf0f1;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
-    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
-    --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
+    --shadow-small: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-medium: 0 5px 15px rgba(0,0,0,0.1);
+    --shadow-large: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 html {
@@ -29,7 +31,7 @@ body {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -37,7 +39,7 @@ body {
 /* --- Globale Typografie --- */
 
 h1, h2 {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-weight: 700;
     color: var(--primary-color);
     line-height: 1.2;
@@ -49,9 +51,9 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     position: relative;
     padding-bottom: 0.8rem;
 }
@@ -60,10 +62,10 @@ h2 {
 h2::after {
     content: '';
     position: absolute;
-    bottom: -1rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 50px;
     height: 4px;
     background-color: var(--secondary-color);
     border-radius: 2px;
@@ -161,7 +163,7 @@ section {
     background-color: var(--secondary-color-dark);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-medium);
 }
 
 
@@ -199,13 +201,13 @@ section {
     font-weight: 500;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-small);
     border: 2px solid transparent;
 }
 .cta-button:hover {
     background-color: var(--accent-color);
     transform: translateY(-4px) scale(1.05);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-medium);
 }
 
 /* Korrektur der Button-Schriftfarbe für alle Zustände */
@@ -392,19 +394,36 @@ section {
     display: flex;
     gap: 1.5rem;
 }
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: var(--font-body);
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: var(--font-body);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    background-color: var(--white);
+    color: var(--text-color);
 }
-.contact-form input:focus, .contact-form textarea:focus {
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.2);
+}
+
+.contact-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27292.4%27%20height%3D%27292.4%27%3E%3Cpath%20fill%3D%27%23007CB2%27%20d%3D%27M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%27%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.8em;
 }
 
 .contact-form textarea {
@@ -435,7 +454,7 @@ section {
 }
 
 .testimonial-card {
-    background-color: #2c3e50; /* Etwas heller als der Hintergrund */
+    background-color: #34495e; /* Etwas heller als der Hintergrund */
     padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
@@ -444,7 +463,6 @@ section {
     flex-direction: column;
     align-items: center;
 }
-
 .testimonial-image {
     width: 100px;
     height: 100px;
@@ -453,29 +471,17 @@ section {
     border: 4px solid var(--white);
     margin-bottom: 1.5rem;
 }
-
-.testimonial-text {
-    font-size: 1.25rem;
+.testimonial-card blockquote {
+    margin: 0 0 1.5rem;
+    font-size: 1.1rem;
     font-style: italic;
-    line-height: 1.7;
-    margin: 0;
-    border: none;
-    padding: 0;
-}
-
-.testimonial-text p {
-    margin: 0;
-}
-
-.testimonial-author {
-    display: block;
-    margin-top: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1rem;
+    color: var(--white);
     opacity: 0.9;
 }
-
+.testimonial-card cite {
+    font-weight: 700;
+    color: var(--light-gray);
+}
 
 /* --- Modal / Popup --- */
 .modal {
@@ -571,8 +577,8 @@ section {
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .pricing-container {
-        flex-direction: column;
-        padding: 2.5rem;
+        grid-template-columns: 1fr; /* Stapelt auf Tablets */
+        padding: 2rem;
     }
     .testimonial-grid {
         grid-template-columns: 1fr;
@@ -591,6 +597,17 @@ section {
 
     .hero-section-split {
         grid-template-columns: 1fr; /* Stapelt auf Tablets */
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .feature-item {
+        border-right: none;
+        padding: 0;
+        justify-content: center; /* Zentriert Items, wenn sie umbrechen */
     }
 }
 
