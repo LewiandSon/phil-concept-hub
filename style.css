@@ -179,7 +179,10 @@ section {
 }
 .hero-text-container {
     padding: 3rem;
-    text-align: left;
+    text-align: center; /* Zentriert den Inhalt intern */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zentriert den Block vertikal zum Bild */
 }
 .hero-image-container {
     /* Keine Stile notwendig, passt sich dem Bild an */
