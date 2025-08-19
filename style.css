@@ -15,16 +15,16 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 90px; /* Passt zur Header-Höhe */
 }
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
-    padding-top: 80px;
+    padding-top: 80px; /* Platz für den fixierten Header */
     -webkit-font-smoothing: antialiased; /* Verbessert die Schriftwiedergabe */
 }
 
@@ -134,6 +134,7 @@ section {
     height: 2px;
     background-color: var(--secondary-color);
     transition: width 0.3s ease;
+    transform-origin: left;
 }
 .main-nav a:hover:not(.cta-nav)::after {
     width: 100%;
@@ -147,13 +148,17 @@ section {
 .cta-nav {
     background-color: var(--secondary-color);
     color: var(--white);
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px; /* Pille-Form */
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-small);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 1.5rem; /* Sorgt für Abstand nach links */
 }
-
 .cta-nav:hover {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color-dark);
     color: var(--white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -218,7 +223,7 @@ section {
 /* --- Features Section --- */
 .features-section {
     background-color: #f0f0f0; /* Helleres Grau wie im Beispiel */
-    padding: 2rem 0;
+    padding: 4rem 0;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -252,25 +257,30 @@ section {
 
 /* --- USP Section --- */
 .usp-section {
+    padding: 4rem 0;
     background-color: var(--light-gray);
 }
 .usp-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Immer 3 Spalten auf Desktops */
     gap: 2.5rem;
 }
 .usp-item {
     text-align: center;
-    padding: 1.5rem;
 }
 .usp-icon {
-    font-size: 3rem;
+    font-size: 2.2rem;
     color: var(--secondary-color);
+    margin-bottom: 1rem;
 }
 .usp-item h3 {
-    margin: 1rem 0 0.5rem;
-    color: var(--primary-color);
-    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+.usp-item p {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    line-height: 1.5;
 }
 
 /* --- Gallery Section --- */
@@ -570,6 +580,10 @@ section {
         grid-template-columns: 1fr;
         text-align: center;
     }
+
+    .usp-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
+    }
 }
 
 @media (max-width: 768px) {
@@ -590,5 +604,15 @@ section {
     .connection-grid {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .usp-grid {
+        grid-template-columns: 1fr; /* 1 Spalte auf mobilen Geräten */
+    }
+}
+
+@media (max-width: 576px) {
+    .usp-grid {
+        grid-template-columns: 1fr; /* 1 Spalte auf mobilen Geräten */
     }
 }
