@@ -169,18 +169,23 @@ section {
     text-align: center;
 }
 .hero-content {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 1.5rem; /* Padding reduziert */
+    background-color: rgba(255,255,255,0.92);
+    padding: 2rem;
     border-radius: 10px;
-    max-width: 650px; /* Breite reduziert */
+    max-width: 700px;
+    animation: fadeIn 1s ease-out;
 }
 .hero-content h1 {
+    font-family: var(--font-body);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     color: var(--primary-color);
-    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Schriftgröße reduziert */
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    font-weight: 700;
 }
 .hero-content .subtitle {
     color: var(--text-color);
-    font-size: 1rem; /* Schriftgröße reduziert */
+    font-size: 1.1rem;
     margin: 1rem 0 1.5rem; /* Abstand reduziert */
 }
 
@@ -298,9 +303,13 @@ section {
 .pricing-section {
      background-color: var(--white);
 }
+.pricing-section h2 {
+    margin-bottom: 2rem;
+}
 .pricing-container {
-    display: flex;
-    align-items: stretch; /* Sorgt für gleiche Höhe */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
     gap: 3rem;
     background-color: var(--background-color);
     border-radius: 15px;
@@ -311,35 +320,42 @@ section {
     flex: 2;
 }
 .pricing-text ul {
-    list-style: '✓';
-    padding-left: 1.5rem;
+    list-style: none;
+    padding-left: 0;
 }
 .pricing-text li {
-    padding-left: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 .pricing-box {
-    flex: 1;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 2.5rem;
     border-radius: 10px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+}
+.pricing-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
 }
 .pricing-box h3, .pricing-box .price {
     color: var(--white);
 }
 .price-label {
     font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--white);
+    opacity: 0.9;
 }
 .price {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     color: var(--secondary-color);
     margin: 0.5rem 0 1.5rem;
+}
+.price-details {
+    font-size: 0.9rem;
+    color: var(--white);
+    opacity: 0.9;
 }
 
 /* --- Form Section --- */
@@ -491,10 +507,15 @@ section {
 .connection-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
 }
-
+.connection-text {
+    text-align: center;
+}
+.connection-text h2 {
+    margin-bottom: 1.5rem;
+}
 .connection-image img {
     width: 100%;
     height: auto;
