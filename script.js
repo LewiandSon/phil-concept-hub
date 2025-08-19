@@ -52,7 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModal = () => { if(modal) modal.style.display = 'block'; };
     const closeModal = () => { if(modal) modal.style.display = 'none'; };
 
-    openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            openModal();
+            // Google Analytics Event senden
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'engagement',
+                    'event_label': 'Jetzt Buchen Button Klick'
+                });
+            }
+        });
+    });
     if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
     // Schließen bei Klick außerhalb des Modals
