@@ -166,33 +166,30 @@ section {
 
 
 /* --- Hero Section --- */
-.hero-section {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('images/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 60vh;
-    display: flex;
+.hero-section-split {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 Teil Text, 2 Teile Bild */
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    min-height: 75vh;
+    background-color: var(--background-color);
+    max-width: 1300px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
 }
-.hero-content {
-    background-color: rgba(255,255,255,0.92);
-    padding: 1.5rem;
-    border-radius: 10px;
-    max-width: 600px;
-    animation: fadeIn 1s ease-out;
+.hero-text-container {
+    padding: 3rem;
+    text-align: center; /* Zentriert den Inhalt */
 }
-.hero-content h1 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--primary-color);
-    margin: 0 0 0.8rem;
-    line-height: 1.2;
+.hero-image-container {
+    height: 100%;
+    overflow: hidden;
 }
-.hero-content .subtitle {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    margin: 0.8rem 0 1.2rem;
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cta-button {
@@ -222,7 +219,7 @@ section {
 
 /* --- Features Section --- */
 .features-section {
-    padding: 4rem 0;
+    padding: 2.5rem 0;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
     background-color: #f8f9fa;
@@ -231,7 +228,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 1rem 0;
 }
 
@@ -259,7 +255,7 @@ section {
 
 /* --- USP Section --- */
 .usp-section {
-    padding: 4rem 0;
+    padding: 6rem 0;
     background-color: var(--light-gray);
 }
 .usp-grid {
@@ -283,6 +279,7 @@ section {
     font-size: 0.9rem;
     color: var(--text-color-light);
     line-height: 1.5;
+    min-height: 55px; /* Sorgt für gleiche Höhe */
 }
 
 .section-intro {
@@ -592,6 +589,10 @@ section {
 
     .usp-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
+    }
+
+    .hero-section-split {
+        grid-template-columns: 1fr; /* Stapelt auf Tablets */
     }
 }
 
