@@ -698,6 +698,12 @@ section {
     .main-nav {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: center; /* Zentriert die Nav-Elemente */
+    }
+
+    .cta-nav {
+        padding: 0.6rem 1.5rem; /* Verkleinert den Button auf Mobilgeräten */
+        font-size: 0.9rem;
     }
 
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
