@@ -714,44 +714,39 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL, ROBUST MOBILE HEADER REWRITE --- */
-    html {
-        scroll-padding-top: 0; /* FIX: Anker-Scroll auf Mobile korrigiert */
-    }
+    /* --- FINAL, ROBUST MOBILE HEADER REWRITE V2 --- */
     .main-header {
-        position: static; /* Header is no longer sticky */
-        padding: 1.5rem 1rem;
+        position: static;
+        padding: 1rem;
         height: auto;
     }
     body {
-        padding-top: 0; /* No padding needed for static header */
+        padding-top: 0;
     }
     .header-container {
         flex-direction: column;
         gap: 1.5rem;
     }
     .main-nav {
-       width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
     }
-    .main-nav .nav-link, 
-    .main-nav .cta-nav {
-        display: block; /* Force each link onto its own line */
-        width: 90%;
-        max-width: 320px; /* Set a max width for aesthetics */
-        margin: 0.5rem auto; /* Center the links and add vertical space */
-        padding: 0.8rem 1rem;
+    .main-nav a {
+        margin: 0;
+        padding: 0;
+        width: 100%;
         text-align: center;
-        border-radius: 50px;
-        margin-left: auto; /* Override any desktop margins */
-        margin-right: auto; /* Override any desktop margins */
-        min-height: 44px; /* FIX: Vergrößert Touch-Ziele */
-        box-sizing: border-box; /* Stellt sicher, dass Padding in der Höhe enthalten ist */
     }
-    .main-nav a:not(.cta-nav)::after {
-        display: none; /* Hide the desktop-only hover underline */
+    .cta-nav {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        width: auto; /* Allow the button to size to its content */
     }
-    .main-nav a:not(.cta-nav):hover {
-        background-color: var(--light-gray); /* Add a subtle mobile hover effect */
+    a.nav-link:not(.cta-nav)::after {
+        display: none; /* Hide desktop underline effect */
     }
 
     /* --- GENERAL LAYOUT --- */
