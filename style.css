@@ -728,16 +728,12 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- DEBUGGING TEST --- */
-    .main-header {
-        background-color: hotpink !important; /* TEST: Sichtbarkeit der CSS-Änderungen prüfen */
-    }
-
-    /* --- FINAL, BAREBONES MOBILE HEADER REWRITE --- */
+    /* --- FINAL, BAREBONES MOBILE HEADER REWRITE V2 --- */
     .main-header {
         position: static;
+        padding: 1.5rem 1rem;
         height: auto;
-        padding: 1rem 0;
+        background-color: var(--white) !important; /* Resetting the debug color */
     }
     body {
         padding-top: 0;
