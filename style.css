@@ -670,7 +670,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* --- SIMPLE HAMBURGER MENU (Final Attempt) --- */
+    /* --- SIMPLE HAMBURGER MENU (ULTIMATE FINAL REWRITE) --- */
     .main-header {
         position: fixed;
     }
@@ -682,18 +682,26 @@ body {
         padding: 0 1rem;
     }
     .main-nav {
-        display: none;
         position: fixed;
         inset: 0;
         background: rgba(44, 62, 80, 0.98);
         z-index: 1000;
-    }
-    body.nav-open .main-nav {
+        
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
+
+        /* Hide with visibility/opacity for robust transitions */
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s .3s, opacity .3s ease;
+    }
+    body.nav-open .main-nav {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity .3s ease;
     }
     .main-nav a {
         color: var(--white);

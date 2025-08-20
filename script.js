@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    alert("Test 1: Skript geladen");
-
     // --- Simple Hamburger Menu (Final Attempt) ---
     const navToggle = document.querySelector('.mobile-nav-toggle');
     const mainNav = document.querySelector('#main-nav');
 
     if (navToggle && mainNav) {
         navToggle.addEventListener('click', function() {
-            alert("Test 2: Button geklickt");
             document.body.classList.toggle('nav-open');
         });
 
