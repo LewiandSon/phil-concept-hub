@@ -348,14 +348,12 @@ section {
 
 .pricing-box-featured {
     background-color: var(--primary-color);
-    color: var(--white);
     transform: translateY(-20px) scale(1.05); /* Hebt die Box noch mehr hervor */
 }
 
 .pricing-box-featured h3,
-.pricing-box-featured .price,
-.pricing-box-featured li,
-.pricing-box-featured .price-details {
+.pricing-box-featured .price-details,
+.pricing-box-featured li {
     color: var(--white);
 }
 
