@@ -1,31 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Hamburger Menu Toggle ---
-    const nav = document.querySelector('#main-nav');
+    // --- Hamburger Menu Toggle (FINAL, CLEAN REWRITE) ---
     const navToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNav = document.querySelector('#main-nav');
 
-    if (navToggle) {
+    if (navToggle && mainNav) {
         navToggle.addEventListener('click', () => {
-            const isVisible = nav.getAttribute('data-visible') === 'true';
-            
-            if (isVisible) {
-                nav.setAttribute('data-visible', 'false');
-                navToggle.setAttribute('aria-expanded', 'false');
-            } else {
-                nav.setAttribute('data-visible', 'true');
-                navToggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.toggle('nav-open');
+        });
+
+        mainNav.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A') {
+                document.body.classList.remove('nav-open');
             }
         });
     }
-
-    // Close menu when a nav link is clicked
-    const navLinks = document.querySelectorAll('.main-nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.setAttribute('data-visible', 'false');
-            navToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
 
     // --- Smooth Scrolling für alle Anker-Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
