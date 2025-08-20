@@ -312,7 +312,7 @@ section {
     margin: 0;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-medium); /* FIX: War --shadow-md (ungültig) */
     position: relative;
     cursor: pointer;
     height: 350px; /* Feste Höhe für einheitliches Grid */
@@ -457,6 +457,16 @@ section {
 .contact-form textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+.date-input-wrapper {
+    width: 100%;
+}
+.date-input-wrapper label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
 }
 
 .checkbox-group label {
@@ -653,7 +663,7 @@ section {
 
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
-    .pricing-container {
+    .pricing-grid { /* FIX: War .pricing-container */
         grid-template-columns: 1fr; /* Stapelt auf Tablets */
         padding: 2rem;
     }
@@ -674,6 +684,19 @@ section {
 
     .hero-section-split {
         grid-template-columns: 1fr; /* Stapelt auf Tablets */
+        margin-top: 2rem; /* FIX: Reduziert oberen Abstand auf Mobile */
+    }
+
+    .hero-text-container {
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
     }
 
     .features-grid {
@@ -692,6 +715,9 @@ section {
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
     /* --- FINAL, ROBUST MOBILE HEADER REWRITE --- */
+    html {
+        scroll-padding-top: 0; /* FIX: Anker-Scroll auf Mobile korrigiert */
+    }
     .main-header {
         position: static; /* Header is no longer sticky */
         padding: 1.5rem 1rem;
@@ -718,6 +744,8 @@ section {
         border-radius: 50px;
         margin-left: auto; /* Override any desktop margins */
         margin-right: auto; /* Override any desktop margins */
+        min-height: 44px; /* FIX: Vergrößert Touch-Ziele */
+        box-sizing: border-box; /* Stellt sicher, dass Padding in der Höhe enthalten ist */
     }
     .main-nav a:not(.cta-nav)::after {
         display: none; /* Hide the desktop-only hover underline */
@@ -754,6 +782,12 @@ section {
     
     .form-group {
         flex-direction: column;
+    }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        min-height: 44px; /* FIX: Vergrößert Touch-Ziele im Formular */
+        box-sizing: border-box;
     }
 }
 

@@ -100,6 +100,8 @@
         </div>
     </header>
 
+<main>
+
 <!-- 1. Hero -->
 <section class="hero-section-split">
     <div class="hero-text-container">
@@ -108,7 +110,7 @@
         <a href="#anfrage" class="cta-button">Unverbindlich anfragen</a>
     </div>
     <div class="hero-image-container">
-        <img src="images/hero-background.jpg" alt="Heller und moderner Workshop-Raum, eingerichtet für ein Meeting">
+        <img src="images/hero-background.jpg" alt="Heller und moderner Workshop-Raum, eingerichtet für ein Meeting" width="1280" height="720" srcset="images/hero-background-small.jpg 600w, images/hero-background.jpg 1280w" sizes="(max-width: 600px) 100vw, 1280px">
     </div>
 </section>
 
@@ -286,7 +288,10 @@
                     </div>
                     <div class="form-group">
                         <input type="text" name="personenanzahl" placeholder="Personenanzahl (Schätzwert)">
-                         <input type="date" name="wunschtermin" placeholder="Gewünschtes Datum*">
+                         <div class="date-input-wrapper">
+                            <label for="wunschtermin-input">Gewünschtes Datum*</label>
+                            <input type="date" name="wunschtermin" id="wunschtermin-input" aria-label="Gewünschtes Datum">
+                         </div>
                     </div>
                     <div class="form-group">
                         <select name="eventtype" id="event-type-select" required>
