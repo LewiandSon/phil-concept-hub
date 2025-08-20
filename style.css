@@ -639,57 +639,6 @@ section {
 }
 
 
-/* --- Responsive Design --- */
-@media (max-width: 992px) {
-    .pricing-grid { /* FIX: War .pricing-container */
-        grid-template-columns: 1fr; /* Stapelt auf Tablets */
-        padding: 2rem;
-    }
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Kein spezielles Mobile-Layout für Hero nötig, da flexbox das regelt */
-
-    .connection-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .usp-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
-    }
-
-    .hero-section-split {
-        grid-template-columns: 1fr; /* Stapelt auf Tablets */
-        margin-top: 2rem; /* FIX: Reduziert oberen Abstand auf Mobile */
-    }
-
-    .hero-text-container {
-        text-align: center;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        justify-items: start; /* Richtet Gitter-Elemente linksbündig aus */
-    }
-    .feature-item {
-        border-right: none;
-        padding: 0;
-        /* justify-content: center; wird durch justify-items ersetzt */
-    }
-}
-
 /* --- FINAL, BAREBONES MOBILE HEADER REWRITE --- */
 .main-header {
     position: fixed; /* Re-enable sticky header for desktop */
@@ -797,7 +746,7 @@ body {
     
     /* Globale Container-Anpassung für mehr Platz */
     .container {
-        padding: 0 1rem;
+        padding: 0 1.5rem; /* Etwas mehr Padding für Tablets und Mobile */
     }
 
     h1 { font-size: 2.5rem; }
@@ -813,7 +762,7 @@ body {
 
     /* USP Grid */
     .usp-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
     }
 
     /* Pricing */
@@ -843,5 +792,12 @@ body {
 
     .form-field.full-width {
         grid-column: 1 / -1; /* Behält die volle Breite bei, was korrekt ist */
+    }
+}
+
+/* Letzte Anpassung für die kleinsten Handys */
+@media (max-width: 576px) {
+    .usp-grid {
+        grid-template-columns: 1fr; /* 1 Spalte auf den kleinsten Geräten */
     }
 }
