@@ -665,35 +665,73 @@ body {
     gap: 1.5rem;
 }
 
+.mobile-nav-toggle {
+    display: none; /* Hide on desktop */
+}
+
 @media (max-width: 768px) {
-    /* --- SIMPLE VISIBLE MOBILE NAVIGATION --- */
+    /* --- SIMPLE HAMBURGER MENU (Final Attempt) --- */
     .main-header {
-        position: static;
-        height: auto;
-        padding: 1rem 0;
+        position: fixed;
     }
-
     body {
-        padding-top: 0;
+        padding-top: 80px;
     }
-
     .header-container {
-        flex-wrap: wrap;
-        height: auto;
-        justify-content: space-between;
-        align-items: center;
+        height: 80px;
         padding: 0 1rem;
     }
-
     .main-nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(44, 62, 80, 0.98);
+        z-index: 1000;
+    }
+    body.nav-open .main-nav {
         display: flex;
-        order: 3;
-        width: 100%;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--light-gray);
+        flex-direction: column;
         justify-content: center;
-        gap: 1.5rem;
+        align-items: center;
+        gap: 2rem;
+    }
+    .main-nav a {
+        color: var(--white);
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+    .mobile-nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .hamburger-icon,
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 1.5rem;
+        height: 2px;
+        background: var(--primary-color);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .hamburger-icon::before { top: -6px; }
+    .hamburger-icon::after { bottom: -6px; }
+
+    body.nav-open .hamburger-icon {
+        background-color: transparent;
+    }
+    body.nav-open .hamburger-icon::before {
+        transform: translateY(6px) rotate(45deg);
+    }
+    body.nav-open .hamburger-icon::after {
+        transform: translateY(-6px) rotate(-45deg);
     }
 
     /* --- GENERAL MOBILE LAYOUT OVERHAUL (SINGLE SOURCE OF TRUTH) --- */

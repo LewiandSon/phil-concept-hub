@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Simple Hamburger Menu (Final Attempt) ---
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNav = document.querySelector('#main-nav');
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', function() {
+            document.body.classList.toggle('nav-open');
+        });
+
+        mainNav.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                document.body.classList.remove('nav-open');
+            }
+        });
+    }
+
     // --- Smooth Scrolling für alle Anker-Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
