@@ -696,13 +696,14 @@ section {
     }
 
     .main-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center; /* Zentriert die Nav-Elemente */
+        flex-direction: row; /* WIEDER ZU ROW GEÄNDERT */
+        justify-content: center; /* Zentriert die Links */
+        flex-wrap: wrap; /* Erlaubt sauberen Umbruch bei Bedarf */
+        gap: 1rem; /* Abstand zwischen den Links */
     }
 
     .cta-nav {
-        padding: 0.6rem 1.5rem; /* Verkleinert den Button auf Mobilgeräten */
+        padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
     }
 
