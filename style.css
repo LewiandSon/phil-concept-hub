@@ -459,10 +459,10 @@ section {
     min-height: 120px;
 }
 
-.date-input-wrapper {
+.form-field-wrapper {
     width: 100%;
 }
-.date-input-wrapper label {
+.form-field-wrapper label {
     display: block;
     font-size: 0.85rem;
     color: var(--text-color-light);
