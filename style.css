@@ -714,39 +714,44 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL, ROBUST MOBILE HEADER REWRITE V2 --- */
+    /* --- FINAL, BAREBONES MOBILE HEADER REWRITE --- */
     .main-header {
         position: static;
-        padding: 1rem;
         height: auto;
+        padding: 1rem 0;
     }
     body {
         padding-top: 0;
     }
     .header-container {
-        flex-direction: column;
-        gap: 1.5rem;
+        display: block;
+    }
+    .logo {
+        display: block;
+        text-align: center;
+        margin: 0 auto 1.5rem;
     }
     .main-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
+        display: block;
     }
     .main-nav a {
-        margin: 0;
-        padding: 0;
-        width: 100%;
+        display: block;
         text-align: center;
+        margin: 0.5rem auto;
+        padding: 0.8rem 1rem;
+        max-width: 280px;
+        border-radius: 50px;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .cta-nav {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        width: auto; /* Allow the button to size to its content */
+    .main-nav a:not(.cta-nav) {
+        font-weight: 500;
     }
-    a.nav-link:not(.cta-nav)::after {
-        display: none; /* Hide desktop underline effect */
+    .main-nav a:not(.cta-nav)::after {
+        display: none; /* Hide desktop underline */
+    }
+    .main-nav a:not(.cta-nav):hover {
+        background-color: var(--light-gray);
     }
 
     /* --- GENERAL LAYOUT --- */
