@@ -185,6 +185,31 @@ section {
     box-shadow: var(--shadow-medium);
 }
 
+/* --- Hero Section --- */
+.hero-section-split {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: var(--background-color);
+    max-width: 1300px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+}
+.hero-text-container {
+    padding: 3rem;
+    text-align: center;
+}
+.hero-text-container .cta-button {
+    margin-top: 2rem;
+}
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Korrektur der Button-Schriftfarbe für alle Zustände */
 .cta-button, .cta-button:visited,
 .main-nav a.cta-nav, .main-nav a.cta-nav:visited {
