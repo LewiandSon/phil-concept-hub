@@ -348,17 +348,18 @@ section {
 
 .pricing-box-featured {
     background-color: var(--primary-color);
+    color: var(--white); /* Setzt die Standard-Textfarbe für alle Kind-Elemente */
     transform: translateY(-20px) scale(1.05); /* Hebt die Box noch mehr hervor */
 }
 
-.pricing-box-featured h3,
-.pricing-box-featured .price-details,
-.pricing-box-featured li {
+/* Überschreibt die generelle h3-Farbe speziell für die hervorgehobene Box */
+.pricing-box-featured h3 {
     color: var(--white);
 }
 
+/* Stellt sicher, dass der Preis für die Lesbarkeit orange bleibt */
 .pricing-box-featured .price {
-    color: var(--secondary-color); /* Preis bleibt orange für Kontrast */
+    color: var(--secondary-color);
 }
 
 .pricing-box h3 {
