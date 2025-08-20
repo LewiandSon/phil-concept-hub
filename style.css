@@ -462,6 +462,19 @@ section {
     grid-column: 1 / -1;
 }
 
+.checkbox-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto; /* Reset width */
+    min-height: auto; /* Reset min-height */
+}
+
 .contact-form .cta-button {
     margin-top: 1rem;
     width: 100%;
