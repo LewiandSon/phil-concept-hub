@@ -166,59 +166,6 @@ section {
     box-shadow: var(--shadow-medium);
 }
 
-.hero-cta-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.cta-button-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    border: 2px solid var(--secondary-color);
-    cursor: pointer;
-}
-
-.cta-button-secondary:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: var(--shadow-medium);
-}
-
-
-/* --- Hero Section --- */
-.hero-section-split {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* 1 Teil Text, 2 Teile Bild */
-    align-items: center; /* Zentriert die Blöcke vertikal */
-    background-color: var(--background-color);
-    max-width: 1300px;
-    margin: 2rem auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-large);
-}
-.hero-text-container {
-    padding: 3rem;
-    text-align: center;
-}
-.hero-image-container {
-    /* Keine Stile notwendig, passt sich dem Bild an */
-}
-.hero-image-container img {
-    width: 100%;
-    height: auto;
-    display: block; /* Verhindert Leerraum unter dem Bild */
-}
-
 .cta-button {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -595,28 +542,6 @@ section {
     color: var(--white);
     text-decoration: underline;
 }
-
-/* --- Sticky CTA --- */
-.sticky-cta {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: var(--shadow-large);
-    z-index: 999;
-    transform: translateY(200%);
-    transition: transform 0.4s ease-in-out;
-}
-
-.sticky-cta.visible {
-    transform: translateY(0);
-}
-
 
 /* --- Animationen --- */
 @keyframes fadeIn {

@@ -41,26 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Sticky CTA einblenden beim Scrollen ---
-    const stickyCta = document.querySelector('.sticky-cta');
-    const heroSection = document.querySelector('.hero-section-split');
-
-    if (stickyCta && heroSection) {
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Wenn die Hero-Sektion NICHT mehr im Bild ist, zeige den Button
-                if (!entry.isIntersecting) {
-                    stickyCta.classList.add('visible');
-                } else {
-                    stickyCta.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        heroObserver.observe(heroSection);
-    }
-
-
     // --- Formular-Einreichung behandeln ---
     const contactForm = document.getElementById('contact-form');
     const successMessage = document.getElementById('success-message');
