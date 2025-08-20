@@ -689,29 +689,33 @@ section {
     }
 }
 
+/* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
+    /* --- FINAL HEADER & NAV FIX --- */
+    .main-header {
+        padding: 1rem;
     }
 
-    /* FINAL MOBILE NAVIGATION FIX */
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
     .main-nav {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-
-    .main-nav a {
-        display: block;
-        width: 100%;
-        text-align: center;
+    
+    .nav-link {
+        font-size: 1.1rem; /* Bessere Lesbarkeit */
     }
 
     .cta-nav {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        padding: 0.8rem 2.5rem; /* Größerer Klickbereich */
     }
 
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
