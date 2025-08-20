@@ -41,6 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Event Tracking for Package Selection
+    const packageButtons = document.querySelectorAll('.pricing-box .cta-button');
+    if (packageButtons) {
+        packageButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const packageName = btn.dataset.package;
+                if (typeof gtag === 'function' && packageName) {
+                    gtag('event', 'select_content', {
+                        'content_type': 'package',
+                        'item_id': packageName
+                    });
+                }
+            });
+        });
+    }
+
     // --- Formular-Einreichung behandeln ---
     const contactForm = document.getElementById('contact-form');
     const successMessage = document.getElementById('success-message');
