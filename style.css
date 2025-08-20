@@ -24,7 +24,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: red !important; /* TEST: Sichtbarkeit der CSS-Änderungen prüfen */
     margin: 0;
     padding-top: 80px; /* Platz für den fixierten Header */
     -webkit-font-smoothing: antialiased; /* Verbessert die Schriftwiedergabe */
