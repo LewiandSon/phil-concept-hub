@@ -16,16 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Smooth Scrolling für alle Anker-Links ---
+    // --- Combined Smooth Scrolling & Event Tracking (FINAL) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            // FIX: Only prevent default if it's a real anchor link, not just "#"
-            if (href.length > 1 && document.querySelector(href)) {
-                e.preventDefault();
+            if (href.length <= 1 || !document.querySelector(href)) return;
+            
+            e.preventDefault();
+
+            const isPackageButton = this.matches('.pricing-box .cta-button');
+            const packageName = isPackageButton ? this.dataset.package : null;
+
+            const scrollFunction = () => {
                 document.querySelector(href).scrollIntoView({
                     behavior: 'smooth'
                 });
+            };
+
+            if (isPackageButton && typeof gtag === 'function' && packageName) {
+                gtag('event', 'select_content', {
+                    'content_type': 'package',
+                    'item_id': packageName,
+                    'event_callback': scrollFunction,
+                    'event_timeout': 2000 // Failsafe timeout
+                });
+            } else {
+                scrollFunction();
             }
         });
     });
@@ -52,22 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             elementObserver.observe(el);
         }
     });
-
-    // Event Tracking for Package Selection
-    const packageButtons = document.querySelectorAll('.pricing-box .cta-button');
-    if (packageButtons) {
-        packageButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const packageName = btn.dataset.package;
-                if (typeof gtag === 'function' && packageName) {
-                    gtag('event', 'select_content', {
-                        'content_type': 'package',
-                        'item_id': packageName
-                    });
-                }
-            });
-        });
-    }
 
     // --- Formular-Einreichung behandeln ---
     const contactForm = document.getElementById('contact-form');
