@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = true;
             submitButton.textContent = 'Sende...';
             
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwtiz83g3cGQwPdRKIrFFEBAiOZuUGbg_Y-Ms2_txzEouAxKF4eIYTIs4DYPhdjWXGm9w/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwKQ6FF_nGl8YimnKEWrB8-RZMDQullOSOZqgF5wzAZrZ4TdsstBWzLjJukLaVSYBV1jg/exec';
 
             fetch(scriptURL, { method: 'POST', body: data})
                 .then(response => response.json())
