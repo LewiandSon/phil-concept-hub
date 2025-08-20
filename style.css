@@ -695,14 +695,22 @@ section {
         gap: 1rem;
     }
 
+    /* FINAL MOBILE NAVIGATION FIX */
     .main-nav {
-        flex-direction: column; /* Korrekte Ausrichtung für Mobile */
-        align-items: center; /* Zentriert die Links in der Spalte */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 1rem;
     }
 
+    .main-nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
     .cta-nav {
-        padding: 0.8rem 2rem; /* Zurück zum normalen Padding */
+        padding: 0.8rem 2rem;
         font-size: 1rem;
     }
 
