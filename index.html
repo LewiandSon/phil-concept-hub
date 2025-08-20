@@ -38,7 +38,7 @@
                 <a href="#usp" class="nav-link">Das Konzept</a>
                 <a href="#gallery" class="nav-link">Räume</a>
                 <a href="#preise" class="nav-link">Preise</a>
-                <button class="cta-nav open-modal-btn">Jetzt buchen</button>
+                <a href="#anfrage" class="cta-nav">Jetzt buchen</a>
             </nav>
         </div>
     </header>
@@ -48,7 +48,10 @@
     <div class="hero-text-container">
         <h1>Raum für Ideen. Mitten in Wien.</h1>
         <p class="subtitle">Miete deinen Workshop-Space in 1060 Wien, nur wenige Gehminuten zum ersten Bezirk, perfekt erreichbar – für Kreative und Corporates, mit Büchern, Espresso & Wiener Charme statt steriler Hotelräume.</p>
-        <button class="cta-button open-modal-btn">Jetzt buchen</button>
+        <div class="hero-cta-container">
+            <a href="#anfrage" class="cta-button">Jetzt buchen</a>
+            <a href="#anfrage" class="cta-button-secondary">Verfügbarkeit prüfen</a>
+        </div>
     </div>
     <div class="hero-image-container">
         <img src="images/hero-background.jpg" alt="Heller und moderner Workshop-Raum, eingerichtet für ein Meeting">
@@ -165,7 +168,7 @@
                         <p class="price-label">Halbtagesmiete</p>
                         <p class="price">ab 390 €</p>
                         <p class="price-details">Vormittags oder Nachmittags (4h), zzgl. Catering nach Wunsch.</p>
-                        <button class="cta-button open-modal-btn" style="margin-top: 1.5rem;">Jetzt buchen</button>
+                        <a href="#anfrage" class="cta-button" style="margin-top: 1.5rem;">Jetzt anfragen</a>
                     </div>
                 </div>
             </div>
@@ -188,7 +191,52 @@
 
 
         <!-- 7. Kontakt / Anfrage -->
-        <section id="anfrage" class="form-section" style="display: none;"></section>
+        <section id="anfrage" class="form-section">
+            <div class="container">
+                <h2 style="text-align: center;">Unverbindlich anfragen</h2>
+                <p class="section-intro" style="margin-bottom: 3rem;">
+                    Sichere dir deinen Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze und melden uns werktags binnen 24 Stunden bei dir.
+                </p>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Vor- & Nachname*" required>
+                        <input type="text" name="firma" placeholder="Firma / Team">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="E-Mail*" required>
+                        <input type="tel" name="telefon" placeholder="Telefon*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="personenanzahl" placeholder="Personenanzahl (Schätzwert)">
+                         <input type="date" name="wunschtermin" placeholder="Gewünschtes Datum*">
+                    </div>
+                    <div class="form-group">
+                        <select name="eventtype" id="event-type-select" required>
+                            <option value="" disabled selected>Art der Veranstaltung*</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Seminar">Seminar</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Anderes">Anderes</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="other-event-wrapper" style="display: none;">
+                        <input type="text" name="othereventtype" id="other-event-type-input" placeholder="Bitte spezifizieren">
+                    </div>
+                     <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" name="catering" value="Ja">
+                            Catering erwünscht?
+                        </label>
+                    </div>
+                    <textarea name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben..."></textarea>
+                    <button type="submit" class="cta-button">Unverbindlich anfragen</button>
+                </form>
+                <div id="success-message" style="display: none; text-align: center;">
+                    <h3>Vielen Dank für deine Anfrage!</h3>
+                    <p>Wir melden uns werktags binnen 24 Stunden bei dir.</p>
+                </div>
+            </div>
+        </section>
 
 
         <!-- 8. Social Proof / Testimonials -->
@@ -234,52 +282,15 @@
         </div>
     </footer>
 
+    <!-- STICKY CTA -->
+    <a href="#anfrage" class="sticky-cta">Jetzt buchen</a>
+
     <script src="script.js"></script>
 
-    <!-- MODAL / POPUP -->
+    <!-- MODAL / POPUP (jetzt leer, kann entfernt werden) -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal-btn">&times;</span>
-            <h2>Reservierungsanfrage</h2>
-            <p>Sichere dir deinen Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze.</p>
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Vor- & Nachname*" required>
-                    <input type="text" name="firma" placeholder="Firma / Team">
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="E-Mail*" required>
-                    <input type="tel" name="telefon" placeholder="Telefon*" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="personenanzahl" placeholder="Personenanzahl (Schätzwert)">
-                     <input type="date" name="wunschtermin" placeholder="Gewünschtes Datum*">
-                </div>
-                <div class="form-group">
-                    <select name="eventtype" id="event-type-select" required>
-                        <option value="" disabled selected>Art der Veranstaltung*</option>
-                        <option value="Workshop">Workshop</option>
-                        <option value="Seminar">Seminar</option>
-                        <option value="Meeting">Meeting</option>
-                        <option value="Anderes">Anderes</option>
-                    </select>
-                </div>
-                <div class="form-group" id="other-event-wrapper" style="display: none;">
-                    <input type="text" name="othereventtype" id="other-event-type-input" placeholder="Bitte spezifizieren">
-                </div>
-                 <div class="form-group checkbox-group">
-                    <label>
-                        <input type="checkbox" name="catering" value="Ja">
-                        Catering erwünscht?
-                    </label>
-                </div>
-                <textarea name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben..."></textarea>
-                <button type="submit" class="cta-button">Unverbindlich anfragen</button>
-            </form>
-            <div id="success-message" style="display: none; text-align: center;">
-                <h3>Vielen Dank für deine Anfrage!</h3>
-                <p>Wir melden uns werktags binnen 24 Stunden bei dir.</p>
-            </div>
         </div>
     </div>
 
