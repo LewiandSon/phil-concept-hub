@@ -691,61 +691,38 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL, ROBUST MOBILE HEADER REWRITE --- */
+    /* --- FINAL ROBUST MOBILE HEADER V3 --- */
     .main-header {
-        position: static; /* Header is no longer sticky on mobile */
+        position: static; /* No longer sticky on mobile */
         padding: 1.5rem 1rem;
+        height: auto;
     }
-
     body {
-        padding-top: 0; /* Remove top padding as header is not fixed */
+        padding-top: 0; /* Remove padding needed for sticky header */
     }
-
     .header-container {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
     }
-
     .main-nav {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center all navigation items */
+        align-items: center;
         width: 100%;
-        gap: 1rem;
     }
-
-    /* Reset all nav links for a consistent base */
     .main-nav a {
-        display: block;
-        width: 90%;
-        max-width: 300px;
+        margin-left: 0; /* Reset desktop margin */
+        padding: 0.75rem; /* Increase touch area */
+        width: 100%;
         text-align: center;
-        padding: 0.8rem 1rem;
-        margin: 0;
         border-radius: 50px;
-        font-size: 1.1rem;
-        font-weight: 500;
     }
-
-    /* Style for the text-based navigation links */
-    .main-nav a.nav-link {
-        background-color: transparent;
-        color: var(--text-color);
+    .main-nav a:not(.cta-nav)::after {
+        display: none; /* Hide desktop hover effect */
     }
-    .main-nav a.nav-link:hover {
+    .main-nav a:not(.cta-nav):hover {
         background-color: var(--light-gray);
     }
-
-    /* Style for the main call-to-action button */
-    .main-nav a.cta-nav {
-        background-color: var(--secondary-color);
-        color: var(--white);
-    }
-     .main-nav a.cta-nav:hover {
-        background-color: var(--secondary-color-dark);
-        color: var(--white);
-    }
-
     /* --- GENERAL LAYOUT --- */
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
         grid-template-columns: 1fr;
