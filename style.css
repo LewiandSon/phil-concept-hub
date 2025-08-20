@@ -346,6 +346,23 @@ section {
     box-shadow: var(--shadow-large);
 }
 
+.pricing-box-featured {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-20px) scale(1.05); /* Hebt die Box noch mehr hervor */
+}
+
+.pricing-box-featured h3,
+.pricing-box-featured .price,
+.pricing-box-featured li,
+.pricing-box-featured .price-details {
+    color: var(--white);
+}
+
+.pricing-box-featured .price {
+    color: var(--secondary-color); /* Preis bleibt orange für Kontrast */
+}
+
 .pricing-box h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
