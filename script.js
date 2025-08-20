@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isPackageButton && typeof gtag === 'function' && packageName) {
                 gtag('event', 'select_content', {
-                    'content_type': 'package',
-                    'item_id': packageName,
+                    'package_selection': packageName, // Changed from item_id for clarity
                     'event_callback': scrollFunction,
                     'event_timeout': 2000 // Failsafe timeout
                 });
