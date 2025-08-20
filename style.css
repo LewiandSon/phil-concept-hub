@@ -665,88 +665,36 @@ body {
     gap: 1.5rem;
 }
 
-.mobile-nav-toggle {
-    display: none; /* Hide hamburger on desktop */
-}
-
 @media (max-width: 768px) {
-    /* --- MOBILE HEADER & HAMBURGER MENU (FINAL, FROM-SCRATCH REWRITE) --- */
+    /* --- SIMPLE VISIBLE MOBILE NAVIGATION --- */
+    .main-header {
+        position: static;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    body {
+        padding-top: 0;
+    }
+
     .header-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
     }
 
     .main-nav {
-        display: none; /* Start hidden */
-        position: fixed;
-        inset: 0;
-        background-color: rgba(44, 62, 80, 0.98);
-        backdrop-filter: blur(8px);
-        z-index: 998;
-    }
-
-    body.nav-open .main-nav {
-        display: flex; /* Show as overlay */
-        flex-direction: column;
+        display: flex;
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--light-gray);
         justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
-    
-    .main-nav a {
-        color: var(--white);
-        font-size: 1.5rem;
-        opacity: 0;
-        animation: fadeInNavLinks 0.3s ease-in-out forwards;
-    }
-
-    /* Staggered animation for nav links */
-    .main-nav a:nth-child(1) { animation-delay: 0.2s; }
-    .main-nav a:nth-child(2) { animation-delay: 0.3s; }
-    .main-nav a:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes fadeInNavLinks {
-        to { opacity: 1; }
-    }
-
-    .mobile-nav-toggle {
-        display: block;
-        position: relative;
-        z-index: 999;
-        background: transparent;
-        border: 0;
-        cursor: pointer;
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-    .hamburger-icon,
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 1.5rem;
-        height: 2px;
-        background-color: var(--primary-color);
-        transition: transform 350ms ease-out, opacity 350ms ease;
-    }
-
-    .hamburger-icon::before { top: -6px; }
-    .hamburger-icon::after { bottom: -6px; }
-
-    body.nav-open .hamburger-icon {
-        background-color: transparent; /* Middle bar fades out */
-    }
-
-    body.nav-open .hamburger-icon::before {
-        transform: translateY(6px) rotate(45deg);
-    }
-
-    body.nav-open .hamburger-icon::after {
-        transform: translateY(-6px) rotate(-45deg);
-    }
-
 
     /* --- GENERAL MOBILE LAYOUT OVERHAUL (SINGLE SOURCE OF TRUTH) --- */
     

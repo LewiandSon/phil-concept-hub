@@ -1,22 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Hamburger Menu Toggle (FINAL, FROM-SCRATCH REWRITE) ---
-    const navToggle = document.querySelector('.mobile-nav-toggle');
-    const mainNav = document.querySelector('#main-nav');
-
-    if (navToggle && mainNav) {
-        navToggle.addEventListener('click', function() {
-            document.body.classList.toggle('nav-open');
-        });
-
-        // Close menu when a link inside it is clicked
-        mainNav.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') {
-                document.body.classList.remove('nav-open');
-            }
-        });
-    }
-
     // --- Smooth Scrolling für alle Anker-Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
