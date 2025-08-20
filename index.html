@@ -277,7 +277,12 @@
                     </div>
                     <div class="form-group">
                         <input type="email" name="email" placeholder="E-Mail*" required>
-                        <input type="tel" name="telefon" placeholder="Telefon">
+                        <select name="paket" required>
+                            <option value="" disabled selected>Gewünschtes Paket*</option>
+                            <option value="Halbtag">Halbtag</option>
+                            <option value="Ganztag">Ganztag</option>
+                            <option value="Abend-Event">Abend-Event</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" name="personenanzahl" placeholder="Personenanzahl (Schätzwert)">
