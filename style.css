@@ -728,45 +728,41 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL, BAREBONES MOBILE HEADER REWRITE V2 --- */
+    /* --- FINAL, ROBUST MOBILE HEADER V7 --- */
     .main-header {
         position: static;
         padding: 1.5rem 1rem;
         height: auto;
-        background-color: var(--white) !important; /* Resetting the debug color */
     }
     body {
         padding-top: 0;
     }
     .header-container {
         display: block;
+        text-align: center;
     }
     .logo {
-        display: block;
-        text-align: center;
-        margin: 0 auto 1.5rem;
+        margin-bottom: 1.5rem;
     }
     .main-nav {
         display: block;
     }
     .main-nav a {
         display: block;
-        text-align: center;
-        margin: 0.5rem auto;
         padding: 0.8rem 1rem;
-        max-width: 280px;
+        margin: 0.5rem auto;
+        max-width: 300px;
         border-radius: 50px;
+    }
+    .main-nav a.nav-link {
         margin-left: auto;
         margin-right: auto;
     }
-    .main-nav a:not(.cta-nav) {
-        font-weight: 500;
-    }
-    .main-nav a:not(.cta-nav)::after {
-        display: none; /* Hide desktop underline */
-    }
-    .main-nav a:not(.cta-nav):hover {
+    .main-nav a.nav-link:hover {
         background-color: var(--light-gray);
+    }
+    a.nav-link::after {
+        display: none;
     }
 
     /* --- GENERAL LAYOUT --- */
