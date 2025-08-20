@@ -670,7 +670,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* --- SIMPLE HAMBURGER MENU (ULTIMATE FINAL REWRITE) --- */
+    /* --- SIMPLE HAMBURGER MENU (USER-DIRECTED REWRITE) --- */
     .main-header {
         position: fixed;
     }
@@ -682,30 +682,37 @@ body {
         padding: 0 1rem;
     }
     .main-nav {
-        position: fixed;
-        inset: 0;
-        background: rgba(44, 62, 80, 0.98);
+        /* The small white window */
+        position: absolute;
+        top: calc(100% + 5px); /* Position below the header */
+        right: 1rem;
+        background: var(--white);
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: var(--shadow-medium);
         z-index: 1000;
         
+        /* Layout for the links */
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-
-        /* Hide with visibility/opacity for robust transitions */
+        gap: 1rem;
+        
+        /* Hide/Show logic */
         visibility: hidden;
         opacity: 0;
-        transition: visibility 0s .3s, opacity .3s ease;
+        transform: translateY(-10px);
+        transition: visibility 0s .2s, opacity .2s ease, transform .2s ease;
     }
     body.nav-open .main-nav {
         visibility: visible;
         opacity: 1;
-        transition: opacity .3s ease;
+        transform: translateY(0);
+        transition: opacity .2s ease, transform .2s ease;
     }
     .main-nav a {
-        color: var(--white);
-        font-size: 1.3rem;
+        /* Styling for the links inside the white box */
+        color: var(--primary-color);
+        font-size: 1rem;
         text-decoration: none;
     }
     .mobile-nav-toggle {
