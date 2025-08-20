@@ -828,10 +828,68 @@ body {
     .mobile-nav-toggle[aria-expanded="true"] .hamburger-icon::after {
         opacity: 0;
     }
-}
 
-@media (max-width: 576px) {
+    /* --- GENERAL MOBILE LAYOUT OVERHAUL (SINGLE SOURCE OF TRUTH) --- */
+    
+    /* Globale Container-Anpassung für mehr Platz */
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+
+    /* Hero Section */
+    .hero-section-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    /* Features Section */
+    .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        justify-items: start;
+    }
+    .feature-item {
+        border-right: none;
+        padding: 0;
+    }
+    
+    /* USP Grid */
     .usp-grid {
-        grid-template-columns: 1fr; /* 1 Spalte auf mobilen Geräten */
+        grid-template-columns: 1fr;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Connection Section */
+    .connection-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* FAQ Section */
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Form Section */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field.full-width {
+        grid-column: 1 / -1; /* Behält die volle Breite bei, was korrekt ist */
     }
 }
