@@ -74,7 +74,7 @@ h2::after {
 
 
 section {
-    padding: 4rem 2rem; /* Reduziert den vertikalen Abstand zwischen den Sektionen */
+    padding: 4rem 0; /* FIX: Entfernt das seitliche Padding */
     overflow: hidden; /* Für Animationen */
 }
 
