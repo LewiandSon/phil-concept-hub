@@ -753,6 +753,11 @@ body {
 
 @media (max-width: 768px) {
     /* --- MOBILE HEADER & HAMBURGER MENU --- */
+    .header-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
     .main-header {
         position: fixed; /* Keep it sticky on mobile too */
     }
