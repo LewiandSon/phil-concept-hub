@@ -691,15 +691,18 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL HEADER & NAV FIX --- */
+    /* --- HEADER & NAVIGATION --- */
     .main-header {
-        padding: 1rem;
+        position: static; /* Entfernt das "Kleben" für einen einfacheren Layout-Fluss */
+        padding: 1.5rem 0;
+    }
+
+    body {
+        padding-top: 0; /* Kein Padding mehr nötig, da der Header nicht mehr fixiert ist */
     }
 
     .header-container {
-        display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 1.5rem;
     }
 
@@ -707,17 +710,14 @@ section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-    }
-    
-    .nav-link {
-        font-size: 1.1rem; /* Bessere Lesbarkeit */
+        gap: 1.2rem;
     }
 
-    .cta-nav {
-        padding: 0.8rem 2.5rem; /* Größerer Klickbereich */
+    .main-nav a {
+        margin-left: 0; /* Setzt den Desktop-Abstand zurück */
     }
 
+    /* --- GENERAL LAYOUT --- */
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
         grid-template-columns: 1fr;
     }
