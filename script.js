@@ -72,20 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = true;
             submitButton.textContent = 'Sende...';
             
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwKQ6FF_nGl8YimnKEWrB8-RZMDQullOSOZqgF5wzAZrZ4TdsstBWzLjJukLaVSYBV1jg/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzYmHlzKZoL3l63n7DqxkHbD2Qx04IQVrFWE577_2hllixAYjuZqqImpyqpUvUBAFEyyg/exec';
 
             fetch(scriptURL, { method: 'POST', body: data})
                 .then(response => response.json())
                 .then(data => {
                     if (data.result === 'success') {
-                        // Hide form elements
+                        // Formular ausblenden und Erfolgsnachricht anzeigen
                         contactForm.style.display = 'none';
                         formSection.querySelector('.section-intro').style.display = 'none';
                         
-                        // Show success message
+                        // Erfolgsnachricht anzeigen und hinscrollen
                         successMessage.style.display = 'block';
-
-                        // Scroll to the success message to prevent page jump
                         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
                         // GOOGLE ANALYTICS EVENT FOR SUCCESS
@@ -96,15 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
                         }
                     } else {
-                        console.error('Error:', data.error);
+                        // Log the detailed error from Google Apps Script
+                        console.error('Script Error:', data.error);
                         alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
                         submitButton.disabled = false;
                         submitButton.textContent = 'Unverbindlich anfragen';
                     }
                 })
                 .catch(error => {
+                    // Log the detailed network/fetch error
                     console.error('Fetch Error:', error);
-                    alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+                    alert('Es ist ein Netzwerkfehler aufgetreten. Bitte versuchen Sie es später erneut.');
                     submitButton.disabled = false;
                     submitButton.textContent = 'Unverbindlich anfragen';
                 });
