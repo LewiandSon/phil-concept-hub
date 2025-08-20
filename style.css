@@ -696,15 +696,14 @@ section {
     }
 
     .main-nav {
-        flex-direction: row; /* WIEDER ZU ROW GEÄNDERT */
-        justify-content: center; /* Zentriert die Links */
-        flex-wrap: wrap; /* Erlaubt sauberen Umbruch bei Bedarf */
-        gap: 1rem; /* Abstand zwischen den Links */
+        flex-direction: column; /* Korrekte Ausrichtung für Mobile */
+        align-items: center; /* Zentriert die Links in der Spalte */
+        gap: 1rem;
     }
 
     .cta-nav {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 2rem; /* Zurück zum normalen Padding */
+        font-size: 1rem;
     }
 
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
