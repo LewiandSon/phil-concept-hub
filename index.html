@@ -244,15 +244,20 @@
             <p>Sichere dir deinen Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze.</p>
             <form class="contact-form" id="contact-form">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Name / Firma" required>
-                    <input type="email" name="email" placeholder="E-Mail" required>
+                    <input type="text" name="name" placeholder="Vor- & Nachname*" required>
+                    <input type="text" name="firma" placeholder="Firma / Team">
                 </div>
                 <div class="form-group">
-                    <input type="date" name="wunschtermin" required>
+                    <input type="email" name="email" placeholder="E-Mail*" required>
+                    <input type="tel" name="telefon" placeholder="Telefon*" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="personenanzahl" placeholder="Personenanzahl (Schätzwert)">
+                     <input type="text" name="wunschtermin" placeholder="Gewünschtes Datum / Zeitraum">
                 </div>
                 <div class="form-group">
                     <select name="eventtype" id="event-type-select" required>
-                        <option value="" disabled selected>Art der Veranstaltung</option>
+                        <option value="" disabled selected>Art der Veranstaltung*</option>
                         <option value="Workshop">Workshop</option>
                         <option value="Seminar">Seminar</option>
                         <option value="Meeting">Meeting</option>
@@ -262,12 +267,24 @@
                 <div class="form-group" id="other-event-wrapper" style="display: none;">
                     <input type="text" name="othereventtype" id="other-event-type-input" placeholder="Bitte spezifizieren">
                 </div>
-                <textarea name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben (optional)"></textarea>
-                <button type="submit" class="cta-button">Anfrage senden</button>
+                 <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" name="catering" value="Ja">
+                        Catering erwünscht?
+                    </label>
+                </div>
+                <textarea name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben..."></textarea>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" name="dsgvo" value="zugestimmt" required>
+                        Ich stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. (<a href="/datenschutz.html" target="_blank">Datenschutz</a>)
+                    </label>
+                </div>
+                <button type="submit" class="cta-button">Unverbindlich anfragen</button>
             </form>
             <div id="success-message" style="display: none; text-align: center;">
-                <h3>Vielen Dank für dein Interesse!</h3>
-                <p>Wir melden uns bei dir, sobald die Buchungen offiziell starten.</p>
+                <h3>Vielen Dank für deine Anfrage!</h3>
+                <p>Wir melden uns werktags binnen 24 Stunden bei dir.</p>
             </div>
         </div>
     </div>
