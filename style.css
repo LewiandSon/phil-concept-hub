@@ -691,30 +691,30 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- HEADER & NAVIGATION --- */
+    /* --- FINAL ROBUST MOBILE HEADER --- */
     .main-header {
-        position: static; /* Entfernt das "Kleben" für einen einfacheren Layout-Fluss */
-        padding: 1.5rem 0;
+        position: static; /* No longer sticky on mobile */
+        padding: 1rem 0;
     }
-
     body {
-        padding-top: 0; /* Kein Padding mehr nötig, da der Header nicht mehr fixiert ist */
+        padding-top: 0; /* Remove padding needed for sticky header */
     }
-
     .header-container {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
     }
-
     .main-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
+        width: 100%;
     }
-
     .main-nav a {
-        margin-left: 0; /* Setzt den Desktop-Abstand zurück */
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+        margin-left: 0; /* Reset desktop margin */
+        padding: 0.5rem;
+    }
+    .cta-nav {
+        margin-top: 0.5rem;
     }
 
     /* --- GENERAL LAYOUT --- */
