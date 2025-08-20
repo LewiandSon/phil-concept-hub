@@ -273,48 +273,73 @@
                     Sichere dir deinen Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze und melden uns werktags binnen 24 Stunden bei dir.
                 </p>
                 <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Vor- & Nachname*" required>
-                        <input type="text" name="firma" placeholder="Firma / Team">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="name-input">Vor- & Nachname*</label>
+                            <input type="text" id="name-input" name="name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="firma-input">Firma / Team</label>
+                            <input type="text" id="firma-input" name="firma">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="E-Mail*" required>
-                        <select name="paket" required>
-                            <option value="" disabled selected>Gewünschtes Paket*</option>
-                            <option value="Halbtag">Halbtag</option>
-                            <option value="Ganztag">Ganztag</option>
-                            <option value="Abend-Event">Abend-Event</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="email-input">E-Mail*</label>
+                            <input type="email" id="email-input" name="email" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="paket-select">Gewünschtes Paket*</label>
+                            <select name="paket" id="paket-select" required>
+                                <option value="" disabled selected>Bitte auswählen</option>
+                                <option value="Halbtag">Halbtag</option>
+                                <option value="Ganztag">Ganztag</option>
+                                <option value="Abend-Event">Abend-Event</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-field-wrapper">
+                    <div class="form-row">
+                        <div class="form-field">
                             <label for="personenanzahl-input">Personenanzahl (Schätzwert)</label>
                             <input type="text" name="personenanzahl" id="personenanzahl-input">
                         </div>
-                         <div class="form-field-wrapper">
+                         <div class="form-field">
                             <label for="wunschtermin-input">Gewünschtes Datum*</label>
-                            <input type="date" name="wunschtermin" id="wunschtermin-input" aria-label="Gewünschtes Datum">
+                            <input type="date" name="wunschtermin" id="wunschtermin-input" required>
                          </div>
                     </div>
-                    <div class="form-group">
-                        <select name="eventtype" id="event-type-select" required>
-                            <option value="" disabled selected>Art der Veranstaltung*</option>
-                            <option value="Workshop">Workshop</option>
-                            <option value="Seminar">Seminar</option>
-                            <option value="Meeting">Meeting</option>
-                            <option value="Anderes">Anderes</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-field full-width">
+                            <label for="event-type-select">Art der Veranstaltung*</label>
+                            <select name="eventtype" id="event-type-select" required>
+                                <option value="" disabled selected>Bitte auswählen</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Seminar">Seminar</option>
+                                <option value="Meeting">Meeting</option>
+                                <option value="Anderes">Anderes</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group" id="other-event-wrapper" style="display: none;">
-                        <input type="text" name="othereventtype" id="other-event-type-input" placeholder="Bitte spezifizieren">
+                    <div class="form-row" id="other-event-wrapper" style="display: none;">
+                        <div class="form-field full-width">
+                             <label for="other-event-type-input">Bitte spezifizieren</label>
+                            <input type="text" name="othereventtype" id="other-event-type-input">
+                        </div>
                     </div>
-                     <div class="form-group checkbox-group">
-                        <label>
-                            <input type="checkbox" name="catering" value="Ja">
-                            Catering erwünscht?
-                        </label>
+                     <div class="form-row">
+                        <div class="form-field full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="catering" value="Ja">
+                                <span>Catering erwünscht?</span>
+                            </label>
+                        </div>
                     </div>
-                    <textarea name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben..."></textarea>
+                    <div class="form-row">
+                        <div class="form-field full-width">
+                            <label for="nachricht-input">Erzähl uns mehr über dein Vorhaben...</label>
+                            <textarea id="nachricht-input" name="nachricht"></textarea>
+                        </div>
+                    </div>
                     <button type="submit" class="cta-button">Unverbindlich anfragen</button>
                 </form>
                 <div id="success-message" style="display: none; text-align: center;">
