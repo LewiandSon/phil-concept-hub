@@ -1,5 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Hamburger Menu Toggle ---
+    const nav = document.querySelector('#main-nav');
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            const isVisible = nav.getAttribute('data-visible') === 'true';
+            
+            if (isVisible) {
+                nav.setAttribute('data-visible', 'false');
+                navToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                nav.setAttribute('data-visible', 'true');
+                navToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    }
+
+    // Close menu when a nav link is clicked
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.setAttribute('data-visible', 'false');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
     // --- Smooth Scrolling für alle Anker-Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
