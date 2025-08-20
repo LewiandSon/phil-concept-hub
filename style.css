@@ -17,7 +17,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px; /* Passt zur Header-Höhe */
+    scroll-padding-top: 80px; /* Passt zur Header-Höhe */
 }
 
 body {
