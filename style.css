@@ -178,6 +178,7 @@ section {
     box-shadow: var(--shadow-small);
     border: 2px solid transparent;
     cursor: pointer;
+    display: inline-block; /* WICHTIG: Erlaubt margin-top */
 }
 .cta-button:hover {
     background-color: var(--secondary-color-dark);
@@ -202,7 +203,7 @@ section {
     text-align: center;
 }
 .hero-text-container .cta-button {
-    margin-top: 2.5rem !important; /* Vergrößert den Abstand und erzwingt die Regel */
+    margin-top: 2.5rem; /* Vergrößert den Abstand zum Text darüber */
 }
 .hero-image-container img {
     width: 100%;
@@ -373,7 +374,7 @@ section {
     font-size: 0.9rem;
     color: var(--white);
     opacity: 0.9;
-    margin-bottom: 2.5rem !important; /* Vergrößert den Abstand und erzwingt die Regel */
+    margin-bottom: 2rem; /* Fügt Abstand zum Button hinzu */
 }
 
 /* --- Form Section --- */
