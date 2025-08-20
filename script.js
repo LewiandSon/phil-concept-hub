@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Hamburger Menu Toggle (FINAL, CLEAN REWRITE) ---
+    // --- Hamburger Menu Toggle (FINAL, FROM-SCRATCH REWRITE) ---
     const navToggle = document.querySelector('.mobile-nav-toggle');
     const mainNav = document.querySelector('#main-nav');
 
     if (navToggle && mainNav) {
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click', function() {
             document.body.classList.toggle('nav-open');
         });
 
-        mainNav.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A') {
+        // Close menu when a link inside it is clicked
+        mainNav.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
                 document.body.classList.remove('nav-open');
             }
         });
