@@ -614,6 +614,13 @@ section {
     box-shadow: var(--shadow-large);
 }
 
+#success-message {
+    padding: 3rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
 /* --- Footer --- */
 .main-footer {
     background-color: var(--text-color);

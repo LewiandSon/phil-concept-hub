@@ -78,12 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.result === 'success') {
-                        // Formular ausblenden und Erfolgsnachricht anzeigen
+                        // Hide form elements
                         contactForm.style.display = 'none';
-                        // Auch die Überschrift und den Einleitungstext ausblenden
-                        formSection.querySelector('h2').style.display = 'none';
                         formSection.querySelector('.section-intro').style.display = 'none';
+                        
+                        // Show success message
                         successMessage.style.display = 'block';
+
+                        // Scroll to the success message to prevent page jump
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // GOOGLE ANALYTICS EVENT FOR SUCCESS
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'form_submission_success', {
+                                'content_type': 'contact_form',
+                                'item_id': 'contact_form'
+                            });
+                        }
                     } else {
                         console.error('Error:', data.error);
                         alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
