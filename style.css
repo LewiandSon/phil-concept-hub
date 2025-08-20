@@ -17,21 +17,22 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Passt zur Header-Höhe */
+    scroll-padding-top: 80px; /* Höhe des fixierten Headers */
+    font-size: 15px; /* Reduziert die Basis-Schriftgröße für eine kompaktere Darstellung */
 }
 
 body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: red !important; /* TEST: Sichtbarkeit der CSS-Änderungen prüfen */
+    background-color: var(--background-color); /* Roter Hintergrund entfernt */
     margin: 0;
     padding-top: 80px; /* Platz für den fixierten Header */
     -webkit-font-smoothing: antialiased; /* Verbessert die Schriftwiedergabe */
 }
 
 .container {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -73,7 +74,7 @@ h2::after {
 
 
 section {
-    padding: 5rem 0; /* Leicht reduzierter Abstand für mehr Kompaktheit */
+    padding: 4rem 2rem; /* Reduziert den vertikalen Abstand zwischen den Sektionen */
     overflow: hidden; /* Für Animationen */
 }
 
@@ -179,6 +180,7 @@ section {
     border: 2px solid transparent;
     cursor: pointer;
     display: inline-block; /* WICHTIG: Erlaubt margin-top */
+    margin-top: 2.5rem; /* Standard-Abstand für alle cta-buttons */
 }
 .cta-button:hover {
     background-color: var(--secondary-color-dark);
@@ -189,25 +191,34 @@ section {
 /* --- Hero Section --- */
 .hero-section-split {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.5fr; /* Leichter Fokus auf das Bild */
     align-items: center;
-    background-color: var(--background-color);
+    gap: 3rem;
     max-width: 1300px;
-    margin: 2rem auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-large);
+    margin: 4rem auto; /* Mehr Abstand nach oben/unten */
+    padding: 0 2rem;
 }
+
 .hero-text-container {
-    padding: 3rem;
-    text-align: center;
+    text-align: left;
 }
-.hero-text-container .cta-button {
-    margin-top: 2.5rem; /* Vergrößert den Abstand zum Text darüber */
+
+.hero-text-container h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
 }
+
+.hero-text-container .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-color-light);
+}
+
 .hero-image-container img {
     width: 100%;
     height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow-large);
     display: block;
 }
 
@@ -261,8 +272,9 @@ section {
 }
 .usp-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Immer 3 Spalten auf Desktops */
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
 }
 .usp-item {
     text-align: center;
@@ -331,7 +343,7 @@ section {
 
 .pricing-box {
     background-color: var(--background-color);
-    border: 1px solid var(--light-gray);
+    border: 2px solid var(--secondary-color); /* Rahmen für ALLE Boxen */
     border-radius: 15px;
     padding: 2.5rem;
     text-align: center;
@@ -343,23 +355,7 @@ section {
 
 .pricing-box:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-large);
-}
-
-.pricing-box-featured {
-    background-color: var(--primary-color);
-    color: var(--white); /* Setzt die Standard-Textfarbe für alle Kind-Elemente */
-    transform: translateY(-20px) scale(1.05); /* Hebt die Box noch mehr hervor */
-}
-
-/* Überschreibt die generelle h3-Farbe speziell für die hervorgehobene Box */
-.pricing-box-featured h3 {
-    color: var(--white);
-}
-
-/* Stellt sicher, dass der Preis für die Lesbarkeit orange bleibt */
-.pricing-box-featured .price {
-    color: var(--secondary-color);
+    box-shadow: var(--shadow-medium);
 }
 
 .pricing-box h3 {
@@ -586,6 +582,36 @@ section {
     height: auto;
     border-radius: 10px;
     box-shadow: var(--shadow-md);
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    background-color: var(--background-color);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.faq-item h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* --- Map Section --- */
+.map-section .section-intro {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
 }
 
 /* --- Footer --- */
