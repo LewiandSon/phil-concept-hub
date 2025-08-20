@@ -691,38 +691,41 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
-    /* --- FINAL ROBUST MOBILE HEADER V3 --- */
+    /* --- FINAL, ROBUST MOBILE HEADER REWRITE --- */
     .main-header {
-        position: static; /* No longer sticky on mobile */
+        position: static; /* Header is no longer sticky */
         padding: 1.5rem 1rem;
         height: auto;
     }
     body {
-        padding-top: 0; /* Remove padding needed for sticky header */
+        padding-top: 0; /* No padding needed for static header */
     }
     .header-container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     .main-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+       width: 100%;
     }
-    .main-nav a {
-        margin-left: 0; /* Reset desktop margin */
-        padding: 0.75rem; /* Increase touch area */
-        width: 100%;
+    .main-nav .nav-link, 
+    .main-nav .cta-nav {
+        display: block; /* Force each link onto its own line */
+        width: 90%;
+        max-width: 320px; /* Set a max width for aesthetics */
+        margin: 0.5rem auto; /* Center the links and add vertical space */
+        padding: 0.8rem 1rem;
         text-align: center;
         border-radius: 50px;
+        margin-left: auto; /* Override any desktop margins */
+        margin-right: auto; /* Override any desktop margins */
     }
     .main-nav a:not(.cta-nav)::after {
-        display: none; /* Hide desktop hover effect */
+        display: none; /* Hide the desktop-only hover underline */
     }
     .main-nav a:not(.cta-nav):hover {
-        background-color: var(--light-gray);
+        background-color: var(--light-gray); /* Add a subtle mobile hover effect */
     }
+
     /* --- GENERAL LAYOUT --- */
     .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
         grid-template-columns: 1fr;
