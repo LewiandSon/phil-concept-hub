@@ -690,27 +690,43 @@ section {
 }
 
 @media (max-width: 768px) {
-    .main-header {
-        padding: 1rem;
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
     }
-    .main-nav { display: none; } /* Vereinfachung, für ein echtes Projekt braucht es ein Burger-Menü */
+
+    .main-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero-section-split, .usp-grid, .pricing-grid, .faq-grid, .connection-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section-split {
+        text-align: center;
+    }
+
+    .hero-text-container {
+        text-align: center;
+    }
     
-    .pricing-container {
-        padding: 2rem;
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: start;
     }
     
     .form-group {
         flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .connection-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .usp-grid {
-        grid-template-columns: 1fr; /* 1 Spalte auf mobilen Geräten */
     }
 }
 
