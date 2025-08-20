@@ -72,9 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = true;
             submitButton.textContent = 'Sende...';
             
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzYmHlzKZoL3l63n7DqxkHbD2Qx04IQVrFWE577_2hllixAYjuZqqImpyqpUvUBAFEyyg/exec';
+            // Convert FormData to a plain JavaScript object
+            const plainFormData = Object.fromEntries(data.entries());
+            // Convert the object to a JSON string
+            const jsonString = JSON.stringify(plainFormData);
 
-            fetch(scriptURL, { method: 'POST', body: data})
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxD7DDOeYOfqum6uZIXJ2dQDDGd8OBWRYaAycbacg6YcgSCZ80Nl6nto8M8MoSrtyKiKQ/exec';
+
+            fetch(scriptURL, { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8', // Required for this Apps Script method
+                },
+                body: jsonString // We send the data as a JSON string
+            })
                 .then(response => response.json())
                 .then(data => {
                     if (data.result === 'success') {
