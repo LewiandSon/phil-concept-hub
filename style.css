@@ -728,6 +728,11 @@ section {
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
+    /* --- DEBUGGING TEST --- */
+    .main-header {
+        background-color: hotpink !important; /* TEST: Sichtbarkeit der CSS-Änderungen prüfen */
+    }
+
     /* --- FINAL, BAREBONES MOBILE HEADER REWRITE --- */
     .main-header {
         position: static;
