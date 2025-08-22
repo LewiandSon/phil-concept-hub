@@ -777,6 +777,7 @@ body {
         text-align: center;
         margin-top: 2rem;
         gap: 2rem;
+        padding: 0; /* FIX: Entfernt das überflüssige Padding */
     }
 
     /* USP Grid */
