@@ -785,6 +785,11 @@ body {
         grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
     }
 
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stellt sicher, dass die Galerie auf Mobilgeräten immer einspaltig ist */
+    }
+
     /* Pricing */
     .pricing-grid {
         grid-template-columns: 1fr;
