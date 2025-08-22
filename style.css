@@ -29,6 +29,7 @@ body {
     margin: 0;
     padding-top: 80px; /* Platz für den fixierten Header */
     -webkit-font-smoothing: antialiased; /* Verbessert die Schriftwiedergabe */
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
 /* Verhindert das Scrollen des Hintergrunds, wenn das mobile Menü geöffnet ist */
@@ -543,6 +544,8 @@ section {
     width: 90%;
     position: relative;
     box-shadow: var(--shadow-large);
+    max-height: 90vh; /* Verhindert, dass das Modal zu hoch wird */
+    overflow-y: auto; /* Ermöglicht das Scrollen innerhalb des Modals */
 }
 
 .close-modal-btn {
