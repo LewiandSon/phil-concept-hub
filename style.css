@@ -517,26 +517,34 @@ section {
 }
 
 /* --- Modal / Popup --- */
-.modal {
-    display: none; /* Standardmäßig ausgeblendet */
+.modal-wrapper {
+    display: none; /* Hidden by default */
     position: fixed;
-    z-index: 1001;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.6);
-    animation: fadeIn 0.5s;
+    align-items: center;
+    justify-content: center;
 }
+
+.modal-wrapper.is-visible {
+    display: flex;
+}
+
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
-    padding: 3rem;
-    border-radius: 10px;
-    max-width: 600px;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
     position: relative;
+    box-shadow: var(--shadow-large);
 }
+
 .close-modal-btn {
     color: #aaa;
     position: absolute;
@@ -545,10 +553,11 @@ section {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
+    background: none;
+    border: none;
 }
-.close-modal-btn:hover,
-.close-modal-btn:focus {
-    color: black;
+.close-modal-btn:hover {
+    color: var(--primary-color);
 }
 
 

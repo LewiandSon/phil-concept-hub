@@ -20,30 +20,48 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
+            // If it's the modal trigger, handle modal logic
+            if (href === '#anfrage') {
+                e.preventDefault();
+                document.getElementById('anfrage-modal').classList.add('is-visible');
+
+                // Fire GA event on modal open
+                const isPackageButton = this.matches('.pricing-box .cta-button');
+                const packageName = isPackageButton ? this.dataset.package : 'General CTA';
+                
+                if (typeof gtag === 'function') {
+                    gtag('event', 'select_content', {
+                        'package_selection': packageName,
+                    });
+                }
+                return; // Stop further processing
+            }
+
             if (href.length <= 1 || !document.querySelector(href)) return;
             
             e.preventDefault();
-
-            const isPackageButton = this.matches('.pricing-box .cta-button');
-            const packageName = isPackageButton ? this.dataset.package : null;
-
-            const scrollFunction = () => {
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            };
-
-            if (isPackageButton && typeof gtag === 'function' && packageName) {
-                gtag('event', 'select_content', {
-                    'package_selection': packageName, // Changed from item_id for clarity
-                    'event_callback': scrollFunction,
-                    'event_timeout': 2000 // Failsafe timeout
-                });
-            } else {
-                scrollFunction();
-            }
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
+
+    // --- Modal Close Logic ---
+    const modal = document.getElementById('anfrage-modal');
+    if (modal) {
+        const closeModalBtn = modal.querySelector('.close-modal-btn');
+        
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('is-visible');
+        });
+
+        // Close modal if background is clicked
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('is-visible');
+            }
+        });
+    }
 
     // --- Sektionen beim Scrollen einblenden (Fade-in-Effekt) ---
     const sections = document.querySelectorAll('section');
