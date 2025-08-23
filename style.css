@@ -777,7 +777,7 @@ body {
         text-align: center;
         margin-top: 2rem;
         gap: 2rem;
-        padding: 0; /* FIX: Entfernt das überflüssige Padding */
+        padding: 0 1.5rem; /* KORREKTUR: Padding für mobilen Abstand wiederhergestellt */
     }
 
     /* USP Grid */
@@ -788,6 +788,11 @@ body {
     /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr; /* Stellt sicher, dass die Galerie auf Mobilgeräten immer einspaltig ist */
+    }
+
+    /* Connection Section - Bild volle Breite */
+    .connection-grid .connection-image {
+        padding: 0;
     }
 
     /* Pricing */
