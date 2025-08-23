@@ -315,7 +315,7 @@ section {
     background-color: var(--background-color);
     border: 2px solid var(--secondary-color); /* Rahmen für ALLE Boxen */
     border-radius: 15px;
-    padding: 2.5rem;
+    padding: 2.5rem 2rem; /* FIX: Horizontales Padding reduziert, um unschöne Umbrüche zu vermeiden */
     text-align: center;
     box-shadow: var(--shadow-small);
     transition: all 0.3s ease;
