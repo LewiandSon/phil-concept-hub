@@ -125,6 +125,17 @@ section {
     transform: scale(1.05);
 }
 
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.8rem;
+}
+
 .main-nav a {
     text-decoration: none;
     color: var(--text-color);
@@ -206,7 +217,11 @@ section {
 }
 
 .hero-text-container {
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-text-container h1 {
@@ -549,17 +564,24 @@ section {
 }
 
 .close-modal-btn {
-    color: #aaa;
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    background: none;
+    color: #aaa;
+    background: transparent;
     border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 .close-modal-btn:hover {
+    background-color: var(--light-gray);
     color: var(--primary-color);
 }
 
