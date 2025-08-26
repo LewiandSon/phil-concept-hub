@@ -132,6 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                 'content_type': 'contact_form',
                                 'item_id': 'contact_form'
                             });
+                            // NEUES EVENT FÜR LEAD-GENERIERUNG
+                            gtag('event', 'generate_lead', {
+                                'event_category': 'form_submission',
+                                'event_label': 'Concept Hub Inquiry'
+                            });
                         }
                     } else {
                         // Log the detailed error from Google Apps Script
