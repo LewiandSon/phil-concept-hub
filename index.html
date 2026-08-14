@@ -1,427 +1,1539 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phil Concept Hub – Dein Raum für Workshops & Meetings in Wien</title>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FEFCF8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>phil space · Workshops & Seminare im Cafe phil, Wien</title>
+<meta name="description" content="phil space - der Seminar- und Veranstaltungsraum im Souterrain des Cafe phil, Gumpendorfer Straße, 1060 Wien. 66 m², 3,80 m Raumhöhe, bis 60 Personen.">
+<meta property="og:title" content="phil space · Workshops & Seminare im Cafe phil">
+<meta property="og:description" content="Der Seminar- und Veranstaltungsraum im Souterrain des Cafe phil. 66 m², bis 60 Personen, mitten im 6. Bezirk.">
+<meta property="og:type" content="website">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Miete den Phil Concept Hub in Wien: Ein flexibler Raum für kreative Workshops, Seminare und Meetings. Top Ausstattung, zentral gelegen. Jetzt unverbindlich anfragen!">
-    <meta name="keywords" content="Workshopraum Wien, Seminarraum mieten, Meetingraum Wien, Eventlocation, Kreativraum, Phil Concept Hub">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hub.cafephil.at/"> 
-    <meta property="og:title" content="Phil Concept Hub – Dein Raum für Workshops & Meetings in Wien">
-    <meta property="og:description" content="Ein flexibler Raum für kreative Workshops, Seminare und Meetings. Top Ausstattung, zentral gelegen. Jetzt anfragen!">
-    <meta property="og:image" content="https://hub.cafephil.at/images/hero-background.jpg"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://hub.cafephil.at/">
-    <meta property="twitter:title" content="Phil Concept Hub – Dein Raum für Workshops & Meetings in Wien">
-    <meta property="twitter:description" content="Ein flexibler Raum für kreative Workshops, Seminare und Meetings. Top Ausstattung, zentral gelegen. Jetzt anfragen!">
-    <meta property="twitter:image" content="https://hub.cafephil.at/images/hero-background.jpg">
+<style>
+/* phil space v3 - committed dark editorial + motivated liquid glass.
+   Glass only where it floats over content: nav, buttons, hero chip,
+   use-rows, pricing, facts, form. Liquid-glass approx per taste skill
+   Appendix C: layered border + inner highlight ::before/::after +
+   reduced-transparency fallback. Edge tinted toward amber brand light.
+   Ambient light field behind page gives the blur real material. */
 
-    <!-- Schema.org Markup for Local Business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Phil Concept Hub",
-      "image": "https://hub.cafephil.at/images/hero-background.jpg",
-      "@id": "",
-      "url": "https://hub.cafephil.at/",
-      "telephone": "",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Gumpendorfer Straße 10-12",
-        "addressLocality": "Wien",
-        "postalCode": "1060",
-        "addressCountry": "AT"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.196919,
-        "longitude": 16.358870
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "09:00",
-        "closes": "22:00"
-      } 
-    }
-    </script>
+:root{
+  /* phil brand palette: Creme #F9F1DA · Rot #D72333 · Braun #573B30
+     Fixed light theme: creme ground, brown ink, red accent (matches the main site). */
+  --bg:oklch(0.992 0.006 90); --bg-2:oklch(0.955 0.024 89); --bg-3:oklch(0.920 0.030 87);
+  --ink:oklch(0.381 0.044 42.3); --ink-2:oklch(0.460 0.040 44); --ink-3:oklch(0.560 0.034 48);
+  --line:oklch(0.860 0.030 84);
+  --acc:oklch(0.568 0.211 23.7); --acc-deep:oklch(0.499 0.211 23.7); --on-acc:oklch(0.980 0.020 90);
+  --glass-bg:linear-gradient(135deg, oklch(1 0.01 90 / 0.55), oklch(1 0.01 90 / 0.28)), oklch(0.97 0.02 90 / 0.55);
+  --glass-bd:oklch(0.381 0.044 42 / 0.12); --glass-hi:oklch(1 0.01 90 / 0.6); --glass-amber:oklch(0.568 0.211 24 / 0.10);
+  --glass-blur:blur(16px) saturate(130%);
+  --maxw:1240px; --ease:cubic-bezier(0.22,1,0.36,1); --ease-soft:cubic-bezier(0.16,1,0.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:auto;color-scheme:light;} section{scroll-margin-top:96px;}
+body{font-family:'Vollkorn',Georgia,serif;background:var(--bg);color:var(--ink-2);line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;position:relative;}
+.ambient{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;transform:translateZ(0);}
+.ambient::before,.ambient::after{content:'';position:absolute;border-radius:50%;opacity:0.55;}
+.ambient::before{width:55vw;height:55vw;top:-20vw;right:-16vw;background:radial-gradient(circle,oklch(0.568 0.211 24 / 0.085),oklch(0.568 0.211 24 / 0.03) 45%,transparent 72%);}
+.ambient::after{width:50vw;height:50vw;bottom:-22vw;left:-18vw;background:radial-gradient(circle,oklch(0.958 0.031 91 / 0.05),oklch(0.958 0.031 91 / 0.02) 45%,transparent 72%);}
+.ambient::before{opacity:0.5;}.ambient::after{opacity:0.4;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+::selection{background:var(--acc);color:var(--on-acc);}
+h1,h2,h3{color:var(--ink);font-weight:500;text-wrap:balance;}
+.serif{font-family:'Vollkorn',Georgia,serif;}
+p{text-wrap:pretty;} a{color:inherit;text-decoration:none;}
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cf1b5297-7b7b-4bd7-8461-0e5edd953fed" type="text/javascript" async></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XG94BXL61B"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+.glass{position:relative;isolation:isolate;overflow:hidden;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-bd);box-shadow:inset 0 1px 0 var(--glass-hi),inset 0 -1px 0 oklch(0.2 0.01 64 / 0.30),0 18px 50px -20px oklch(0.12 0.02 60 / 0.70);}
+.glass::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;background:radial-gradient(120% 80% at 18% -10%,var(--glass-hi),transparent 42%),linear-gradient(90deg,var(--glass-amber),transparent 38%,oklch(0.95 0.02 78 / 0.06));}
+.glass::after{content:'';position:absolute;inset:1px;z-index:-1;border-radius:inherit;pointer-events:none;border:1px solid oklch(0.95 0.02 78 / 0.08);}
+@media (prefers-reduced-transparency: reduce){.glass{background:var(--bg-2);backdrop-filter:none;-webkit-backdrop-filter:none;}}
 
-      gtag('config', 'G-XG94BXL61B');
-    </script>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sxekfu2smc");
-    </script>
+.nav{position:sticky;top:14px;z-index:40;margin:14px auto 0;max-width:var(--maxw);width:calc(100% - 28px);}
+.nav-inner{border-radius:18px;height:64px;display:flex;align-items:center;padding:0 14px 0 20px;transform:translateZ(0);will-change:transform;}
+.nav .row{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.logo{font-family:'Vollkorn';font-weight:600;font-size:1.25rem;color:var(--ink);letter-spacing:-0.01em;}
+.logo i{font-style:italic;color:var(--acc);}
+.nav-mid{display:flex;gap:30px;}
+.nav-mid a{font-size:0.93rem;letter-spacing:0.01em;color:var(--ink-3);transition:color .25s var(--ease);position:relative;}
+h1,h2,h3{text-wrap:balance;}
+p,.sub,.body,li,.price-note,.plan-cap,.equip-note,.calc-note{text-wrap:pretty;}
+.nav-mid a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--acc);transition:width .3s var(--ease);}
+@media(hover:hover){.nav-mid a:hover{color:var(--ink);}.nav-mid a:hover::after{width:100%;}}
+.nav-end{display:flex;align-items:center;gap:13px;}
+.lang{display:inline-flex;gap:2px;font-size:0.8rem;}
+.lang button{background:none;border:none;cursor:pointer;color:var(--ink-3);font:inherit;font-weight:500;padding:5px 8px;border-radius:8px;transition:.2s;}
+.lang button.on{color:var(--on-acc);background:var(--acc);}
+
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:'Vollkorn';font-weight:600;font-size:0.94rem;padding:12px 22px;border-radius:999px;border:1px solid transparent;transition:transform .18s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease);will-change:transform;}
+.btn-primary{color:var(--on-acc);background:var(--acc);box-shadow:inset 0 1px 0 oklch(1 0 0 / 0.22);}
+.btn-primary .arr{transition:transform .28s var(--ease);}
+@media(hover:hover){.btn-primary:hover{background:var(--acc-deep);box-shadow:inset 0 1px 0 oklch(1 0 0 / 0.25),0 14px 30px -12px oklch(0 0 0 / 0.7);}.btn-primary:hover .arr{transform:translateX(4px);}}
+.btn:active{transform:scale(0.965);}
+.btn::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(105deg,transparent 35%,oklch(1 0 0 / 0.18) 50%,transparent 62%);transform:translateX(-130%);transition:transform .7s var(--ease);}
+@media(hover:hover){.btn:hover::before{transform:translateX(130%);}}
+@media (prefers-reduced-motion: reduce){.btn::before{display:none;}}
+.btn-glass{color:var(--ink);background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-bd);box-shadow:inset 0 1px 0 var(--glass-hi),0 10px 26px -16px oklch(0.12 0.02 60 / 0.7);}
+@media(hover:hover){.btn-glass:hover{border-color:oklch(0.95 0.03 78 / 0.28);}}
+@media (prefers-reduced-transparency: reduce){.btn-glass{background:var(--bg-2);backdrop-filter:none;-webkit-backdrop-filter:none;}}
+.btn-sm{padding:10px 18px;font-size:0.9rem;}
+
+.hero{position:relative;padding:clamp(36px,6vw,72px) 0 clamp(48px,7vw,90px);}
+.hero-grid{display:grid;grid-template-columns:1fr 0.94fr;gap:clamp(32px,4.5vw,64px);align-items:end;}
+.hero .place{font-size:0.9rem;color:var(--ink-3);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.hero .place .pulse{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2.6s var(--ease) infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 oklch(0.82 0.14 72 / 0.5);}70%{box-shadow:0 0 0 9px transparent;}100%{box-shadow:0 0 0 0 transparent;}}
+@media (prefers-reduced-motion: reduce){.hero .place .pulse{animation:none;}}
+.hero h1{font-family:'Vollkorn';font-weight:400;font-size:clamp(2.3rem,3.8vw,3.4rem);line-height:1.0;letter-spacing:-0.022em;color:var(--ink);margin-bottom:22px;max-width:15ch;}
+.hero h1 .it{font-style:italic;color:var(--acc);}
+.hero .lede{font-size:1.02rem;color:var(--ink-2);max-width:34ch;margin-bottom:28px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.hero-figure{position:relative;align-self:stretch;min-height:420px;border-radius:8px;overflow:hidden;}
+.hero-figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-figure .frame{position:absolute;inset:0;border:1px solid oklch(0.95 0.02 78 / 0.12);border-radius:8px;pointer-events:none;}
+.hero-chip{position:absolute;left:14px;bottom:14px;right:14px;border-radius:14px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.hero-chip .t{font-size:0.92rem;color:var(--ink);}
+.hero-chip .t b{font-family:'Vollkorn';font-weight:500;}
+.hero-chip .h{font-family:'Vollkorn';font-style:italic;font-size:1.15rem;color:var(--acc);white-space:nowrap;}
+
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;margin-top:clamp(40px,6vw,68px);}
+.track{display:flex;width:max-content;animation:slide 34s linear infinite;}
+.track span{font-family:'Vollkorn';font-size:1.1rem;color:var(--ink-3);padding:0 28px;white-space:nowrap;}
+.track span b{color:var(--ink);font-weight:500;font-style:italic;}
+.track .sep{color:var(--acc);}
+@keyframes slide{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion: reduce){.track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;}}
+@media(hover:hover){.strip:hover .track{animation-play-state:paused;}}
+
+section{padding:clamp(56px,6.5vw,88px) 0;position:relative;}
+.lead-2{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:start;margin-bottom:clamp(28px,4vw,44px);}
+.lead-2.stack{grid-template-columns:1fr;gap:12px;max-width:60ch;}
+.lead-2 h2{font-family:'Vollkorn';font-weight:400;font-size:clamp(1.7rem,2.4vw,2.15rem);line-height:1.08;letter-spacing:-0.02em;}
+.lead-2 .sub{font-size:1rem;color:var(--ink-2);max-width:52ch;padding-top:0.45em;}
+.lead-2.stack .sub{padding-top:0;}
+.lead-2 .sub strong{color:var(--ink);font-weight:600;}
+
+.uses{display:grid;gap:14px;}
+.use{border-radius:16px;padding:clamp(18px,2.2vw,24px) clamp(20px,2.6vw,28px);display:grid;grid-template-columns:0.42fr 1.45fr 1fr;gap:clamp(16px,2.4vw,32px);align-items:start;transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+.use .tags{justify-content:flex-end;}
+.use .when{padding-top:2px;}
+@media(hover:hover){.use:hover{transform:translateY(-2px);border-color:color-mix(in oklch,var(--acc) 30%,var(--line));}}
+.use .when{font-family:'Vollkorn';font-style:italic;font-size:1.25rem;color:var(--acc);}
+.use h3{font-size:clamp(1.2rem,1.5vw,1.4rem);font-weight:500;letter-spacing:-0.015em;margin-bottom:8px;font-family:'Vollkorn';}
+.use p{font-size:0.95rem;color:var(--ink-2);}
+.use .tags{display:flex;flex-wrap:wrap;gap:7px;}
+.tag{font-size:0.8rem;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:5px 12px;transition:.25s var(--ease);}
+@media(hover:hover){.use:hover .tag{border-color:oklch(0.82 0.14 72 / 0.4);color:var(--ink-2);}}
+
+.space-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;}
+.space .body{max-width:48ch;}
+.space-media{position:relative;border-radius:8px;overflow:hidden;}
+.space-media img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.space-media .frame{position:absolute;inset:0;border:1px solid oklch(0.95 0.02 78 / 0.12);border-radius:8px;}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+.fact{border-radius:14px;padding:20px 22px;}
+.fact .n{font-family:'Vollkorn';font-size:clamp(1.5rem,2.1vw,1.8rem);color:var(--ink);line-height:1;letter-spacing:-0.02em;}
+.fact .n small{font-size:0.95rem;color:var(--ink-3);font-family:'Vollkorn';}
+.fact .l{font-size:0.85rem;color:var(--ink-3);margin-top:7px;}
+.space h2{font-family:'Vollkorn';font-weight:400;font-size:clamp(1.7rem,2.3vw,2.1rem);letter-spacing:-0.02em;line-height:1.08;margin-bottom:16px;}
+.space .body{font-size:1rem;color:var(--ink-2);max-width:50ch;}
+
+.prices{border-radius:18px;overflow:hidden;display:grid;grid-template-columns:repeat(3,1fr);}
+.price{padding:clamp(28px,3vw,38px);border-right:1px solid oklch(0.95 0.02 78 / 0.10);display:flex;flex-direction:column;gap:13px;transition:background .35s var(--ease);}
+.price:last-child{border-right:none;}
+.price.feat{background:oklch(0.82 0.14 72 / 0.07);}
+@media(hover:hover){.price:hover{background:oklch(0.95 0.02 78 / 0.05);}}
+.price .ph{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.price h3{font-size:1.2rem;font-weight:600;font-family:'Vollkorn';}
+.price .badge{font-size:0.72rem;color:var(--on-acc);background:var(--acc);padding:3px 10px;border-radius:999px;font-weight:600;}
+.price .amt{font-family:'Vollkorn';font-size:clamp(2.1rem,3.4vw,2.7rem);color:var(--ink);line-height:1;letter-spacing:-0.02em;}
+.price .amt small{font-size:0.95rem;color:var(--ink-3);font-family:'Vollkorn';}
+.price .dur{font-size:0.88rem;color:var(--ink-3);margin-top:-4px;}
+.price ul{list-style:none;display:grid;gap:9px;margin-top:6px;}
+.price li{font-size:0.94rem;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start;}
+.price li svg{flex:none;margin-top:3px;color:var(--acc);}
+.price .pcta{margin-top:auto;padding-top:6px;}
+.price .pcta a{font-size:0.92rem;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:7px;}
+.price .pcta a .arr{color:var(--acc);transition:transform .25s var(--ease);}
+@media(hover:hover){.price .pcta a:hover .arr{transform:translateX(3px);}}
+.price-note{margin-top:18px;font-size:0.9rem;color:var(--ink-3);max-width:72ch;margin-left:auto;margin-right:auto;}
+.price-note strong{color:var(--ink-2);}
+
+.book-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(36px,5vw,80px);align-items:start;}
+.book h2{font-family:'Vollkorn';font-weight:400;font-size:clamp(1.7rem,2.4vw,2.15rem);letter-spacing:-0.02em;line-height:1.06;margin-bottom:18px;}
+.book .body{font-size:1rem;color:var(--ink-2);max-width:42ch;margin-bottom:22px;}
+.book .direct{font-size:0.96rem;color:var(--ink-3);}
+.book .direct a{color:var(--ink);border-bottom:1px solid var(--acc);padding-bottom:1px;transition:color .2s;}
+@media(hover:hover){.book .direct a:hover{color:var(--acc);}}
+.form{border-radius:18px;padding:clamp(20px,2.6vw,28px);display:grid;gap:12px;}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.f{display:grid;gap:7px;}
+.f label{font-size:0.85rem;color:var(--ink-2);font-weight:500;}
+.f input,.f select,.f textarea{background:oklch(0.18 0.012 64 / 0.5);border:1px solid var(--glass-bd);border-radius:10px;padding:12px 14px;color:var(--ink);font:inherit;font-size:0.97rem;transition:border-color .2s var(--ease),background .2s var(--ease);}
+.f input,.f select,.f textarea{background:oklch(1 0 0 / 0.5);}
+.f input::placeholder,.f textarea::placeholder{color:var(--ink-3);}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--acc);}
+.f select option{background:var(--bg-2);color:var(--ink);}
+.submit{justify-self:start;margin-top:4px;}
+
+footer{border-top:1px solid var(--line);padding:62px 0 44px;position:relative;}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:46px;}
+footer .logo{display:inline-block;margin-bottom:16px;}
+footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
+.fcol h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-3);margin-bottom:16px;font-weight:600;}
+.fcol a,.fcol p{display:block;font-size:0.95rem;color:var(--ink-2);margin-bottom:10px;}
+@media(hover:hover){.fcol a:hover{color:var(--acc);}}
+.foot-base{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line);font-size:0.84rem;color:var(--ink-3);}
+
+
+/* clean (non-glass) surfaces for content blocks - edel, minimal */
+.use{ background:var(--bg-2); border:1px solid var(--line); }
+.fact{ background:var(--bg-2); border:1px solid var(--line); }
+.prices{ background:var(--bg-2); border:1px solid var(--line); }
+.form{ background:var(--bg-2); border:1px solid var(--line); }
+
+
+/* ===== VIDEO ===== */
+.video-wrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);aspect-ratio:16/9;max-width:920px;margin:0 auto;}
+.video-wrap video,.video-wrap iframe,.video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block;}
+.video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--ink-3);background:linear-gradient(160deg,var(--bg-3),var(--bg-2));}
+.video-play{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:var(--on-acc);box-shadow:0 10px 30px -12px oklch(0 0 0 / 0.6);transition:transform .25s var(--ease);}
+@media(hover:hover){.video-wrap:hover .video-play{transform:scale(1.06);}}
+.video-ph .vt{font-size:0.92rem;letter-spacing:0.02em;}
+
+/* ===== GALLERY ===== */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.shot{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);aspect-ratio:3/2;}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);}
+@media(hover:hover){.shot:hover img{transform:scale(1.04);}}
+.shot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-size:0.85rem;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));}
+@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:460px){.gallery{grid-template-columns:1fr;}}
+
+
+/* ===== PRICING PACKAGES (S/M/L) ===== */
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pkg{position:relative;border-radius:14px;border:1px solid var(--line);background:var(--bg-2);padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--ease),border-color .35s var(--ease);}
+@media(hover:hover){.pkg:hover{transform:translateY(-3px);border-color:color-mix(in oklch,var(--acc) 40%,var(--line));}}
+.pkg.feat{border-color:color-mix(in oklch,var(--acc) 45%,var(--line));background:color-mix(in oklch,var(--acc) 6%,var(--bg-2));}
+.pkg .pk-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.pkg h3{font-size:1.25rem;font-weight:600;font-family:'Vollkorn';}
+.pkg .cap{font-size:0.85rem;color:var(--ink-3);}
+.pkg .badge{font-size:0.72rem;color:var(--on-acc);background:var(--acc);padding:3px 10px;border-radius:999px;font-weight:600;}
+.pkg .rows{display:grid;gap:8px;margin:4px 0 2px;}
+.pkg .prow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);}
+.pkg .prow:last-child{border-bottom:none;}
+.pkg .prow .lbl{font-size:0.9rem;color:var(--ink-2);}
+.pkg .prow .val{font-family:'Vollkorn';font-size:1.25rem;color:var(--ink);letter-spacing:-0.01em;}
+.pkg ul{list-style:none;display:grid;gap:8px;margin-top:6px;}
+.pkg li{font-size:0.9rem;color:var(--ink-2);display:flex;gap:9px;align-items:flex-start;}
+.pkg li svg{flex:none;margin-top:3px;color:var(--acc);}
+.pkg .pcta{margin-top:auto;padding-top:8px;}
+.pkg .pcta a{font-size:0.9rem;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:7px;}
+.pkg .pcta a .arr{color:var(--acc);transition:transform .25s var(--ease);}
+@media(hover:hover){.pkg .pcta a:hover .arr{transform:translateX(3px);}}
+@media(max-width:760px){.pkgs{grid-template-columns:1fr;}}
+
+/* ===== CALCULATOR ===== */
+.calc{border:1px solid var(--line);background:var(--bg-2);border-radius:16px;padding:clamp(20px,2.6vw,26px);display:grid;gap:14px;}
+.calc .ctitle{font-family:'Vollkorn';font-size:1.4rem;color:var(--ink);}
+.seg{display:grid;grid-auto-flow:column;gap:6px;background:var(--bg-3);border:1px solid var(--line);border-radius:12px;padding:4px;}
+@media(max-width:520px){.seg{grid-auto-flow:row;}}
+.seg button{background:none;border:none;cursor:pointer;font:inherit;font-size:0.9rem;color:var(--ink-2);padding:10px 12px;border-radius:9px;transition:background .2s var(--ease),color .2s var(--ease);text-align:center;}
+.seg button.on{background:var(--acc);color:var(--on-acc);font-weight:600;}
+.calc .lbl-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.calc label.cl{font-size:0.9rem;color:var(--ink-2);font-weight:500;}
+.ppl{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg-3);}
+.ppl button{width:42px;height:42px;border:none;background:none;color:var(--ink);font-size:1.2rem;cursor:pointer;transition:background .2s;}
+@media(hover:hover){.ppl button:hover{background:var(--bg-2);}}
+.ppl input{width:64px;text-align:center;background:none;border:none;color:var(--ink);font:inherit;font-size:1.05rem;-moz-appearance:textfield;}
+.ppl input::-webkit-outer-spin-button,.ppl input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.addons{display:grid;gap:10px;}
+.addon{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:var(--bg-3);cursor:pointer;transition:border-color .2s var(--ease);}
+@media(hover:hover){.addon:hover{border-color:color-mix(in oklch,var(--acc) 35%,var(--line));}}
+.addon .ainfo{display:flex;flex-direction:column;gap:2px;}
+.addon .an{font-size:0.94rem;color:var(--ink);font-weight:500;}
+.addon .ap{font-size:0.82rem;color:var(--ink-3);}
+.sw{position:relative;width:44px;height:26px;border-radius:999px;background:var(--line);flex:none;transition:background .25s var(--ease);}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--ink);transition:transform .25s var(--ease);}
+.addon.on .sw{background:var(--acc);}
+.addon.on .sw::after{transform:translateX(18px);background:var(--on-acc);}
+.calc .total{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:16px;margin-top:2px;}
+.calc .total .tlabel{font-size:0.9rem;color:var(--ink-3);}
+.calc .total .tnum{font-family:'Vollkorn';font-size:clamp(1.7rem,2.2vw,1.95rem);color:var(--ink);line-height:1;letter-spacing:-0.02em;}
+.calc .total .tnum small{font-size:0.95rem;color:var(--ink-3);font-family:'Vollkorn';display:block;text-align:right;margin-top:4px;}
+.calc .breakdown{font-size:0.84rem;color:var(--ink-3);line-height:1.7;}
+.calc .breakdown b{color:var(--ink-2);font-weight:500;}
+.calc .calc-note{font-size:0.8rem;color:var(--ink-3);}
+
+/* ===== CUSTOM CALENDAR ===== */
+.datewrap{position:relative;}
+.dateinput{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;background:oklch(0.18 0.012 64 / 0.5);border:1px solid var(--glass-bd);border-radius:10px;padding:12px 14px;color:var(--ink);font-size:0.97rem;transition:border-color .2s var(--ease);}
+.dateinput{background:oklch(1 0 0 / 0.5);}
+.dateinput.empty{color:var(--ink-3);}
+@media(hover:hover){.dateinput:hover{border-color:color-mix(in oklch,var(--acc) 35%,var(--glass-bd));}}
+.dateinput svg{color:var(--ink-3);flex:none;}
+.cal{position:absolute;z-index:30;top:calc(100% + 8px);left:0;right:0;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 24px 50px -22px oklch(0 0 0 / 0.7);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;}
+.cal.open{opacity:1;visibility:visible;transform:none;}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-title{font-family:'Vollkorn';font-size:1.05rem;color:var(--ink);}
+.cal-nav{display:flex;gap:4px;}
+.cal-nav button{width:34px;height:34px;border:1px solid var(--line);background:var(--bg-3);border-radius:9px;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s;}
+@media(hover:hover){.cal-nav button:hover{border-color:var(--acc);}}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-dow{font-size:0.72rem;color:var(--ink-3);text-align:center;padding:4px 0;font-weight:500;}
+.cal-day{aspect-ratio:1;border:none;background:none;color:var(--ink-2);font:inherit;font-size:0.9rem;border-radius:9px;cursor:pointer;transition:background .15s var(--ease),color .15s var(--ease);}
+.cal-day:disabled{color:var(--ink-3);opacity:0.35;cursor:default;}
+@media(hover:hover){.cal-day:not(:disabled):hover{background:var(--bg-3);}}
+.cal-day.today{box-shadow:inset 0 0 0 1px var(--acc);}
+.cal-day.sel{background:var(--acc);color:var(--on-acc);font-weight:600;}
+.cal-foot{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);}
+.cal-foot button{background:none;border:none;color:var(--acc);font:inherit;font-size:0.85rem;cursor:pointer;font-weight:500;}
+
+
+/* ===== SUBMIT CONFIRMATION ===== */
+.sent{display:none;border:1px solid color-mix(in oklch,var(--acc) 45%,var(--line));background:color-mix(in oklch,var(--acc) 7%,var(--bg-2));border-radius:14px;padding:20px 22px;margin-top:4px;}
+.sent.show{display:block;animation:sentIn .4s var(--ease);}
+@keyframes sentIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.sent .sh{display:flex;align-items:center;gap:10px;font-family:'Vollkorn';font-size:1.15rem;color:var(--ink);margin-bottom:10px;}
+.sent .sh svg{color:var(--acc);flex:none;}
+.sent .ssum{font-size:0.9rem;color:var(--ink-2);line-height:1.7;}
+.sent .ssum b{color:var(--ink);font-weight:500;}
+.sent .smail{margin-top:12px;font-size:0.86rem;color:var(--ink-3);}
+.sent .smail a{color:var(--acc);border-bottom:1px solid var(--acc);}
+.f input.err,.dateinput.err{border-color:oklch(0.62 0.17 25)!important;}
+.ferr{display:none;font-size:0.8rem;color:oklch(0.70 0.17 25);margin-top:-2px;}
+.ferr.show{display:block;}
+
+
+/* ===== PRICE EXPLAINER CARDS ===== */
+.pricecards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border:1px solid var(--line);background:var(--bg-2);border-radius:14px;padding:clamp(22px,3vw,28px);display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease),border-color .35s var(--ease);}
+@media(hover:hover){.pcard:hover{transform:translateY(-3px);border-color:color-mix(in oklch,var(--acc) 35%,var(--line));}}
+.pcard.feat{border-color:color-mix(in oklch,var(--acc) 45%,var(--line));background:color-mix(in oklch,var(--acc) 6%,var(--bg-2));}
+.pc-ico{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:var(--bg-3);color:var(--acc);border:1px solid var(--line);}
+.pcard h3{font-size:1.15rem;font-weight:600;font-family:'Vollkorn';}
+.pcard p{font-size:0.94rem;color:var(--ink-2);}
+@media(max-width:760px){.pricecards{grid-template-columns:1fr;}}
+
+/* ===== BOOKING: connected 2-step card ===== */
+.booking{max-width:780px;margin:0 auto;border:1px solid var(--line);background:var(--bg-2);border-radius:20px;overflow:hidden;}
+.bk-step{padding:clamp(20px,2.6vw,28px);}
+.bk-step + .bk-step{border-top:1px solid var(--line);}
+.bk-shead{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+.bk-num{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;font-family:'Vollkorn';font-size:1rem;background:var(--acc);color:var(--on-acc);font-weight:600;}
+.bk-step.locked .bk-num{background:var(--bg-3);color:var(--ink-3);border:1px solid var(--line);}
+.bk-shead h3{font-family:'Vollkorn';font-weight:400;font-size:clamp(1.3rem,1.9vw,1.55rem);color:var(--ink);letter-spacing:-0.01em;}
+.bk-shead .bk-sub{font-size:0.86rem;color:var(--ink-3);margin-top:2px;}
+.bk-connect{height:22px;width:1px;background:var(--line);margin:0 auto;}
+/* step 2 collapsed until step 1 confirmed (optional soft gate) */
+.bk-step.locked .bk-body{opacity:0.45;pointer-events:none;filter:saturate(0.6);}
+.bk-recap{display:none;align-items:center;gap:10px;font-size:0.9rem;color:var(--ink-2);background:var(--bg-3);border:1px solid var(--line);border-radius:11px;padding:12px 15px;margin-bottom:18px;}
+.bk-recap.show{display:flex;}
+.bk-recap b{color:var(--ink);font-weight:600;}
+.bk-recap .chip{margin-left:auto;font-family:'Vollkorn';font-size:1.1rem;color:var(--acc);}
+.bk-next{margin-top:20px;}
+
+
+/* ===== AB-PRICE CARDS ===== */
+.abcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.abcard{border:1px solid var(--line);background:var(--bg-2);border-radius:16px;padding:clamp(26px,3vw,34px);display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--ease),border-color .35s var(--ease);}
+@media(hover:hover){.abcard:hover{transform:translateY(-4px);border-color:color-mix(in oklch,var(--acc) 40%,var(--line));}}
+.abcard.feat{border-color:color-mix(in oklch,var(--acc) 45%,var(--line));background:color-mix(in oklch,var(--acc) 6%,var(--bg-2));}
+.abcard .ab-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.abcard .ab-k{font-size:1.15rem;font-weight:600;font-family:'Vollkorn';color:var(--ink);}
+.abcard .badge{font-size:0.72rem;color:var(--on-acc);background:var(--acc);padding:3px 10px;border-radius:999px;font-weight:600;}
+.abcard .ab-amt{font-family:'Vollkorn';font-size:clamp(1.9rem,2.5vw,2.15rem);color:var(--ink);line-height:1;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:8px;}
+.abcard .ab-pre{font-family:'Vollkorn';font-size:0.95rem;color:var(--ink-3);font-weight:400;}
+.abcard .ab-d{font-size:0.88rem;color:var(--ink-3);margin-top:-4px;}
+.abcard ul{list-style:none;display:grid;gap:9px;margin-top:6px;}
+.abcard li{font-size:0.92rem;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start;}
+.abcard li svg{flex:none;margin-top:3px;color:var(--acc);}
+.abcard .pcta{margin-top:auto;padding-top:8px;}
+.abcard .pcta a{font-size:0.9rem;color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:7px;}
+.abcard .pcta a .arr{color:var(--acc);transition:transform .25s var(--ease);}
+@media(hover:hover){.abcard .pcta a:hover .arr{transform:translateX(3px);}}
+@media(max-width:760px){.abcards{grid-template-columns:1fr;}}
+
+
+/* ===== LOCATION ===== */
+.loc-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;}
+@media(max-width:860px){.loc-grid{grid-template-columns:1fr;gap:22px;}}
+.loc-map{border:1px solid var(--line);background:var(--bg-2);border-radius:16px;padding:10px;overflow:hidden;}
+.loc-map svg{width:100%;height:auto;display:block;border-radius:10px;}
+.loc-map iframe{width:100%;height:420px;display:block;border:0;border-radius:10px;}
+@media(max-width:860px){.loc-map iframe{height:320px;}}
+.loc-list{display:grid;gap:12px;}
+.loc-item{display:flex;align-items:center;gap:14px;border:1px solid var(--line);background:var(--bg-2);border-radius:12px;padding:14px 16px;}
+.loc-item .lm{width:46px;height:46px;flex:none;border-radius:10px;display:grid;place-items:center;background:var(--bg-3);color:var(--acc);font-family:'Vollkorn';font-weight:600;font-size:0.95rem;border:1px solid var(--line);line-height:1;text-align:center;}
+.loc-item .lm small{display:block;font-family:'Vollkorn';font-size:0.62rem;color:var(--ink-3);font-weight:400;margin-top:1px;}
+.loc-item .li-txt{display:flex;flex-direction:column;gap:1px;}
+.loc-item .li-n{font-size:0.96rem;color:var(--ink);font-weight:500;}
+.loc-item .li-d{font-size:0.84rem;color:var(--ink-3);}
+.loc-addr{margin-top:6px;font-size:0.92rem;color:var(--ink-2);}
+.loc-addr a{color:var(--acc);border-bottom:1px solid var(--acc);}
+
+
+/* ===== FLOOR PLAN ===== */
+.plan-wrap{border:1px solid var(--line);background:var(--bg-2);border-radius:16px;padding:clamp(14px,2vw,22px);}
+.plan-wrap svg{max-width:760px;margin:0 auto;}
+.plan-wrap svg{width:100%;height:auto;display:block;}
+.plan-legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+.plan-legend .pl{display:flex;align-items:center;gap:9px;font-size:0.86rem;color:var(--ink-2);}
+.plan-legend .sw2{width:16px;height:16px;border-radius:4px;flex:none;border:1px solid var(--line);}
+.plan-cap{font-size:0.8rem;color:var(--ink-3);margin-top:10px;text-align:center;}
+
+
+/* ===== AUSSTATTUNG ===== */
+.equip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.eq{border:1px solid var(--line);background:var(--bg-2);border-radius:12px;padding:18px 16px;display:flex;flex-direction:column;gap:8px;}
+.eq svg{color:var(--acc);}
+.eq .en{font-size:0.95rem;color:var(--ink);font-weight:500;}
+.eq .ed{font-size:0.83rem;color:var(--ink-3);}
+@media(max-width:900px){.equip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:460px){.equip{grid-template-columns:1fr;}}
+.equip-note{font-size:0.84rem;color:var(--ink-3);margin-top:14px;text-align:center;}
+
+/* ===== BESTUHLUNG / KAPAZITÄT ===== */
+.seatings{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.seat{border:1px solid var(--line);background:var(--bg-2);border-radius:12px;padding:10px 10px;display:flex;flex-direction:column;gap:5px;align-items:center;text-align:center;}
+.seat svg{width:100%;max-width:86px;height:auto;}
+.seat .sn{font-family:'Vollkorn';font-size:1.35rem;color:var(--ink);line-height:1;}
+.seat .sn small{font-size:0.8rem;color:var(--ink-3);font-family:'Vollkorn';}
+.seat .sl{font-size:0.9rem;color:var(--ink-2);font-weight:500;}
+@media(max-width:900px){.seatings{grid-template-columns:repeat(2,1fr);}}
+
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:32px;}.hero-figure{min-height:340px;order:-1;}.hero .lede{max-width:46ch;}
+  .lead-2{grid-template-columns:1fr;gap:18px;}
+  .use{grid-template-columns:auto 1fr;row-gap:14px;}.use .tags{grid-column:1 / -1;}
+  .space-grid{grid-template-columns:1fr;gap:32px;}.space-media{order:-1;}
+  .prices{grid-template-columns:1fr;}.price{border-right:none;border-bottom:1px solid oklch(0.95 0.02 78 / 0.1);}.price:last-child{border-bottom:none;}
+  .book-grid{grid-template-columns:1fr;gap:36px;}.foot{grid-template-columns:1fr 1fr;}
+}
+
+/* chapter bands: subtle tonal shifts between sections */
+#grundriss, #lage{background:color-mix(in oklch, var(--bg-2) 45%, var(--bg));}
+#grundriss{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+#lage{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+
+/* ===== TESTIMONIALS ===== */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:820px){.quotes{grid-template-columns:1fr;}}
+.q{border:1px solid var(--line);background:var(--bg-2);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;}
+.q .qt{font-size:1.02rem;line-height:1.55;color:var(--ink);}
+.q .qm{font-size:0.88rem;color:var(--ink-3);}
+.q.placeholder{align-items:center;justify-content:center;text-align:center;border-style:dashed;color:var(--ink-3);min-height:150px;}
+.q.placeholder .qt{color:var(--ink-3);font-style:italic;}
+
+/* ===== FAQ ===== */
+.faq{display:grid;gap:10px;max-width:820px;}
+.faq details{border:1px solid var(--line);background:var(--bg-2);border-radius:12px;overflow:hidden;}
+.faq summary{cursor:pointer;padding:16px 20px;font-size:1rem;color:var(--ink);font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';font-size:1.3rem;color:var(--acc);transition:transform .25s var(--ease);line-height:1;}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .fa{padding:0 20px 18px;color:var(--ink-2);font-size:0.96rem;line-height:1.6;}
+.faq .todo{color:var(--acc);font-style:italic;}
+
+
+/* ===== LEGAL ===== */
+.legal-links{display:flex;gap:16px;}
+.legal-links a{color:var(--ink-3);border-bottom:1px solid transparent;}
+.legal-links a:hover{color:var(--acc);border-bottom-color:var(--acc);}
+.legal{margin-top:20px;display:grid;gap:8px;}
+.legal details{border-top:1px solid var(--line);}
+.legal summary{cursor:pointer;padding:14px 0;font-size:0.9rem;color:var(--ink-2);font-weight:500;list-style:none;}
+.legal summary::-webkit-details-marker{display:none;}
+.legal .legal-body{padding:0 0 16px;font-size:0.86rem;color:var(--ink-3);line-height:1.6;display:grid;gap:10px;max-width:70ch;}
+.legal .legal-body strong{color:var(--ink-2);}
+.todo{color:var(--acc);font-style:italic;}
+
+
+/* ===== ANLÄSSE ===== */
+.occasions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:820px){.occasions{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.occasions{grid-template-columns:1fr;}}
+.occ{border:1px solid var(--line);background:var(--bg-2);border-radius:14px;padding:20px 20px;display:flex;flex-direction:column;gap:7px;}
+.occ h4{font-family:'Vollkorn';font-size:1.1rem;color:var(--ink);font-weight:600;line-height:1.2;}
+.occ p{font-size:0.9rem;color:var(--ink-3);line-height:1.5;}
+
+/* ===== LOGO STRIP ===== */
+.logos-note{text-align:center;color:var(--ink-3);font-size:0.9rem;margin-bottom:22px;}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:820px;margin:0 auto;}
+.logo-ph{width:150px;height:64px;border:1px dashed var(--line);border-radius:10px;display:grid;place-items:center;color:var(--ink-3);font-size:0.8rem;background:var(--bg-2);text-align:center;padding:6px;}
+
+/* ===== CATERING PAKETE ===== */
+.cater{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:820px){.cater{grid-template-columns:1fr;}}
+.cpack{border:1px solid var(--line);background:var(--bg-2);border-radius:14px;padding:22px 22px;display:flex;flex-direction:column;gap:12px;}
+.cpack .cph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.cpack h4{font-family:'Vollkorn';font-size:1.15rem;color:var(--ink);font-weight:600;}
+.cpack .cpp{font-family:'Vollkorn';font-size:1.15rem;color:var(--acc);white-space:nowrap;}
+.cpack ul{list-style:none;display:grid;gap:7px;}
+.cpack li{font-size:0.9rem;color:var(--ink-2);padding-left:18px;position:relative;line-height:1.4;}
+.cpack li::before{content:'·';position:absolute;left:6px;color:var(--acc);}
+.cpack .cpn{font-size:0.82rem;color:var(--ink-3);margin-top:2px;}
+
+.hero-view{margin-top:14px;font-size:0.9rem;color:var(--ink-3);}
+.hero-view a{color:var(--acc);border-bottom:1px solid var(--acc);}
+.direct a{color:var(--acc);border-bottom:1px solid transparent;}
+.direct a:hover{border-bottom-color:var(--acc);}
+.ph-fill{position:absolute;inset:0;display:grid;place-items:center;background:var(--bg-3);color:var(--ink-3);font-size:0.92rem;text-align:center;padding:20px;}
+.ph-fill.ph-block{position:relative;inset:auto;aspect-ratio:1/1;width:100%;}
+.burger{display:none;background:none;border:none;color:var(--ink);cursor:pointer;}
+@media (max-width:840px){
+  .nav-mid{display:none;}.burger{display:inline-flex;}
+  .nav-mid.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;border-radius:16px;padding:6px 18px 14px;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 18px 40px -20px oklch(0 0 0 / 0.6);}
+  .nav-mid.open a{padding:13px 0;border-bottom:1px solid var(--line);}
+}
+@media (max-width:620px){
+  .facts{grid-template-columns:1fr 1fr;}.r2{grid-template-columns:1fr;}.foot{grid-template-columns:1fr;gap:30px;}
+  .use{grid-template-columns:1fr;}.use .when{font-size:1.25rem;}
+  .hero-chip{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+</style>
 </head>
 <body>
+<div class="ambient"></div>
 
-    <header class="main-header">
-        <div class="container header-container">
-            <a href="#" class="logo"><img src="images/logo_primary.png" alt="phil concept hub Logo" height="40"></a>
-            <div class="nav-wrapper">
-                <nav class="main-nav" id="main-nav">
-                    <a href="#usp" class="nav-link">Das Konzept</a>
-                    <a href="#gallery" class="nav-link">Räume</a>
-                    <a href="#preise" class="nav-link">Preise</a>
-                </nav>
-                <div class="header-cta-group">
-                     <a href="#anfrage" class="cta-nav">Jetzt anfragen</a>
-                </div>
-            </div>
-            <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false">
-                <span class="sr-only">Menü öffnen</span>
-                <span class="hamburger-icon"></span>
-            </button>
+<div class="nav" id="nav">
+  <div class="nav-inner glass">
+    <div class="row">
+      <a href="#top" class="logo">phil <i>space</i></a>
+      <nav class="nav-mid" id="navMid">
+        <a href="#nutzung" data-de="Nutzung" data-en="Uses">Nutzung</a>
+        <a href="#anlaesse" data-de="Anlässe" data-en="Occasions">Anlässe</a>
+        <a href="#raum" data-de="Der Raum" data-en="The room">Der Raum</a>
+        <a href="#grundriss" data-de="Grundriss" data-en="Floor plan">Grundriss</a>
+        <a href="#galerie" data-de="Galerie" data-en="Gallery">Galerie</a>
+        <a href="#lage" data-de="Lage" data-en="Location">Lage</a>
+        <a href="#preise" data-de="Preise" data-en="Pricing">Preise</a>
+        <a href="#faq" data-de="FAQ" data-en="FAQ">FAQ</a>
+        <a href="#anfrage" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      </nav>
+      <div class="nav-end">
+        <div class="lang" role="group" aria-label="Sprache">
+          <button id="lDe" class="on" onclick="setLang('de')">DE</button>
+          <button id="lEn" onclick="setLang('en')">EN</button>
         </div>
-    </header>
-
-<main>
-
-<!-- 1. Hero -->
-<section class="hero-section-split">
-    <div class="hero-text-container">
-        <h1>Raum für Ideen. Mitten in Wien.</h1>
-        <p class="subtitle">Miete deinen Workshop-Space in 1060 Wien, nur wenige Gehminuten zum ersten Bezirk, perfekt erreichbar – für Kreative und Corporates, mit Büchern, Espresso & Wiener Charme statt steriler Hotelräume.</p>
-        <a href="#anfrage" class="cta-button">Unverbindlich anfragen</a>
+        <a href="#anfrage" class="btn btn-primary btn-sm" data-de="Anfragen" data-en="Enquire">Anfragen<span class="arr">→</span></a>
+        <button class="burger" id="burger" aria-label="Menü"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h16M4 16h16"/></svg></button>
+      </div>
     </div>
-    <div class="hero-image-container">
-        <img src="images/hero-background.jpg" alt="Heller und moderner Workshop-Raum, eingerichtet für ein Meeting" width="1280" height="720" srcset="images/hero-background.jpg 600w, images/hero-background.jpg 1280w" sizes="(max-width: 600px) 100vw, 1280px">
+  </div>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="place"><span class="pulse"></span><span data-de="Gumpendorfer Straße 10–12 · 1060 Wien" data-en="Gumpendorfer Straße 10–12 · Vienna 1060">Gumpendorfer Straße 10–12 · 1060 Wien</span></div>
+      <h1 data-de='Der schönste <span class="it">Meetingraum</span> Wiens liegt unter einem Kaffeehaus.' data-en='Vienna’s finest <span class="it">meeting room</span> sits beneath a coffeehouse.'>Der schönste <span class="it">Meetingraum</span> Wiens liegt unter einem Kaffeehaus.</h1>
+      <p class="lede" data-de="phil space ist das ausgebaute Souterrain des Cafe phil. 66 m² Seminarraum unter 3,80 m hohen Decken, Tageslicht, bis zu 60 Personen. Espresso und Buchhandlung gibt es eine Stiege höher." data-en="phil space is the finished lower floor of Cafe phil. A 66 m² seminar room under 3.8 m ceilings, daylight, up to 60 people. Espresso and a bookshop are one flight up.">phil space ist das ausgebaute Souterrain des Cafe phil. 66 m² Seminarraum unter 3,80 m hohen Decken, Tageslicht, bis zu 60 Personen. Espresso und Buchhandlung gibt es eine Stiege höher.</p>
+      <div class="hero-cta">
+        <a href="#anfrage" class="btn btn-primary" data-de="Termin anfragen" data-en="Request a date">Termin anfragen<span class="arr">→</span></a>
+        <a href="#raum" class="btn btn-glass" data-de="Raum ansehen" data-en="See the room">Raum ansehen</a>
+      </div>
+      <p class="hero-view" data-de='Neugierig? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Besichtigung%20phil%20space&amp;body=Hallo%2C%20ich%20w%C3%BCrde%20phil%20space%20gern%20besichtigen.%20Passt%20euch%20einer%20dieser%20Termine%3A%0A-%20%0A-%20%0A%0ADanke%21">Besichtigung vereinbaren</a> und den Raum in Ruhe ansehen.' data-en='Curious? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Viewing%20phil%20space&amp;body=Hi%2C%20I%27d%20like%20to%20view%20phil%20space.%20Would%20one%20of%20these%20work%3A%0A-%20%0A-%20%0A%0AThanks%21">Book a viewing</a> and see the room at ease.'>Neugierig? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Besichtigung%20phil%20space&amp;body=Hallo%2C%20ich%20w%C3%BCrde%20phil%20space%20gern%20besichtigen.%20Passt%20euch%20einer%20dieser%20Termine%3A%0A-%20%0A-%20%0A%0ADanke%21">Besichtigung vereinbaren</a> und den Raum in Ruhe ansehen.</p>
     </div>
+    <figure class="hero-figure rv">
+      <!-- TODO: real photo of the finished phil space seminar room, daylight (portrait) -->
+      <div class="ph-fill" data-de="Foto folgt · Seminarraum" data-en="Photo coming · seminar room">Foto folgt · Seminarraum</div>
+      <span class="frame"></span>
+      <div class="hero-chip glass">
+        <span class="t"><b data-de="Der Seminarraum" data-en="The seminar room">Der Seminarraum</b>, <span data-de="Souterrain" data-en="lower floor">Souterrain</span></span>
+        <span class="h">66 m²</span>
+      </div>
+    </figure>
+  </div>
+  <div class="wrap"><div class="strip"><div class="track" id="track" aria-hidden="true"></div></div></div>
 </section>
 
-
-<!-- 3. USP -->
-<section id="usp" class="usp-section fade-in-section">
-    <div class="container">
-        <h2 class="section-title">Ein Ort für Fokus und Kreativität.</h2>
-        <div class="usp-grid">
-                <div class="usp-item">
-                    <i class="fas fa-cubes usp-icon"></i>
-                    <h3>Flexible Setups</h3>
-                    <p>Ob Workshop, Seminar oder Meeting – wir passen den Raum deinen Bedürfnissen an.</p>
-                </div>
-                <div class="usp-item">
-                    <i class="fas fa-bolt usp-icon"></i>
-                    <h3>Moderne Technik</h3>
-                    <p>Beamer, Soundanlage, Whiteboards und Moderationskoffer sind für dich startklar.</p>
-                </div>
-                <div class="usp-item">
-                    <i class="fas fa-map-marker-alt usp-icon"></i>
-                    <h3>Kreatives Viertel</h3>
-                    <p>Mitten im 6. Bezirk, umgeben von Cafés und Inspiration – perfekt erreichbar.</p>
-                </div>
-                <div class="usp-item">
-                    <i class="fas fa-magic usp-icon"></i>
-                    <h3>Einzigartige Atmosphäre</h3>
-                    <p>Historisches Souterrain-Gewölbe mit Tageslicht trifft auf gemütliches, cooles Design. Keine sterile 08/15-Location.</p>
-                </div>
-            </div>
+<section id="nutzung">
+  <div class="wrap">
+    <div class="lead-2 rv">
+      <h2 data-de="Gebucht wird der Tag, nicht der Tisch." data-en="You book the day, not the table.">Gebucht wird der Tag, nicht der Tisch.</h2>
+      <p class="sub" data-de="Ein Preis, eine Ansprechperson. <strong>Raum, Hauskaffee, Getränke, Obstkorb und Snacks sind inklusive</strong>, Technik steht bereit, Catering organisieren wir auf Wunsch dazu." data-en="One price, one contact. <strong>Room, house coffee, drinks, a fruit basket and snacks are included</strong>, tech is ready, catering arranged on request.">Ein Preis, eine Ansprechperson. <strong>Raum, Hauskaffee, Getränke, Obstkorb und Snacks sind inklusive</strong>, Technik steht bereit, Catering organisieren wir auf Wunsch dazu.</p>
+    </div>
+    <div class="uses">
+      <div class="use rv">
+        <div class="when" data-de="tagsüber" data-en="daytime">tagsüber</div>
+        <div>
+          <h3 data-de="Seminare & Firmenworkshops" data-en="Seminars & company workshops">Seminare & Firmenworkshops</h3>
+          <p data-de="Tageslicht über zwei Lichtschächte, abseits des Gastraums. Bestuhlung frei wählbar, vom Stuhlkreis bis zur Workshop-Insel." data-en="Daylight through two shafts, set apart from the café floor. Seating your way, from a circle to workshop clusters.">Tageslicht über zwei Lichtschächte, abseits des Gastraums. Bestuhlung frei wählbar, vom Stuhlkreis bis zur Workshop-Insel.</p>
         </div>
-    </section>
+        <div class="tags">
+          <span class="tag">Beamer</span><span class="tag">WLAN</span>
+          <span class="tag" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span>
+          <span class="tag" data-de="Pausenkaffee" data-en="Break coffee">Pausenkaffee</span>
+          <span class="tag" data-de="Obstkorb & Snacks" data-en="Fruit & snacks">Obstkorb & Snacks</span>
+        </div>
+      </div>
+      <div class="use rv">
+        <div class="when" data-de="abends" data-en="evenings">abends</div>
+        <div>
+          <h3 data-de="Firmen- & Kulturabende" data-en="Company & cultural evenings">Firmen- & Kulturabende</h3>
+          <p data-de="Firmenevents, Buchpräsentationen, Lesungen und Empfänge. Bei Lampenlicht wird der Raum warm und ruhig, auch für kleinere private Anlässe wie einen runden Geburtstag." data-en="Company events, book launches, readings and receptions. By lamplight the room turns warm and calm, and works for smaller private occasions such as a milestone birthday.">Firmenevents, Buchpräsentationen, Lesungen und Empfänge. Bei Lampenlicht wird der Raum warm und ruhig, auch für kleinere private Anlässe wie einen runden Geburtstag.</p>
+        </div>
+        <div class="tags">
+          <span class="tag" data-de="Empfang" data-en="Reception">Empfang</span>
+          <span class="tag" data-de="Sound & Mikro" data-en="Sound & mic">Sound & Mikro</span>
+          <span class="tag" data-de="Stimmungslicht" data-en="Mood lighting">Stimmungslicht</span>
+        </div>
+      </div>
+      <div class="use rv">
+        <div class="when" data-de="dazwischen" data-en="in between">dazwischen</div>
+        <div>
+          <h3 data-de="Lesungen, Vernissagen & Pop-ups" data-en="Readings, openings & pop-ups">Lesungen, Vernissagen & Pop-ups</h3>
+          <p data-de="Eine Buchhandlung über der Stiege, ein Raum für Ausstellungen darunter. Gemacht für Vernissagen, Lesungen und kleine Konzerte." data-en="A bookshop above the stairs, a room for shows below. Made for openings, readings and small concerts.">Eine Buchhandlung über der Stiege, ein Raum für Ausstellungen darunter. Gemacht für Vernissagen, Lesungen und kleine Konzerte.</p>
+        </div>
+        <div class="tags">
+          <span class="tag" data-de="Ausstellung" data-en="Exhibition">Ausstellung</span>
+          <span class="tag" data-de="Bühne" data-en="Stage">Bühne</span>
+          <span class="tag">Pop-up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- 3. Galerie -->
-        <section id="gallery" class="gallery-section">
-            <div class="container">
-                <h2>Ein Raum, der Teams stärker macht</h2>
-                <p class="section-intro">Unser flexibles Raumkonzept schafft die perfekte Atmosphäre für Zusammenarbeit und Zusammenhalt: Ein großzügiger <strong>80m² Hauptraum</strong> für Präsentationen und Gruppenarbeiten sowie ein separater <strong>40m² Breakout-Room</strong> für intensive Sessions oder als Ruhezone.</p>
-                <div class="gallery-grid">
-                    <figure>
-                        <img src="images/gallery_1.jpg" alt="Heller Workshopraum mit Gewölbedecke" loading="lazy">
-                    </figure>
-                    <figure>
-                        <img src="images/gallery_2.jpg" alt="Kreativ-Ecke mit gemütlichen Sesseln" loading="lazy">
-                    </figure>
-                    <figure>
-                        <img src="images/gallery_3.jpg" alt="Team bei einem Brainstorming am Whiteboard" loading="lazy">
-                    </figure>
-                    <figure>
-                        <img src="images/gallery_4.jpg" alt="Vortrags-Setup im phil concept hub mit vielen Stühlen" loading="lazy">
-                    </figure>
-                </div>
-            </div>
-        </section>
+<!-- ===== ANLÄSSE ===== -->
+<section id="anlaesse">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Wofür phil space gebucht wird" data-en="What phil space gets booked for">Wofür phil space gebucht wird</h2>
+      <p class="sub" data-de="Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren." data-en="One room, many formats. A few occasions that work especially well here.">Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren.</p>
+    </div>
+    <div class="occasions rv">
+      <div class="occ">
+        <h4 data-de="Team-Offsite" data-en="Team offsite">Team-Offsite</h4>
+        <p data-de="Raus aus dem Büro, rein ins Kaffeehaus. Ein ganzer Tag ungestört, mit Pausen bei Espresso eine Stiege höher." data-en="Out of the office, into the coffeehouse. A full undisturbed day, with breaks over espresso one flight up.">Raus aus dem Büro, rein ins Kaffeehaus. Ein ganzer Tag ungestört, mit Pausen bei Espresso eine Stiege höher.</p>
+      </div>
+      <div class="occ">
+        <h4 data-de="Strategie-Klausur" data-en="Strategy session">Strategie-Klausur</h4>
+        <p data-de="Exklusiv und vertraulich, abseits des Gastraums. Der ruhige Rahmen für Entscheidungen, die Konzentration brauchen." data-en="Exclusive and confidential, away from the café floor. The quiet setting for decisions that need focus.">Exklusiv und vertraulich, abseits des Gastraums. Der ruhige Rahmen für Entscheidungen, die Konzentration brauchen.</p>
+      </div>
+      <div class="occ">
+        <h4 data-de="Workshop & Training" data-en="Workshop & training">Workshop & Training</h4>
+        <p data-de="Flexible Bestuhlung, Beamer, Moderationskoffer und Tageslicht. Von der Workshop-Insel bis zur Schulung in Reihen." data-en="Flexible seating, projector, facilitation kit and daylight. From workshop clusters to classroom rows.">Flexible Bestuhlung, Beamer, Moderationskoffer und Tageslicht. Von der Workshop-Insel bis zur Schulung in Reihen.</p>
+      </div>
+      <div class="occ">
+        <h4 data-de="Produkt-Launch & Präsentation" data-en="Product launch & presentation">Produkt-Launch & Präsentation</h4>
+        <p data-de="Leinwand, Sound und ein Raum mit Charakter. Für Keynotes, Pressetermine und Vorstellungen mit Wow-Effekt." data-en="Screen, sound and a room with character. For keynotes, press dates and launches with a wow.">Leinwand, Sound und ein Raum mit Charakter. Für Keynotes, Pressetermine und Vorstellungen mit Wow-Effekt.</p>
+      </div>
+      <div class="occ">
+        <h4 data-de="Buchpräsentation & Lesung" data-en="Book launch & reading">Buchpräsentation & Lesung</h4>
+        <p data-de="Eine Buchhandlung über der Stiege, ein Raum darunter. Die naheliegendste Bühne Wiens für Literatur und Gespräch." data-en="A bookshop above the stairs, a room below. Vienna’s most natural stage for literature and conversation.">Eine Buchhandlung über der Stiege, ein Raum darunter. Die naheliegendste Bühne Wiens für Literatur und Gespräch.</p>
+      </div>
+      <div class="occ">
+        <h4 data-de="Firmenempfang & Networking" data-en="Company reception & networking">Firmenempfang & Networking</h4>
+        <p data-de="Am Abend wird der Raum warm und einladend. Stehempfang für bis zu 60 Gäste, mit Getränken und Fingerfood dazu." data-en="In the evening the room turns warm and inviting. Standing reception for up to 60 guests, with drinks and finger food.">Am Abend wird der Raum warm und einladend. Stehempfang für bis zu 60 Gäste, mit Getränken und Fingerfood dazu.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- 6. Preise -->
-        <section id="preise" class="pricing-section">
-            <div class="container">
-                <h2>Preise & Pakete</h2>
-                <p class="section-intro">
-                    Ob für ein intensives Halbtages-Meeting oder ein ganztägiges Kreativ-Seminar – wir haben das passende Format für dich. Alle Preise sind Richtwerte und verstehen sich exkl. USt.
-                </p>
-                <div class="pricing-grid">
-                    <div class="pricing-box">
-                        <h3>Halbtag</h3>
-                        <p class="price">ab 390 €</p>
-                        <p class="price-details">(4 Stunden)</p>
-                        <ul>
-                            <li>✓ Raummiete & Setup</li>
-                            <li>✓ Technik (Beamer, Sound)</li>
-                            <li>✓ Moderationskoffer</li>
-                            <li>✓ Inkl. Aufbau & Abbau</li>
-                            <li>✓ Inkl. Reinigung</li>
-                        </ul>
-                        <a href="#anfrage" class="cta-button" data-package="Halbtag">Halbtag anfragen</a>
-                    </div>
-                    <div class="pricing-box pricing-box-featured">
-                        <h3>Ganztag</h3>
-                        <p class="price">ab 690 €</p>
-                        <p class="price-details">(8 Stunden)</p>
-                        <ul>
-                            <li>✓ Raummiete & Setup</li>
-                            <li>✓ Inkl. Breakout-Room</li>
-                            <li>✓ Technik (Beamer, Sound)</li>
-                            <li>✓ Moderationskoffer</li>
-                            <li>✓ Inkl. Aufbau & Abbau</li>
-                            <li>✓ Inkl. Reinigung</li>
-                        </ul>
-                        <a href="#anfrage" class="cta-button" data-package="Ganztag">Ganztag anfragen</a>
-                    </div>
-                    <div class="pricing-box">
-                        <h3>Abend-Event</h3>
-                        <p class="price">auf Anfrage</p>
-                        <p class="price-details">(ab 18:00 Uhr)</p>
-                        <ul>
-                            <li>✓ Flexible Event-Bestuhlung</li>
-                            <li>✓ Event-Technik (Beamer, Mikro, Sound)</li>
-                            <li>✓ Nutzung der Bar-Area</li>
-                            <li>✓ Stimmungsvolle Beleuchtung</li>
-                            <li>✓ Inkl. Endreinigung</li>
-                        </ul>
-                        <a href="#anfrage" class="cta-button" data-package="Abend-Event">Event anfragen</a>
-                    </div>
-                </div>
-                <div class="pricing-options">
-                    <p><strong>Zusätzliche Optionen:</strong> Gekühlte Softdrinks, Barista-Kaffee Upgrade, Snacks und Kuchen aus der hauseigenen Bäckerei, vollwertiges Catering.</p>
-                </div>
-            </div>
-        </section>
+<!-- ===== KUNDENLOGOS ===== -->
+<section id="kunden">
+  <div class="wrap">
+    <p class="logos-note rv" data-de="phil space öffnet im Herbst. Die ersten Firmen sind schon dabei, ihre Logos erscheinen hier bald." data-en="phil space opens this autumn. The first companies are already on board, their logos will appear here soon.">phil space öffnet im Herbst. Die ersten Firmen sind schon dabei, ihre Logos erscheinen hier bald.</p>
+    <div class="logos rv">
+      <div class="logo-ph" data-de="Euer Logo" data-en="Your logo">Euer Logo</div>
+      <div class="logo-ph" data-de="Euer Logo" data-en="Your logo">Euer Logo</div>
+      <div class="logo-ph" data-de="Euer Logo" data-en="Your logo">Euer Logo</div>
+      <div class="logo-ph" data-de="Euer Logo" data-en="Your logo">Euer Logo</div>
+      <div class="logo-ph" data-de="Euer Logo" data-en="Your logo">Euer Logo</div>
+    </div>
+  </div>
+</section>
 
-        <!-- NEUE SEKTION -->
-        <section class="connection-section">
-            <div class="container">
-                <div class="connection-grid">
-                    <div class="connection-text">
-                        <h2>In bester Gesellschaft.</h2>
-                        <p>Der phil concept hub befindet sich in direkter Anbindung an das bekannte Café phil. Profitiere von der einzigartigen Atmosphäre, dem exzellenten Barista-Kaffee und dem kreativen Spirit, der das Viertel seit Jahren prägt.</p>
-                    </div>
-                    <div class="connection-image">
-                        <img src="images/phil-entrance.jpeg" alt="Eingangsbereich des Café Phil mit charakteristischen Einrichtungsgegenständen" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="raum" class="space">
+  <div class="wrap space-grid">
+    <figure class="space-media rv">
+      <!-- TODO: real photo toward the light shafts / steel staircase (portrait) -->
+      <div class="ph-fill ph-block" data-de="Foto folgt · Lichtschächte & Stiege" data-en="Photo coming · light shafts & stairs">Foto folgt · Lichtschächte & Stiege</div>
+      <span class="frame"></span>
+    </figure>
+    <div>
+      <h2 class="rv" data-de="Ein Souterrain mit Raumhöhe statt Kellergefühl." data-en="A lower floor with real height, not a cellar feel.">Ein Souterrain mit Raumhöhe statt Kellergefühl.</h2>
+      <p class="body rv" data-de="115 m² Souterrain, davon 66 m² Seminarraum. 3,80 m hohe Decken, natürlich belichtet und belüftet über zwei Lichtschächte, mit eigener Garderobe, WC und Teeküche. Erreicht über eine neue Stahlwangentreppe, direkt aus dem Kaffeehaus. Während eurer Buchung exklusiv: Das Souterrain gehört euch allein, ruhig und ungestört." data-en="115 m² of Souterrain, 66 m² of it the seminar room. 3.8 m ceilings, naturally lit and ventilated through two light shafts, with its own cloakroom, WC and tea kitchen. Reached by a new steel staircase straight from the coffeehouse. Exclusively yours during your booking, quiet and undisturbed.">115 m² Souterrain, davon 66 m² Seminarraum. 3,80 m hohe Decken, natürlich belichtet und belüftet über zwei Lichtschächte, mit eigener Garderobe, WC und Teeküche. Erreicht über eine neue Stahlwangentreppe, direkt aus dem Kaffeehaus. Während eurer Buchung exklusiv: Das Souterrain gehört euch allein, ruhig und ungestört.</p>
+      <div class="facts rv">
+        <div class="fact"><div class="n">66 <small>m²</small></div><div class="l" data-de="Seminarraum" data-en="Seminar room">Seminarraum</div></div>
+        <div class="fact"><div class="n">3,80 <small>m</small></div><div class="l" data-de="Raumhöhe" data-en="Ceiling height">Raumhöhe</div></div>
+        <div class="fact"><div class="n">60</div><div class="l" data-de="Personen, maximal" data-en="People, maximum">Personen, maximal</div></div>
+        <div class="fact"><div class="n">49 <small>m²</small></div><div class="l" data-de="Nebenraum: Garderobe, WC, Teeküche" data-en="Annexe: cloakroom, WC, tea kitchen">Nebenraum: Garderobe, WC, Teeküche</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOOR PLAN ===== -->
+<section id="grundriss" class="space">
+  <div class="wrap">
+    <div class="lead-2 rv">
+      <h2 data-de="Der Grundriss" data-en="The floor plan">Der Grundriss</h2>
+      <p class="sub" data-de="Der Hauptraum mit 66 m² ist das Herzstück: Leinwand an der Stirnseite, fixe Sitzbänke längs, frei bestuhlbar. Daneben Entree mit Treppe, zwei WCs und die Küche im runden Erker, die als Breakout-Area mitgenutzt wird." data-en="The 66 m² main room is the heart: screen at the end wall, fixed benches along the sides, freely seated. Alongside, the entrance with stairs, two WCs and the kitchen in the rounded bay, doubling as a breakout area.">Der Hauptraum mit 66 m² ist das Herzstück: Leinwand an der Stirnseite, fixe Sitzbänke längs, frei bestuhlbar. Daneben Entree mit Treppe, zwei WCs und die Küche im runden Erker, die als Breakout-Area mitgenutzt wird.</p>
+    </div>
+    <div class="plan-wrap rv">
+            <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grundriss phil space Eventbereich">
+        <defs>
+          <pattern id="stairs" width="200" height="7" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="200" y2="0" stroke="var(--ink-3)" stroke-width="0.7"/>
+          </pattern>
+          <pattern id="bar" width="6" height="14" patternUnits="userSpaceOnUse">
+            <line x1="3" y1="0" x2="3" y2="14" stroke="var(--ink-3)" stroke-width="0.9"/>
+          </pattern>
+        </defs>
+
+        <!-- ================= HAUPTRAUM (66,26 m²) ================= -->
+        <rect x="40" y="120" width="520" height="210" rx="2"
+              fill="color-mix(in oklch, var(--acc) 8%, var(--bg-2))" stroke="var(--acc)" stroke-width="2"/>
+
+        <!-- internal dividing wall with central opening (between the two halves) -->
+        <line x1="300" y1="120" x2="300" y2="200" stroke="var(--acc)" stroke-width="1.3" opacity="0.5"/>
+        <line x1="300" y1="250" x2="300" y2="330" stroke="var(--acc)" stroke-width="1.3" opacity="0.5"/>
+
+        <!-- Leinwand on the left short wall -->
+        <rect x="46" y="175" width="7" height="100" rx="2" fill="var(--acc)"/>
+        <text x="66" y="225" fill="var(--ink-3)" font-family="Vollkorn, serif" font-size="11"
+              transform="rotate(-90 66 225)" text-anchor="middle">Leinwand</text>
+
+        <!-- three windows on the long (bottom) facade -->
+        <g fill="var(--bg)" stroke="var(--acc)" stroke-width="1.6">
+          <rect x="165" y="327" width="64" height="6"/>
+          <rect x="370" y="327" width="64" height="6"/>
+        </g>
+
+        <!-- label -->
+        <text x="300" y="218" text-anchor="middle" fill="var(--ink)" font-family="Vollkorn, serif" font-size="25" font-weight="600">Hauptraum</text>
+        <text x="300" y="245" text-anchor="middle" fill="var(--ink-2)" font-family="Vollkorn, serif" font-size="14">66,26 m² · bis 60 Personen · 3,80 m</text>
+
+        <!-- ============ SERVICE + KÜCHE: eine offene Grundfläche (nach Plan vermessen) ============ -->
+        <!-- Außenwand: WCs oben (mit Fase), Stub, Küchen-Oberwand, Apsis (r aus Kreis-Fit), Diagonale zur Unterkante -->
+        <path d="M560 120 H740 L770 150 V165 H916 A72 84 0 0 1 988 249 A109 81 0 0 1 879 330 H560 Z"
+              fill="var(--bg-2)" stroke="var(--ink-2)" stroke-width="1.8"/>
+
+        <!-- WC-Zeile: Trennlinie unten + Kabinen-Teiler -->
+        <line x1="560" y1="200" x2="770" y2="200" stroke="var(--line)" stroke-width="1.2"/>
+        <line x1="668" y1="120" x2="668" y2="200" stroke="var(--line)" stroke-width="1"/>
+        <text x="606" y="158" text-anchor="middle" fill="var(--ink-2)" font-family="Vollkorn, serif" font-size="11.5" font-weight="600">WC D</text>
+        <text x="606" y="173" text-anchor="middle" fill="var(--ink-3)" font-family="Vollkorn, serif" font-size="9">2,14 m²</text>
+        <text x="716" y="158" text-anchor="middle" fill="var(--ink-2)" font-family="Vollkorn, serif" font-size="11.5" font-weight="600">WC H</text>
+        <text x="716" y="173" text-anchor="middle" fill="var(--ink-3)" font-family="Vollkorn, serif" font-size="9">2,10 m²</text>
+        <circle cx="662" cy="136" r="4" fill="none" stroke="var(--ink-3)" stroke-width="0.8"/>
+        <circle cx="676" cy="136" r="4" fill="none" stroke="var(--ink-3)" stroke-width="0.8"/>
+
+        <!-- Entree: gerade Treppe links + Schank unten -->
+        <rect x="568" y="208" width="50" height="114" fill="url(#stairs)" stroke="var(--ink-3)" stroke-width="1"/>
+        <path d="M593 208 v114" stroke="var(--ink-3)" stroke-width="1"/>
+        <text x="690" y="252" text-anchor="middle" fill="var(--ink)" font-family="Vollkorn, serif" font-size="15" font-weight="600">Entree</text>
+        <text x="690" y="269" text-anchor="middle" fill="var(--ink-2)" font-family="Vollkorn, serif" font-size="11">23,08 m²</text>
+        <rect x="636" y="306" width="118" height="18" fill="url(#bar)" stroke="var(--line)" stroke-width="0.6"/>
+
+        <!-- Tür Hauptraum -> Entree -->
+        <rect x="556" y="232" width="8" height="34" fill="var(--bg)"/>
+
+        <!-- Zonengrenze Entree | Küche: offen, nur gestrichelt (wie im Plan) -->
+        <line x1="782" y1="206" x2="782" y2="324" stroke="var(--ink-3)" stroke-width="1.3" stroke-dasharray="5 6" opacity="0.95"/>
+
+        <!-- Küchenzeile entlang der Oberwand -->
+        <rect x="792" y="171" width="104" height="15" fill="var(--bg-3)" stroke="var(--line)" stroke-width="0.8"/>
+        <line x1="826" y1="171" x2="826" y2="186" stroke="var(--line)" stroke-width="0.7"/>
+        <line x1="860" y1="171" x2="860" y2="186" stroke="var(--line)" stroke-width="0.7"/>
 
 
-        <!-- 7. Kontakt / Anfrage -->
-        <div id="anfrage-modal" class="modal-wrapper">
-            <div class="modal-content">
-                <button class="close-modal-btn">&times;</button>
-                <section id="anfrage" class="form-section">
-                    <div class="container">
-                        <h2 style="text-align: center;">Unverbindlich anfragen</h2>
-                        <p class="section-intro" style="margin-bottom: 3rem;">
-                            Sichere dir deinen Wunschtermin. Wir bestätigen die Verfügbarkeit in Kürze und melden uns werktags binnen 24 Stunden bei dir.
-                        </p>
-                        <form class="contact-form" id="contact-form">
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="name-input">Vor- & Nachname*</label>
-                                    <input type="text" id="name-input" name="name" required>
-                                </div>
-                                <div class="form-field">
-                                    <label for="firma-input">Firma / Team</label>
-                                    <input type="text" id="firma-input" name="firma">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="email-input">E-Mail*</label>
-                                    <input type="email" id="email-input" name="email" required>
-                                </div>
-                                <div class="form-field">
-                                    <label for="paket-select">Gewünschtes Paket*</label>
-                                    <select name="paket" id="paket-select" required>
-                                        <option value="" disabled selected>Bitte auswählen</option>
-                                        <option value="Halbtag">Halbtag</option>
-                                        <option value="Ganztag">Ganztag</option>
-                                        <option value="Abend-Event">Abend-Event</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="personenanzahl-input">Personenanzahl (Schätzwert)</label>
-                                    <input type="text" name="personenanzahl" id="personenanzahl-input">
-                                </div>
-                                 <div class="form-field">
-                                    <label for="wunschtermin-input">Gewünschtes Datum*</label>
-                                    <input type="date" name="wunschtermin" id="wunschtermin-input" required>
-                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field full-width">
-                                    <label for="event-type-select">Art der Veranstaltung*</label>
-                                    <select name="eventtype" id="event-type-select" required>
-                                        <option value="" disabled selected>Bitte auswählen</option>
-                                        <option value="Workshop">Workshop</option>
-                                        <option value="Seminar">Seminar</option>
-                                        <option value="Meeting">Meeting</option>
-                                        <option value="Anderes">Anderes</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row" id="other-event-wrapper" style="display: none;">
-                                <div class="form-field full-width">
-                                     <label for="other-event-type-input">Bitte spezifizieren</label>
-                                    <input type="text" name="othereventtype" id="other-event-type-input">
-                                </div>
-                            </div>
-                             <div class="form-row">
-                                <div class="form-field full-width">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="catering" value="Ja">
-                                        <span>Catering erwünscht?</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field full-width">
-                                    <label for="nachricht-input">Erzähl uns mehr über dein Vorhaben...</label>
-                                    <textarea id="nachricht-input" name="nachricht"></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" class="cta-button">Unverbindlich anfragen</button>
-                        </form>
-                        <div id="success-message" style="display: none; text-align: center;">
-                            <h3>Vielen Dank für deine Anfrage!</h3>
-                            <p>Wir melden uns werktags binnen 24 Stunden bei dir.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
+        <!-- Breakout-Möblierung (wie im Plan angedeutet) -->
+        <circle cx="812" cy="288" r="13" fill="none" stroke="var(--ink-3)" stroke-width="1"/>
+        <g transform="rotate(-16 892 305)">
+          <rect x="862" y="293" width="60" height="24" rx="5" fill="none" stroke="var(--ink-3)" stroke-width="1"/>
+          <line x1="862" y1="299" x2="922" y2="299" stroke="var(--ink-3)" stroke-width="0.8"/>
+        </g>
+
+        <!-- Küche Label -->
+        <text x="884" y="230" text-anchor="middle" fill="var(--ink)" font-family="Vollkorn, serif" font-size="14.5" font-weight="600">Küche / Breakout</text>
+        <text x="884" y="246" text-anchor="middle" fill="var(--ink-2)" font-family="Vollkorn, serif" font-size="10.5">19,33 m² · offen zum Entree</text>
+        <text x="884" y="261" text-anchor="middle" fill="var(--ink-3)" font-family="Vollkorn, serif" font-size="9">Kaffee · Getränke · Catering</text>
+
+        <!-- Schnittmarken A / B -->
+        <g fill="var(--ink-3)" font-family="Vollkorn, serif" font-size="12">
+          <text x="22" y="195">B</text>
+          <text x="22" y="270">A</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- ===== BESTUHLUNG & KAPAZITÄT ===== -->
+    <div class="seatings rv">
+      <div class="seat">
+        <svg viewBox="0 0 150 90">
+          <rect x="8" y="14" width="5" height="62" rx="1.5" fill="var(--acc)"/>
+          <g fill="var(--ink-3)">
+            <g transform="translate(34,16)"><rect width="9" height="9" rx="2"/><rect y="16" width="9" height="9" rx="2"/><rect y="32" width="9" height="9" rx="2"/><rect y="48" width="9" height="9" rx="2"/></g>
+            <g transform="translate(56,16)"><rect width="9" height="9" rx="2"/><rect y="16" width="9" height="9" rx="2"/><rect y="32" width="9" height="9" rx="2"/><rect y="48" width="9" height="9" rx="2"/></g>
+            <g transform="translate(78,16)"><rect width="9" height="9" rx="2"/><rect y="16" width="9" height="9" rx="2"/><rect y="32" width="9" height="9" rx="2"/><rect y="48" width="9" height="9" rx="2"/></g>
+            <g transform="translate(100,16)"><rect width="9" height="9" rx="2"/><rect y="16" width="9" height="9" rx="2"/><rect y="32" width="9" height="9" rx="2"/><rect y="48" width="9" height="9" rx="2"/></g>
+            <g transform="translate(122,16)"><rect width="9" height="9" rx="2"/><rect y="16" width="9" height="9" rx="2"/><rect y="32" width="9" height="9" rx="2"/><rect y="48" width="9" height="9" rx="2"/></g>
+          </g>
+        </svg>
+        <div class="sn">60 <small data-de="Pers." data-en="ppl">Pers.</small></div>
+        <div class="sl" data-de="Theater / Reihen" data-en="Theatre / rows">Theater / Reihen</div>
+      </div>
+      <div class="seat">
+        <svg viewBox="0 0 150 90">
+          <g stroke="var(--ink-3)" stroke-width="1.4" fill="none">
+            <rect x="22" y="16" width="20" height="20" rx="2"/>
+            <rect x="66" y="16" width="20" height="20" rx="2"/>
+            <rect x="110" y="16" width="20" height="20" rx="2"/>
+            <rect x="22" y="54" width="20" height="20" rx="2"/>
+            <rect x="66" y="54" width="20" height="20" rx="2"/>
+            <rect x="110" y="54" width="20" height="20" rx="2"/>
+          </g>
+          <g fill="var(--ink-3)">
+            <circle cx="32" cy="10" r="3"/><circle cx="32" cy="42" r="3"/>
+            <circle cx="76" cy="10" r="3"/><circle cx="76" cy="42" r="3"/>
+            <circle cx="120" cy="10" r="3"/><circle cx="120" cy="42" r="3"/>
+            <circle cx="32" cy="48" r="3"/><circle cx="32" cy="80" r="3"/>
+            <circle cx="76" cy="48" r="3"/><circle cx="76" cy="80" r="3"/>
+            <circle cx="120" cy="48" r="3"/><circle cx="120" cy="80" r="3"/>
+          </g>
+        </svg>
+        <div class="sn">bis 32 <small data-de="Pers." data-en="ppl">Pers.</small></div>
+        <div class="sl" data-de="Workshop-Tische" data-en="Workshop tables">Workshop-Tische</div>
+      </div>
+      <div class="seat">
+        <svg viewBox="0 0 150 90">
+          <g fill="var(--ink-3)">
+            <rect x="30" y="14" width="11" height="8" rx="2"/><rect x="48" y="14" width="11" height="8" rx="2"/><rect x="66" y="14" width="11" height="8" rx="2"/><rect x="84" y="14" width="11" height="8" rx="2"/><rect x="102" y="14" width="11" height="8" rx="2"/>
+            <rect x="30" y="68" width="11" height="8" rx="2"/><rect x="48" y="68" width="11" height="8" rx="2"/><rect x="66" y="68" width="11" height="8" rx="2"/><rect x="84" y="68" width="11" height="8" rx="2"/><rect x="102" y="68" width="11" height="8" rx="2"/>
+            <rect x="120" y="30" width="8" height="11" rx="2"/><rect x="120" y="49" width="8" height="11" rx="2"/>
+          </g>
+          <path d="M34 30 H112 V60 H34" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>
+          <rect x="8" y="30" width="5" height="30" rx="1.5" fill="var(--acc)"/>
+        </svg>
+        <div class="sn">bis 24 <small data-de="Pers." data-en="ppl">Pers.</small></div>
+        <div class="sl" data-de="U-Form" data-en="U-shape">U-Form</div>
+      </div>
+      <div class="seat">
+        <svg viewBox="0 0 150 90">
+          <g stroke="var(--ink-3)" stroke-width="1.4" fill="none">
+            <circle cx="38" cy="30" r="10"/>
+            <circle cx="90" cy="22" r="10"/>
+            <circle cx="120" cy="58" r="10"/>
+            <circle cx="58" cy="66" r="10"/>
+          </g>
+          <g fill="var(--ink-3)">
+            <circle cx="24" cy="24" r="3"/><circle cx="50" cy="20" r="3"/><circle cx="30" cy="44" r="3"/>
+            <circle cx="78" cy="12" r="3"/><circle cx="103" cy="16" r="3"/>
+            <circle cx="108" cy="46" r="3"/><circle cx="133" cy="52" r="3"/><circle cx="126" cy="72" r="3"/>
+            <circle cx="45" cy="58" r="3"/><circle cx="66" cy="79" r="3"/>
+          </g>
+        </svg>
+        <div class="sn">60 <small data-de="Pers." data-en="ppl">Pers.</small></div>
+        <div class="sl" data-de="Stehempfang" data-en="Standing reception">Stehempfang</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUSSTATTUNG ===== -->
+<section id="ausstattung">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Alles da, was ein Workshop braucht" data-en="Everything a workshop needs">Alles da, was ein Workshop braucht</h2>
+      <p class="sub" data-de="Komplett ausgestattet und im Preis enthalten. Anstecken, loslegen, keine Technik-Überraschungen am Morgen." data-en="Fully equipped and included in the price. Plug in, start, no tech surprises in the morning.">Komplett ausgestattet und im Preis enthalten. Anstecken, loslegen, keine Technik-Überraschungen am Morgen.</p>
+    </div>
+    <div class="equip rv">
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg>
+        <span class="en" data-de="Beamer & Leinwand" data-en="Projector & screen">Beamer & Leinwand</span>
+        <span class="ed" data-de="Anschluss über HDMI & USB-C" data-en="Connect via HDMI & USB-C">Anschluss über HDMI & USB-C</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+        <span class="en" data-de="Schnelles WLAN" data-en="Fast Wi-Fi">Schnelles WLAN</span>
+        <span class="ed" data-de="Stabil für hybride Calls über euren Laptop" data-en="Stable for hybrid calls via your laptop">Stabil für hybride Calls über euren Laptop</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
+        <span class="en" data-de="Sound & Mikrofon" data-en="Sound & microphone">Sound & Mikrofon</span>
+        <span class="ed" data-de="Musik, Stimme und Präsentationston" data-en="Music, voice and presentation audio">Musik, Stimme und Präsentationston</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="13" rx="1.5"/><path d="M12 16v5M8 21h8"/></svg>
+        <span class="en" data-de="Flipchart & Whiteboard" data-en="Flipchart & whiteboard">Flipchart & Whiteboard</span>
+        <span class="ed" data-de="Inklusive Papier und Stiften" data-en="Paper and pens included">Inklusive Papier und Stiften</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span class="en" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span>
+        <span class="ed" data-de="Karten, Marker, Klebepunkte, Pins" data-en="Cards, markers, dots, pins">Karten, Marker, Klebepunkte, Pins</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="en" data-de="Szenenbeleuchtung" data-en="Scene lighting">Szenenbeleuchtung</span>
+        <span class="ed" data-de="Dimmbar, von Workshop bis Abendlicht" data-en="Dimmable, from workshop to evening mood">Dimmbar, von Workshop bis Abendlicht</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg>
+        <span class="en" data-de="Teeküche" data-en="Tea kitchen">Teeküche</span>
+        <span class="ed" data-de="Kühlschränke, Ofen, Geschirrspüler" data-en="Fridges, oven, dishwasher">Kühlschränke, Ofen, Geschirrspüler</span>
+      </div>
+      <div class="eq">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+        <span class="en" data-de="Eigene Lüftung" data-en="Own ventilation">Eigene Lüftung</span>
+        <span class="ed" data-de="Frische Luft, auch bei vollem Raum" data-en="Fresh air, even with a full room">Frische Luft, auch bei vollem Raum</span>
+      </div>
+    </div>
+    <p class="equip-note rv" data-de="Exklusiv und ungestört: Während eurer Buchung gehört das Souterrain nur euch, vom Kaffeehaus hört man nichts. Kein fixes Videokonferenz-Setup vor Ort, hybride Calls laufen über euren Laptop, Beamer und WLAN." data-en="Exclusive and undisturbed: during your booking the Souterrain is yours alone, and you won’t hear the coffeehouse. No fixed video-conference rig on site, hybrid calls run via your laptop, projector and Wi-Fi.">Exklusiv und ungestört: Während eurer Buchung gehört das Souterrain nur euch, vom Kaffeehaus hört man nichts. Kein fixes Videokonferenz-Setup vor Ort, hybride Calls laufen über euren Laptop, Beamer und WLAN.</p>
+  </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section id="video" class="space">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Ein Rundgang in Bewegung" data-en="A walkthrough in motion">Ein Rundgang in Bewegung</h2>
+      <p class="sub" data-de="Wie der Raum wirkt, wenn das Licht durch die Schächte fällt und sich der Tisch füllt. Am besten als kurzes Video." data-en="How the room feels when light pours through the shafts and the table fills up. Best seen as a short clip.">Wie der Raum wirkt, wenn das Licht durch die Schächte fällt und sich der Tisch füllt. Am besten als kurzes Video.</p>
+    </div>
+    <div class="video-wrap rv">
+      <!-- TODO: Video einsetzen. Zwei Möglichkeiten:
+           (A) Eigene Datei:  <video controls poster="poster.jpg"><source src="philspace.mp4" type="video/mp4"></video>
+           (B) YouTube/Vimeo:  <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+           Dann den .video-ph Platzhalter unten löschen. -->
+      <div class="video-ph">
+        <div class="video-play">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <span class="vt" data-de="Video folgt · Platzhalter" data-en="Video coming · placeholder">Video folgt · Platzhalter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="galerie">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Der Raum in Bildern" data-en="The room in pictures">Der Raum in Bildern</h2>
+      <p class="sub" data-de="Tageslicht, Stiege, Bestuhlung, Breakout. Ein Eindruck von oben bis unten." data-en="Daylight, staircase, seating, breakout. An impression from top to bottom.">Tageslicht, Stiege, Bestuhlung, Breakout. Ein Eindruck von oben bis unten.</p>
+    </div>
+    <div class="gallery rv">
+      <!-- TODO: Jeweils <img src="..."> einsetzen und das .ph-Div darin löschen. 6 Plätze. -->
+      <figure class="shot"><div class="ph" data-de="Foto 1 · Seminarraum" data-en="Photo 1 · seminar room">Foto 1 · Seminarraum</div></figure>
+      <figure class="shot"><div class="ph" data-de="Foto 2 · Lichtschacht" data-en="Photo 2 · light shaft">Foto 2 · Lichtschacht</div></figure>
+      <figure class="shot"><div class="ph" data-de="Foto 3 · Stahlstiege" data-en="Photo 3 · steel stairs">Foto 3 · Stahlstiege</div></figure>
+      <figure class="shot"><div class="ph" data-de="Foto 4 · Bestuhlung" data-en="Photo 4 · seating">Foto 4 · Bestuhlung</div></figure>
+      <figure class="shot"><div class="ph" data-de="Foto 5 · Breakout" data-en="Photo 5 · breakout">Foto 5 · Breakout</div></figure>
+      <figure class="shot"><div class="ph" data-de="Foto 6 · Kaffeehaus" data-en="Photo 6 · coffeehouse">Foto 6 · Kaffeehaus</div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section id="lage">
+  <div class="wrap">
+    <div class="lead-2 rv">
+      <h2 data-de="Mitten im 6. Bezirk" data-en="Right in the 6th district">Mitten im 6. Bezirk</h2>
+      <p class="sub" data-de="phil space liegt am unteren Ende der Mariahilfer Straße, wenige Schritte vom Naschmarkt und vom MuseumsQuartier. Drei U-Bahn-Linien sind fußläufig, eure Gäste kommen aus ganz Wien unkompliziert an." data-en="phil space sits at the lower end of Mariahilfer Straße, a few steps from Naschmarkt and the MuseumsQuartier. Three subway lines are within walking distance, so your guests reach you easily from anywhere in Vienna.">phil space liegt am unteren Ende der Mariahilfer Straße, wenige Schritte vom Naschmarkt und vom MuseumsQuartier. Drei U-Bahn-Linien sind fußläufig, eure Gäste kommen aus ganz Wien unkompliziert an.</p>
+    </div>
+    <div class="loc-grid rv">
+      <div class="loc-map">
+        <iframe
+          title="phil space · Gumpendorfer Straße 10–12, 1060 Wien"
+          src="https://maps.google.com/maps?q=Cafe%20phil%2C%20Gumpendorfer%20Stra%C3%9Fe%2010-12%2C%201060%20Wien&t=m&z=15&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div>
+        <div class="loc-list">
+          <div class="loc-item">
+            <div class="lm">4<small data-de="Min" data-en="min">Min</small></div>
+            <div class="li-txt"><span class="li-n">Naschmarkt</span><span class="li-d" data-de="Wiens größter Markt, Lokale & Stände" data-en="Vienna’s largest market, food & stalls">Wiens größter Markt, Lokale & Stände</span></div>
+          </div>
+          <div class="loc-item">
+            <div class="lm">5<small data-de="Min" data-en="min">Min</small></div>
+            <div class="li-txt"><span class="li-n">U2 MuseumsQuartier</span><span class="li-d" data-de="MQ, Museen & Kulturareal" data-en="MQ, museums & culture quarter">MQ, Museen & Kulturareal</span></div>
+          </div>
+          <div class="loc-item">
+            <div class="lm">7<small data-de="Min" data-en="min">Min</small></div>
+            <div class="li-txt"><span class="li-n">U4 Kettenbrückengasse</span><span class="li-d" data-de="Direkt am Naschmarkt" data-en="Right by the Naschmarkt">Direkt am Naschmarkt</span></div>
+          </div>
+          <div class="loc-item">
+            <div class="lm">8<small data-de="Min" data-en="min">Min</small></div>
+            <div class="li-txt"><span class="li-n">U3 Neubaugasse</span><span class="li-d" data-de="Shopping auf der Mariahilfer Straße" data-en="Shopping on Mariahilfer Straße">Shopping auf der Mariahilfer Straße</span></div>
+          </div>
+        </div>
+        <p class="loc-addr" data-de='Gumpendorfer Straße 10–12, 1060 Wien · <a href="https://maps.google.com/?q=Cafe+phil+Gumpendorfer+Stra%C3%9Fe+10-12+Wien" target="_blank" rel="noopener">in Google Maps öffnen</a><br>Anlieferung: Lieferantenparkplatz direkt vor der Tür.' data-en='Gumpendorfer Straße 10–12, 1060 Vienna · <a href="https://maps.google.com/?q=Cafe+phil+Gumpendorfer+Stra%C3%9Fe+10-12+Wien" target="_blank" rel="noopener">open in Google Maps</a><br>Deliveries: supplier parking spot right outside the door.'>Gumpendorfer Straße 10–12, 1060 Wien · <a href="https://maps.google.com/?q=Cafe+phil+Gumpendorfer+Stra%C3%9Fe+10-12+Wien" target="_blank" rel="noopener">in Google Maps öffnen</a><br>Anlieferung: Lieferantenparkplatz direkt vor der Tür.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="stimmen">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Was Gäste sagen" data-en="What guests say">Was Gäste sagen</h2>
+      <p class="sub" data-de="Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier, sobald die ersten Firmen bei uns getagt haben." data-en="Our first events are getting underway. Real quotes will appear here once the first companies have met with us.">Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier, sobald die ersten Firmen bei uns getagt haben.</p>
+    </div>
+    <div class="quotes rv">
+      <div class="q placeholder"><div class="qt" data-de="Platz für ein echtes Kundenzitat" data-en="Space for a real client quote">Platz für ein echtes Kundenzitat</div></div>
+      <div class="q placeholder"><div class="qt" data-de="Platz für ein echtes Kundenzitat" data-en="Space for a real client quote">Platz für ein echtes Kundenzitat</div></div>
+      <div class="q placeholder"><div class="qt" data-de="Platz für ein echtes Kundenzitat" data-en="Space for a real client quote">Platz für ein echtes Kundenzitat</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="preise">
+  <div class="wrap">
+    <div class="lead-2 rv">
+      <h2 data-de="Klare Preise, ein fixer Mietpreis" data-en="Clear prices, one fixed rate">Klare Preise, ein fixer Mietpreis</h2>
+      <p class="sub" data-de="Drei Zeiten, ein fixer Mietpreis. Keine Kosten pro Person auf die Miete, Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer dabei. Nur Kuchen und Fingerfood rechnen wir pro Gast." data-en="Three time slots, one fixed rental price. No per-person cost on the room, and drinks, coffee, tea, fruit and snacks are always included. Only cake and finger food are charged per guest.">Drei Zeiten, ein fixer Mietpreis. Keine Kosten pro Person auf die Miete, Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer dabei. Nur Kuchen und Fingerfood rechnen wir pro Gast.</p>
+    </div>
+    <div class="abcards rv">
+      <div class="abcard">
+        <div class="ab-k" data-de="Halbtag" data-en="Half day">Halbtag</div>
+        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 390 €</div>
+        <div class="ab-d" data-de="bis 4 Stunden · ab 9:00 Uhr" data-en="up to 4 hours · from 9 am">bis 4 Stunden · ab 9:00 Uhr</div>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Setup, Technik & Reinigung" data-en="Room, setup, tech & cleaning">Raum, Setup, Technik & Reinigung</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Getränke, Kaffee, Tee inkl." data-en="Drinks, coffee, tea incl.">Getränke, Kaffee, Tee inkl.</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb & Snacks inkl." data-en="Fruit & snacks incl.">Obstkorb & Snacks inkl.</span></li>
+        </ul>
+        <div class="pcta"><a href="#anfrage" data-time-jump="half" data-de="Halbtag rechnen" data-en="Calculate half day">Halbtag rechnen <span class="arr">→</span></a></div>
+      </div>
+      <div class="abcard feat">
+        <div class="ab-top"><div class="ab-k" data-de="Ganztag" data-en="Full day">Ganztag</div><span class="badge" data-de="Beliebt" data-en="Popular">Beliebt</span></div>
+        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 650 €</div>
+        <div class="ab-d" data-de="bis 8 Stunden · ab 9:00 Uhr" data-en="up to 8 hours · from 9 am">bis 8 Stunden · ab 9:00 Uhr</div>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Setup, Technik & Reinigung" data-en="Room, setup, tech & cleaning">Raum, Setup, Technik & Reinigung</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Getränke, Kaffee, Tee inkl." data-en="Drinks, coffee, tea incl.">Getränke, Kaffee, Tee inkl.</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb & Snacks inkl." data-en="Fruit & snacks incl.">Obstkorb & Snacks inkl.</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Voller Tag, ungestört" data-en="Full uninterrupted day">Voller Tag, ungestört</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Bestuhlung nach Wunsch" data-en="Seating your way">Bestuhlung nach Wunsch</span></li>
+        </ul>
+        <div class="pcta"><a href="#anfrage" data-time-jump="full" data-de="Ganztag rechnen" data-en="Calculate full day">Ganztag rechnen <span class="arr">→</span></a></div>
+      </div>
+      <div class="abcard">
+        <div class="ab-k" data-de="Abend-Event" data-en="Evening event">Abend-Event</div>
+        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 550 €</div>
+        <div class="ab-d" data-de="18:00 bis 23:00 Uhr" data-en="6 pm to 11 pm">18:00 bis 23:00 Uhr</div>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Event-Bestuhlung & Empfang" data-en="Event seating & reception">Event-Bestuhlung & Empfang</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Mikro, Sound, Stimmungslicht" data-en="Mic, sound, mood lighting">Mikro, Sound, Stimmungslicht</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Endreinigung inkl." data-en="Final cleaning incl.">Endreinigung inkl.</span></li>
+        </ul>
+        <div class="pcta"><a href="#anfrage" data-time-jump="evening" data-de="Abend rechnen" data-en="Calculate evening">Abend rechnen <span class="arr">→</span></a></div>
+      </div>
+    </div>
+    <p class="price-note rv" style="text-align:center" data-de="Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen." data-en="All amounts excl. VAT · “from” prices for small groups. Bookable daily from 9 am, evening events until 11 pm. Build your exact guide price below in seconds.">Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen.</p>
+  </div>
+</section>
+
+<!-- ===== ESSEN & TRINKEN ===== -->
+<section id="catering">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Essen & Trinken dazu" data-en="Add food & drinks">Essen & Trinken dazu</h2>
+      <p class="sub" data-de="Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner." data-en="Drinks, coffee, tea, fruit and snacks are always included. For more, add one of these packages and we arrange it through our partners.">Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner.</p>
+    </div>
+    <div class="cater rv">
+      <div class="cpack">
+        <div class="cph"><h4 data-de="Fingerfood & Sandwiches" data-en="Finger food & sandwiches">Fingerfood & Sandwiches</h4><span class="cpp">16 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
+        <ul>
+          <li data-de="Belegte Brote, Wraps & herzhafte Häppchen" data-en="Sandwiches, wraps & savoury bites">Belegte Brote, Wraps & herzhafte Häppchen</li>
+          <li data-de="Vegetarische Auswahl inklusive" data-en="Vegetarian selection included">Vegetarische Auswahl inklusive</li>
+          <li data-de="Ideal für Workshops & Empfänge" data-en="Ideal for workshops & receptions">Ideal für Workshops & Empfänge</li>
+        </ul>
+      </div>
+      <div class="cpack">
+        <div class="cph"><h4 data-de="Warmes Mittagessen" data-en="Hot lunch">Warmes Mittagessen</h4><span class="cpp" data-de="auf Anfrage" data-en="on request">auf Anfrage</span></div>
+        <ul>
+          <li data-de="Warmes Gericht, Salat & Dessert" data-en="Hot dish, salad & dessert">Warmes Gericht, Salat & Dessert</li>
+          <li data-de="Fleisch, Fisch oder vegetarisch" data-en="Meat, fish or vegetarian">Fleisch, Fisch oder vegetarisch</li>
+          <li data-de="Über unsere Catering-Partner" data-en="Through our catering partners">Über unsere Catering-Partner</li>
+        </ul>
+        <p class="cpn" data-de="Preis je nach Menü, wir holen euch ein Angebot ein." data-en="Price depends on the menu, we get you a quote.">Preis je nach Menü, wir holen euch ein Angebot ein.</p>
+      </div>
+      <div class="cpack">
+        <div class="cph"><h4 data-de="Kuchen & Barista" data-en="Cake & barista">Kuchen & Barista</h4><span class="cpp">6 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
+        <ul>
+          <li data-de="Hausgemachter Kuchen aus dem Cafe phil" data-en="Homemade cake from Cafe phil">Hausgemachter Kuchen aus dem Cafe phil</li>
+          <li data-de="Barista-Upgrade: Latte Art & Spezialitäten (120 € pauschal)" data-en="Barista upgrade: latte art & specialties (€120 flat)">Barista-Upgrade: Latte Art & Spezialitäten (120 € pauschal)</li>
+          <li data-de="Der süße Rahmen für jede Pause" data-en="The sweet touch for any break">Der süße Rahmen für jede Pause</li>
+        </ul>
+      </div>
+    </div>
+    <p class="logos-note rv" style="margin-top:22px;margin-bottom:0" data-de="Alle Angaben exkl. USt. · Beträge sind Richtwerte, den genauen Preis nennen wir mit dem Angebot." data-en="All prices excl. VAT · amounts are guide values, we confirm the exact price with your quote.">Alle Angaben exkl. USt. · Beträge sind Richtwerte, den genauen Preis nennen wir mit dem Angebot.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="lead-2 stack rv">
+      <h2 data-de="Häufige Fragen" data-en="Frequently asked">Häufige Fragen</h2>
+      <p class="sub" data-de="Das Wichtigste vorab. Fehlt etwas, schreibt uns einfach." data-en="The essentials up front. If something’s missing, just ask.">Das Wichtigste vorab. Fehlt etwas, schreibt uns einfach.</p>
+    </div>
+    <div class="faq rv">
+      <details>
+        <summary data-de="Ist der Raum barrierefrei zugänglich?" data-en="Is the space wheelchair accessible?">Ist der Raum barrierefrei zugänglich?</summary>
+        <div class="fa" data-de="Ehrlich gesagt nein: phil space liegt im Souterrain und ist nur über die Stahlwangentreppe erreichbar, es gibt keinen Lift und keine Rampe. Für Gäste, die keine Treppen steigen können, ist der Raum daher leider nicht geeignet. Sprecht uns bei Fragen gern an, wir beraten offen." data-en="Honestly, no: phil space is on the lower level and reached only via the steel staircase, with no lift or ramp. It is therefore not suitable for guests who cannot use stairs. Do get in touch with any questions, we’ll advise you openly.">Ehrlich gesagt nein: phil space liegt im Souterrain und ist nur über die Stahlwangentreppe erreichbar, es gibt keinen Lift und keine Rampe. Für Gäste, die keine Treppen steigen können, ist der Raum daher leider nicht geeignet. Sprecht uns bei Fragen gern an, wir beraten offen.</div>
+      </details>
+      <details>
+        <summary data-de="Wie ist die Stornoregelung?" data-en="What is the cancellation policy?">Wie ist die Stornoregelung?</summary>
+        <div class="fa" data-de="Bis 14 Tage vor dem Termin ist die Stornierung kostenlos. Danach verrechnen wir 50 % der Raummiete, ab 3 Tagen vor dem Termin 100 %. Ein bereits gebuchter Termin lässt sich in Absprache aber gern kostenfrei verschieben, sprecht uns einfach frühzeitig an, wir finden fast immer eine Lösung." data-en="Cancellation is free up to 14 days before your date. After that we charge 50 % of the room rental, and 100 % from 3 days before. A booked date can usually be rescheduled free of charge by arrangement, just reach out early and we’ll almost always find a solution.">Bis 14 Tage vor dem Termin ist die Stornierung kostenlos. Danach verrechnen wir 50 % der Raummiete, ab 3 Tagen vor dem Termin 100 %. Ein bereits gebuchter Termin lässt sich in Absprache aber gern kostenfrei verschieben, sprecht uns einfach frühzeitig an, wir finden fast immer eine Lösung.</div>
+      </details>
+      <details>
+        <summary data-de="Bekommen wir auch Mittagessen oder nur Fingerfood?" data-en="Can we get lunch, or only finger food?">Bekommen wir auch Mittagessen oder nur Fingerfood?</summary>
+        <div class="fa" data-de="Kuchen und Fingerfood buchst du direkt im Rechner dazu. Ein warmes Mittagessen oder ein Buffet organisieren wir auf Wunsch über unsere Catering-Partner, schreib es einfach in die Anfrage." data-en="Cake and finger food can be added right in the calculator. For a hot lunch or a buffet we arrange catering through our partners on request, just note it in your enquiry.">Kuchen und Fingerfood buchst du direkt im Rechner dazu. Ein warmes Mittagessen oder ein Buffet organisieren wir auf Wunsch über unsere Catering-Partner, schreib es einfach in die Anfrage.</div>
+      </details>
+      <details>
+        <summary data-de="Wie viele WCs gibt es?" data-en="How many restrooms are there?">Wie viele WCs gibt es?</summary>
+        <div class="fa" data-de="Zwei getrennte WCs (Damen und Herren) mit gemeinsamem Vorraum, direkt im Souterrain, plus die Gäste-WCs des Kaffeehauses eine Stiege höher." data-en="Two separate restrooms (ladies and gents) with a shared anteroom, right in the Souterrain, plus the coffeehouse restrooms one flight up.">Zwei getrennte WCs (Damen und Herren) mit gemeinsamem Vorraum, direkt im Souterrain, plus die Gäste-WCs des Kaffeehauses eine Stiege höher.</div>
+      </details>
+      <details>
+        <summary data-de="Wo können Gäste parken, wo wird angeliefert?" data-en="Where can guests park, where are deliveries?">Wo können Gäste parken, wo wird angeliefert?</summary>
+        <div class="fa" data-de="Direkt vor der Tür gibt es einen Lieferantenparkplatz für die Anlieferung. Für anreisende Gäste empfehlen sich die öffentlichen Garagen in der Umgebung, alle drei U-Bahn-Linien sind fußläufig, die meisten kommen ohnehin am besten öffentlich." data-en="There is a supplier parking spot right outside for deliveries. Arriving guests are best served by the nearby public garages, and with three subway lines within walking distance most come by public transport anyway.">Direkt vor der Tür gibt es einen Lieferantenparkplatz für die Anlieferung. Für anreisende Gäste empfehlen sich die öffentlichen Garagen in der Umgebung, alle drei U-Bahn-Linien sind fußläufig, die meisten kommen ohnehin am besten öffentlich.</div>
+      </details>
+      <details>
+        <summary data-de="Haben wir den Raum exklusiv?" data-en="Do we have the space to ourselves?">Haben wir den Raum exklusiv?</summary>
+        <div class="fa" data-de="Ja. Während eurer Buchung gehört das Souterrain euch allein, abseits des Gastraums, ruhig und ungestört. Vom Kaffeehaus hört man nichts." data-en="Yes. During your booking the Souterrain is yours alone, away from the café floor, quiet and undisturbed. You won’t hear the coffeehouse.">Ja. Während eurer Buchung gehört das Souterrain euch allein, abseits des Gastraums, ruhig und ungestört. Vom Kaffeehaus hört man nichts.</div>
+      </details>
+      <details>
+        <summary data-de="Gibt es ein Videokonferenz-Setup für hybride Meetings?" data-en="Is there a video-conference setup for hybrid meetings?">Gibt es ein Videokonferenz-Setup für hybride Meetings?</summary>
+        <div class="fa" data-de="Kein fest installiertes Kamera-Setup vor Ort. Hybride Calls laufen zuverlässig über euren Laptop mit unserem Beamer und schnellem WLAN." data-en="No fixed camera rig on site. Hybrid calls run reliably via your laptop with our projector and fast Wi-Fi.">Kein fest installiertes Kamera-Setup vor Ort. Hybride Calls laufen zuverlässig über euren Laptop mit unserem Beamer und schnellem WLAN.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="anfrage">
+  <div class="wrap">
+    <div class="lead-2 rv" style="margin-bottom:32px">
+      <h2 data-de="Termin & Richtpreis" data-en="Date & guide price">Termin & Richtpreis</h2>
+      <p class="sub" data-de="In zwei Schritten: zuerst den Richtpreis zusammenstellen, dann den Kontakt ausfüllen und absenden. Werktags binnen 24 Stunden kommt die verbindliche Rückmeldung." data-en="In two steps: build your guide price first, then fill in your contact details and send. You’ll get a binding reply within 24 hours on working days.">In zwei Schritten: zuerst den Richtpreis zusammenstellen, dann den Kontakt ausfüllen und absenden. Werktags binnen 24 Stunden kommt die verbindliche Rückmeldung.</p>
+    </div>
+
+    <div class="booking rv">
+
+      <!-- ===== STEP 1: PRICE ===== -->
+      <div class="bk-step" id="step1">
+        <div class="bk-shead">
+          <div class="bk-num">1</div>
+          <div>
+            <h3 data-de="Richtpreis zusammenstellen" data-en="Build your guide price">Richtpreis zusammenstellen</h3>
+            <div class="bk-sub" data-de="Zeit, Personen und Extras wählen" data-en="Choose time, people and extras">Zeit, Personen und Extras wählen</div>
+          </div>
         </div>
 
-
-        <!-- 8. Social Proof / Testimonials -->
-        <section id="social-proof" class="social-proof-section">
-            <div class="container">
-                <h2>Erste Stimmen aus Test-Workshops.</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <img src="images/anna-m.jpg" alt="Foto von Anna M." class="testimonial-image" loading="lazy">
-                        <blockquote class="testimonial-text">
-                            <p>„Endlich ein Raum in Wien, der nicht wie ein Hotel-Tagungsraum wirkt. Die Nähe zum Café ist ein riesiger Pluspunkt!“</p>
-                        </blockquote>
-                        <cite class="testimonial-author">– Anna M., Agenturleiterin</cite>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="images/david-l.jpg" alt="Foto von David L." class="testimonial-image" loading="lazy">
-                        <blockquote class="testimonial-text">
-                            <p>„Wir haben hier unseren Team-Workshop abgehalten und waren begeistert. Die Atmosphäre ist unglaublich inspirierend und die technische Ausstattung top.“</p>
-                        </blockquote>
-                        <cite class="testimonial-author">– David L., Gründer von Innovatech</cite>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="images/sarah-k.jpg" alt="Foto von Sarah K." class="testimonial-image" loading="lazy">
-                        <blockquote class="testimonial-text">
-                            <p>„Die Organisation war super unkompliziert und das Team vor Ort extrem hilfsbereit. Der direkte Zugang zum Café für Pausen ist Gold wert.“</p>
-                        </blockquote>
-                        <cite class="testimonial-author">– Sarah K., Event Managerin</cite>
-                    </div>
-                </div>
+        <div class="bk-body">
+          <div class="calc" style="border:none;background:none;padding:0;">
+            <div>
+              <label class="cl" data-de="Zeit" data-en="Time" style="display:block;margin-bottom:8px">Zeit</label>
+              <div class="seg" id="segTime">
+                <button data-time="half" class="on" data-de="Halbtag · 390 €" data-en="Half day · €390">Halbtag · 390 €</button>
+                <button data-time="full" data-de="Ganztag · 650 €" data-en="Full day · €650">Ganztag · 650 €</button>
+                <button data-time="evening" data-de="Abend · 550 €" data-en="Evening · €550">Abend · 550 €</button>
+              </div>
             </div>
-        </section>
 
-    </main>
-
-    <!-- 9. FAQ -->
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <h2>Häufig gestellte Fragen</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>Wie viele Personen haben im Raum Platz?</h3>
-                    <p>Unser Raum ist flexibel bestuhlbar. Je nach Setup finden bis zu 60 Personen bei einer Theaterbestuhlung oder ca. 30 Personen in einer Workshop-Anordnung bequem Platz.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Ist der Raum technisch voll ausgestattet?</h3>
-                    <p>Ja, absolut. Ein leistungsstarker Beamer, eine Soundanlage, High-Speed WLAN, Whiteboards, Flipcharts und ein Moderationskoffer stehen euch kostenfrei zur Verfügung.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Können wir eigenes Catering mitbringen?</h3>
-                    <p>Gerne könnt ihr eigenes Catering organisieren. Alternativ bieten wir über das Café phil alles von Barista-Kaffee über Snacks bis hin zu vollwertigem Catering an. Sprecht uns einfach an!</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Wie sind die Stornobedingungen?</h3>
-                    <p>Bis zu 14 Tage vor dem gebuchten Termin könnt ihr kostenfrei stornieren. Danach fallen 50% der Kosten an. Bei einer Absage innerhalb von 48 Stunden vor dem Termin müssen wir leider den vollen Betrag in Rechnung stellen.</p>
-                </div>
+            <div class="lbl-row">
+              <label class="cl" for="calcPpl" data-de="Personen" data-en="People">Personen</label>
+              <div class="ppl">
+                <button type="button" id="pMinus" aria-label="weniger">–</button>
+                <input id="calcPpl" type="number" min="1" max="60" value="20">
+                <button type="button" id="pPlus" aria-label="mehr">+</button>
+              </div>
             </div>
-        </div>
-    </section>
+            <div class="calc-note" id="pkgHint" data-de="Die Raummiete ist fix. Personenzahl zählt nur für Kuchen und Fingerfood." data-en="Room price is fixed. Head count only applies to cake and finger food.">Die Raummiete ist fix. Personenzahl zählt nur für Kuchen und Fingerfood.</div>
 
-    <!-- 10. Map -->
-    <section id="anfahrt" class="map-section">
-        <div class="container">
-            <h2>Anfahrt & Kontakt</h2>
-            <p class="section-intro">Du findest uns im Herzen des 6. Bezirks. Wir freuen uns auf deinen Besuch!</p>
-            <div class="map-container">
-                <iframe 
-                    src="https://maps.google.com/maps?q=Phil%2C%20Gumpendorfer%20Str.%2010%2F12%2C%201060%20Wien&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div>
+              <label class="cl" data-de="Optional dazubuchen" data-en="Optional add-ons" style="display:block;margin-bottom:8px">Optional dazubuchen</label>
+              <div class="addons">
+                <div class="addon" data-addon="barista">
+                  <div class="ainfo"><span class="an" data-de="Barista-Upgrade" data-en="Barista upgrade">Barista-Upgrade</span><span class="ap" data-de="Latte Art, Spezialitäten · 120 € pauschal" data-en="Latte art, specialties · €120 flat">Latte Art, Spezialitäten · 120 € pauschal</span></div>
+                  <span class="sw"></span>
+                </div>
+                <div class="addon" data-addon="cake">
+                  <div class="ainfo"><span class="an" data-de="Kuchen aus dem Haus" data-en="House cake">Kuchen aus dem Haus</span><span class="ap" data-de="6 € pro Person" data-en="€6 per person">6 € pro Person</span></div>
+                  <span class="sw"></span>
+                </div>
+                <div class="addon" data-addon="catering">
+                  <div class="ainfo"><span class="an" data-de="Fingerfood & Sandwiches" data-en="Finger food & sandwiches">Fingerfood & Sandwiches</span><span class="ap" data-de="16 € pro Person" data-en="€16 per person">16 € pro Person</span></div>
+                  <span class="sw"></span>
+                </div>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p><img src="images/logo_primary.png" alt="phil concept hub Logo" height="50" loading="lazy"></p>
-            <p>
-                <strong>phil concept hub</strong><br>
-                <a href="https://maps.app.goo.gl/uX3LhR89t62tE1k58" target="_blank">Gumpendorfer Straße 10-12, 1060 Wien</a><br>
-                <strong>Kontakt:</strong> <a href="mailto:events@phil.info">events@phil.info</a>
-            </p>
-        </div>
-    </footer>
+            <div class="total">
+              <div>
+                <div class="tlabel" data-de="ca. Richtpreis, exkl. USt." data-en="approx. guide price, excl. VAT">ca. Richtpreis, exkl. USt.</div>
+                <div class="breakdown" id="breakdown"></div>
+              </div>
+              <div class="tnum" id="totalNum">– €<small data-de="unverbindlich" data-en="non-binding">unverbindlich</small></div>
+            </div>
+            <p class="calc-note" data-de="Getränke, Kaffee, Tee, Obstkorb & Snacks sind immer enthalten. Endpreis nach Bestätigung." data-en="Drinks, coffee, tea, fruit & snacks always included. Final price after confirmation.">Getränke, Kaffee, Tee, Obstkorb & Snacks sind immer enthalten. Endpreis nach Bestätigung.</p>
+          </div>
 
-    <script src="script.js"></script>
+          <button class="btn btn-primary bk-next" id="toStep2" data-de="Weiter zum Kontakt" data-en="Continue to contact">Weiter zum Kontakt <span class="arr">→</span></button>
+        </div>
+      </div>
+
+      <div class="bk-connect"></div>
+
+      <!-- ===== STEP 2: CONTACT ===== -->
+      <div class="bk-step locked" id="step2">
+        <div class="bk-shead">
+          <div class="bk-num">2</div>
+          <div>
+            <h3 data-de="Kontakt & Absenden" data-en="Contact & send">Kontakt & Absenden</h3>
+            <div class="bk-sub" data-de="Wir melden uns mit der verbindlichen Bestätigung" data-en="We reply with the binding confirmation">Wir melden uns mit der verbindlichen Bestätigung</div>
+          </div>
+        </div>
+
+        <div class="bk-recap" id="recap"></div>
+
+        <div class="bk-body">
+          <div class="form" style="border:none;background:none;padding:0;">
+            <div class="r2">
+              <div class="f"><label for="n" data-de="Name" data-en="Name">Name</label><input id="n" type="text" data-de-ph="Vor- und Nachname" data-en-ph="First and last name" placeholder="Vor- und Nachname"></div>
+              <div class="f"><label for="o" data-de="Firma / Team" data-en="Company / team">Firma / Team</label><input id="o" type="text" data-de-ph="optional" data-en-ph="optional" placeholder="optional"></div>
+            </div>
+            <div class="r2">
+              <div class="f"><label for="e" data-de="E-Mail" data-en="Email">E-Mail</label><input id="e" type="email" placeholder="name@firma.at"></div>
+              <div class="f">
+                <label data-de="Wunschdatum" data-en="Preferred date">Wunschdatum</label>
+                <div class="datewrap">
+                  <div class="dateinput empty" id="dateBtn" role="button" tabindex="0">
+                    <span id="dateText" data-de="Datum wählen" data-en="Pick a date">Datum wählen</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                  </div>
+                  <input type="hidden" id="d">
+                  <div class="cal" id="cal">
+                    <div class="cal-head">
+                      <div class="cal-title" id="calTitle">Monat</div>
+                      <div class="cal-nav">
+                        <button type="button" id="calPrev" aria-label="zurück"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                        <button type="button" id="calNext" aria-label="vor"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+                      </div>
+                    </div>
+                    <div class="cal-grid" id="calDow"></div>
+                    <div class="cal-grid" id="calDays"></div>
+                    <div class="cal-foot">
+                      <button type="button" id="calClear" data-de="Löschen" data-en="Clear">Löschen</button>
+                      <button type="button" id="calToday" data-de="Heute" data-en="Today">Heute</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="p">
+            <div class="f"><label for="m" data-de="Worum geht’s?" data-en="What’s it for?">Worum geht’s?</label><textarea id="m" rows="3" data-de-ph="Art der Veranstaltung, Uhrzeit, Besonderes…" data-en-ph="Type of event, time, anything special…" placeholder="Art der Veranstaltung, Uhrzeit, Besonderes…"></textarea></div>
+            <button class="btn btn-primary submit" id="send" data-de="Anfrage senden" data-en="Send enquiry">Anfrage senden <span class="arr">→</span></button>
+            <div class="sent" id="sent"></div>
+          </div>
+
+          <p class="direct" style="margin-top:18px" data-de='Lieber direkt? <a href="mailto:zilberberg.jonathan@gmail.com">E-Mail</a> oder <a href="tel:+436767821199">+43 676 782 1199</a>.' data-en='Prefer direct? <a href="mailto:zilberberg.jonathan@gmail.com">Email</a> or <a href="tel:+436767821199">+43 676 782 1199</a>.'>Lieber direkt? <a href="mailto:zilberberg.jonathan@gmail.com">E-Mail</a> oder <a href="tel:+436767821199">+43 676 782 1199</a>.</p>
+          <p class="direct" data-de='Lieber erst vorbeikommen? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Besichtigung%20phil%20space&amp;body=Hallo%2C%20ich%20w%C3%BCrde%20phil%20space%20gern%20besichtigen.%20Passt%20euch%20einer%20dieser%20Termine%3A%0A-%20%0A-%20%0A%0ADanke%21">Besichtigung vereinbaren</a>, wir zeigen euch den Raum in Ruhe und finden gemeinsam das passende Format.' data-en='Rather see it first? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Viewing%20phil%20space&amp;body=Hi%2C%20I%27d%20like%20to%20view%20phil%20space.%20Would%20one%20of%20these%20work%3A%0A-%20%0A-%20%0A%0AThanks%21">Book a viewing</a>, we’ll show you the room at ease and find the right format together.'>Lieber erst vorbeikommen? <a href="mailto:zilberberg.jonathan@gmail.com?subject=Besichtigung%20phil%20space&amp;body=Hallo%2C%20ich%20w%C3%BCrde%20phil%20space%20gern%20besichtigen.%20Passt%20euch%20einer%20dieser%20Termine%3A%0A-%20%0A-%20%0A%0ADanke%21">Besichtigung vereinbaren</a>, wir zeigen euch den Raum in Ruhe und finden gemeinsam das passende Format.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo">phil <i>space</i></a>
+        <p class="about" data-de="Der Seminar- und Veranstaltungsraum im Souterrain des Cafe phil, einem Wiener Kaffeehaus mit Buchhandlung." data-en="The seminar and event room beneath Cafe phil, a Viennese coffeehouse with a bookshop.">Der Seminar- und Veranstaltungsraum im Souterrain des Cafe phil, einem Wiener Kaffeehaus mit Buchhandlung.</p>
+      </div>
+      <div class="fcol">
+        <h4 data-de="Besuch" data-en="Visit">Besuch</h4>
+        <p>Cafe phil</p><p>Gumpendorfer Str. 10–12</p><p>1060 Wien</p>
+      </div>
+      <div class="fcol">
+        <h4 data-de="Kontakt" data-en="Contact">Kontakt</h4>
+        <a href="mailto:zilberberg.jonathan@gmail.com">E-Mail</a>
+        <a href="tel:+436767821199">+43 676 782 1199</a>
+        <a href="#anfrage" data-de="Termin anfragen" data-en="Request a date">Termin anfragen</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="yr"></span> Lewi & Son GmbH</span>
+      <span class="legal-links">
+        <a href="#impressum" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a href="#datenschutz" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      </span>
+      <span data-de="phil space · Wien" data-en="phil space · Vienna">phil space · Wien</span>
+    </div>
+
+    <div class="legal">
+      <details id="impressum">
+        <summary data-de="Impressum" data-en="Imprint">Impressum</summary>
+        <div class="legal-body">
+          <p><strong>Lewi & Son GmbH</strong><br>
+          Cafe phil · phil space<br>
+          Gumpendorfer Straße 10–12, 1060 Wien, Österreich</p>
+          <p class="todo" data-de="[Bitte ergänzen: Firmenbuchnummer (FN …), Firmenbuchgericht, UID-Nummer (ATU…), Unternehmensgegenstand.]" data-en="[Please complete: company register number, register court, VAT ID, business purpose.]">[Bitte ergänzen: Firmenbuchnummer (FN …), Firmenbuchgericht, UID-Nummer (ATU…), Unternehmensgegenstand.]</p>
+          <p class="todo" data-de="[Bitte ergänzen: Geschäftsführer, Mitglied der WKO / Gewerbebehörde, anwendbare Rechtsvorschriften (GewO).]" data-en="[Please complete: managing director, chamber membership, trade authority, applicable regulations.]">[Bitte ergänzen: Geschäftsführer, Mitglied der WKO / Gewerbebehörde, anwendbare Rechtsvorschriften (GewO).]</p>
+          <p data-de="Kontakt: zilberberg.jonathan@gmail.com · +43 676 782 1199" data-en="Contact: zilberberg.jonathan@gmail.com · +43 676 782 1199">Kontakt: zilberberg.jonathan@gmail.com · +43 676 782 1199</p>
+        </div>
+      </details>
+      <details id="datenschutz">
+        <summary data-de="Datenschutz" data-en="Privacy">Datenschutz</summary>
+        <div class="legal-body">
+          <p data-de="Wir verarbeiten personenbezogene Daten nur, soweit das für die Bearbeitung eurer Anfrage nötig ist. Wenn ihr das Anfrageformular nutzt, werden die von euch angegebenen Daten (Name, Firma, Kontakt, Terminwunsch) per E-Mail an uns übermittelt und zur Beantwortung gespeichert." data-en="We process personal data only as needed to handle your enquiry. When you use the request form, the data you provide (name, company, contact, preferred date) is sent to us by email and stored to respond.">Wir verarbeiten personenbezogene Daten nur, soweit das für die Bearbeitung eurer Anfrage nötig ist. Wenn ihr das Anfrageformular nutzt, werden die von euch angegebenen Daten (Name, Firma, Kontakt, Terminwunsch) per E-Mail an uns übermittelt und zur Beantwortung gespeichert.</p>
+          <p data-de="Es werden keine Daten an Dritte verkauft. Ihr habt jederzeit das Recht auf Auskunft, Berichtigung und Löschung eurer Daten." data-en="No data is sold to third parties. You have the right to access, correct and delete your data at any time.">Es werden keine Daten an Dritte verkauft. Ihr habt jederzeit das Recht auf Auskunft, Berichtigung und Löschung eurer Daten.</p>
+          <p class="todo" data-de="[Bitte ergänzen: Verantwortlicher (Lewi & Son GmbH), Speicherdauer, eingesetzte Dienste (z. B. Hosting, Analyse), Beschwerderecht bei der Datenschutzbehörde. Vor Launch juristisch prüfen lassen.]" data-en="[Please complete: controller, retention period, services used (hosting, analytics), right to complain to the DPA. Have it legally reviewed before launch.]">[Bitte ergänzen: Verantwortlicher (Lewi & Son GmbH), Speicherdauer, eingesetzte Dienste (z. B. Hosting, Analyse), Beschwerderecht bei der Datenschutzbehörde. Vor Launch juristisch prüfen lassen.]</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items=[{de:'Strategieklausuren',en:'Strategy retreats'},{de:'Team-Offsites',en:'Team offsites'},{de:'Workshops',en:'Workshops'},{de:'Lesungen',en:'Readings'},{de:'Vernissagen',en:'Openings'},{de:'Schulungen',en:'Trainings'},{de:'Firmenfeiern',en:'Company parties'},{de:'Produkt-Launches',en:'Product launches'}];
+  window.__m=items; renderM('de');
+})();
+function renderM(lang){ const t=document.getElementById('track'); const one=window.__m.map(i=>`<span><b>${i[lang]}</b></span><span class="sep">·</span>`).join(''); t.innerHTML=one+one; }
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.getElementById('lDe').classList.toggle('on',lang==='de');
+  document.getElementById('lEn').classList.toggle('on',lang==='en');
+  document.querySelectorAll('[data-de]').forEach(el=>{ const v=el.getAttribute('data-'+lang); if(v!==null) el.innerHTML=v; });
+  document.querySelectorAll('[data-de-ph]').forEach(el=>{ const v=el.getAttribute('data-'+lang+'-ph'); if(v!==null) el.setAttribute('placeholder',v); });
+  renderM(lang);
+  try{ if(window.__renderCal) window.__renderCal(); }catch(e){}
+  try{ if(typeof recalc==='function') recalc(); }catch(e){}
+  try{ localStorage.setItem('philspace_lang',lang);}catch(e){}
+}
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('navMid').classList.toggle('open'));
+document.querySelectorAll('#navMid a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navMid').classList.remove('open')));
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!window.matchMedia('(hover:hover)').matches) return;
+  document.querySelectorAll('.btn-primary').forEach(btn=>{
+    btn.addEventListener('pointermove',e=>{ const r=btn.getBoundingClientRect(); const x=(e.clientX-r.left-r.width/2)/r.width; const y=(e.clientY-r.top-r.height/2)/r.height; btn.style.transform=`translate(${x*5}px, ${y*4}px)`; });
+    btn.addEventListener('pointerleave',()=>{ btn.style.transform=''; });
+  });
+})();
+/* =========================================================
+   PREISE - alle Beträge an EINER Stelle. Hier anpassen.
+   Raummiete = FIXPREIS je Zeitfenster (kein Aufschlag pro Person).
+   Pro-Kopf nur bei Kuchen und Fingerfood.
+   ========================================================= */
+const PRICING = {
+  room: {                 // fixe Raummiete je Zeitfenster
+    half:    390,         // Halbtag
+    full:    650,         // Ganztag
+    evening: 550          // Abend-Event
+  },
+  addons: {
+    barista:  { type:'flat',    amount:120 },  // pauschal
+    cake:     { type:'perHead', amount:6 },     // pro Person
+    catering: { type:'perHead', amount:16 }     // pro Person
+  }
+};
+
+/* ---- calculator state ---- */
+const calcState = { time:'half', people:20, barista:false, cake:false, catering:false };
+
+function fmt(n){ return n.toLocaleString('de-AT'); }
+
+function recalc(){
+  const L = document.documentElement.lang==='de';
+  const n = Math.max(1, Math.min(60, calcState.people||1));
+
+  const roomLbl = calcState.time==='full' ? (L?'Ganztag':'Full day')
+                : calcState.time==='evening' ? (L?'Abend-Event':'Evening')
+                : (L?'Halbtag':'Half day');
+  const room = PRICING.room[calcState.time] || PRICING.room.half;
+
+  let total = room;
+  const lines = [];
+  lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(room)} €`);
+
+  if(calcState.barista){ const a=PRICING.addons.barista.amount; total+=a; lines.push(`${L?'Barista-Upgrade':'Barista upgrade'} +${fmt(a)} €`); }
+  if(calcState.cake){ const a=PRICING.addons.cake.amount*n; total+=a; lines.push(`${L?'Kuchen':'Cake'} ${n}×${PRICING.addons.cake.amount} € = +${fmt(a)} €`); }
+  if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Fingerfood':'Finger food'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
+
+  document.getElementById('totalNum').innerHTML = 'ca. '+fmt(total)+' €<small>'+(L?'unverbindlich':'non-binding')+'</small>';
+  document.getElementById('breakdown').innerHTML = lines.join('<br>');
+  const pf=document.getElementById('p'); if(pf && document.activeElement!==pf) pf.value=n;
+  return { timeLbl:roomLbl, total, people:n };
+}
+
+/* ---- time segment ---- */
+document.querySelectorAll('#segTime button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#segTime button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); calcState.time=b.dataset.time; recalc();
+}));
+/* ---- people stepper ---- */
+const cp=document.getElementById('calcPpl');
+function setPeople(v){ v=Math.max(1,Math.min(60,v||1)); calcState.people=v; cp.value=v; recalc(); }
+document.getElementById('pMinus').addEventListener('click',()=>setPeople(calcState.people-1));
+document.getElementById('pPlus').addEventListener('click',()=>setPeople(calcState.people+1));
+cp.addEventListener('input',()=>{ calcState.people=parseInt(cp.value||'1',10); recalc(); });
+cp.addEventListener('blur',()=>setPeople(parseInt(cp.value||'1',10)));
+/* ---- addon toggles ---- */
+document.querySelectorAll('.addon').forEach(a=>a.addEventListener('click',()=>{
+  const k=a.dataset.addon; calcState[k]=!calcState[k]; a.classList.toggle('on',calcState[k]); recalc();
+}));
+
+/* ---- ab-cards jump to calculator with preset time ---- */
+document.querySelectorAll('[data-time-jump]').forEach(a=>a.addEventListener('click',()=>{
+  const time=a.getAttribute('data-time-jump');
+  document.querySelectorAll('#segTime button').forEach(x=>x.classList.toggle('on', x.dataset.time===time));
+  calcState.time=time; recalc();
+}));
+
+/* ---- step 1 -> step 2 ---- */
+document.getElementById('toStep2').addEventListener('click',()=>{
+  const L=document.documentElement.lang==='de';
+  const r=recalc();
+  const step2=document.getElementById('step2');
+  step2.classList.remove('locked');
+  // recap chip in step 2
+  const adds=[]; if(calcState.barista)adds.push(L?'Barista':'Barista'); if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+  const recap=document.getElementById('recap');
+  recap.innerHTML='<span><b>'+r.timeLbl+'</b> · '+calcState.people+' '+(L?'Personen':'people')+(adds.length?' · '+adds.join(', '):'')+'</span><span class="chip">ca. '+fmt(r.total)+' €</span>';
+  recap.classList.add('show');
+  step2.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>document.getElementById('n').focus(),420);
+});
+
+/* =========================================================
+   CUSTOM CALENDAR
+   ========================================================= */
+(function(){
+  const btn=document.getElementById('dateBtn'), cal=document.getElementById('cal');
+  const txt=document.getElementById('dateText'), hidden=document.getElementById('d');
+  const title=document.getElementById('calTitle'), dowRow=document.getElementById('calDow'), daysRow=document.getElementById('calDays');
+  const today=new Date(); today.setHours(0,0,0,0);
+  let view=new Date(today.getFullYear(),today.getMonth(),1);
+  let selected=null;
+  const monthsDe=['Jänner','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  const monthsEn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dowDe=['M','D','M','D','F','S','S'], dowEn=['M','T','W','T','F','S','S'];
+
+  function lang(){ return document.documentElement.lang==='de'?'de':'en'; }
+  function renderDow(){ const d=lang()==='de'?dowDe:dowEn; dowRow.innerHTML=d.map(x=>`<div class="cal-dow">${x}</div>`).join(''); }
+  function render(){
+    const L=lang()==='de';
+    title.textContent=(L?monthsDe:monthsEn)[view.getMonth()]+' '+view.getFullYear();
+    renderDow();
+    const first=new Date(view.getFullYear(),view.getMonth(),1);
+    let start=(first.getDay()+6)%7; // Monday-first
+    const dim=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    let html='';
+    for(let i=0;i<start;i++) html+='<button class="cal-day" disabled></button>';
+    for(let d=1;d<=dim;d++){
+      const date=new Date(view.getFullYear(),view.getMonth(),d);
+      const past=date<today;
+      const isToday=date.getTime()===today.getTime();
+      const isSel=selected&&date.getTime()===selected.getTime();
+      html+=`<button class="cal-day${isToday?' today':''}${isSel?' sel':''}" data-d="${d}"${past?' disabled':''}>${d}</button>`;
+    }
+    daysRow.innerHTML=html;
+    daysRow.querySelectorAll('.cal-day:not(:disabled)').forEach(b=>b.addEventListener('click',()=>{
+      selected=new Date(view.getFullYear(),view.getMonth(),parseInt(b.dataset.d,10));
+      const L=lang()==='de';
+      const fmtd=selected.toLocaleDateString(L?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+      txt.textContent=fmtd; btn.classList.remove('empty');
+      hidden.value=selected.toISOString().slice(0,10);
+      render(); close();
+    }));
+  }
+  function open(){ cal.classList.add('open'); render(); }
+  function close(){ cal.classList.remove('open'); }
+  btn.addEventListener('click',()=> cal.classList.contains('open')?close():open());
+  btn.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  document.getElementById('calPrev').addEventListener('click',()=>{ view.setMonth(view.getMonth()-1); render(); });
+  document.getElementById('calNext').addEventListener('click',()=>{ view.setMonth(view.getMonth()+1); render(); });
+  document.getElementById('calToday').addEventListener('click',()=>{ view=new Date(today.getFullYear(),today.getMonth(),1); selected=new Date(today); const L=lang()==='de'; txt.textContent=selected.toLocaleDateString(L?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'}); btn.classList.remove('empty'); hidden.value=selected.toISOString().slice(0,10); render(); close(); });
+  document.getElementById('calClear').addEventListener('click',()=>{ selected=null; hidden.value=''; const L=lang()==='de'; txt.textContent=L?'Datum wählen':'Pick a date'; btn.classList.add('empty'); render(); close(); });
+  document.addEventListener('click',e=>{ if(!cal.contains(e.target)&&!btn.contains(e.target)) close(); });
+  window.__renderCal=render; // re-render on language switch
+})();
+
+/* ---- submit: include calculated package ---- */
+document.getElementById('send').addEventListener('click',()=>{
+  const lang=document.documentElement.lang; const g=id=>(document.getElementById(id).value||'').trim(); const L=lang==='de';
+  const r=recalc();
+  const adds=[]; if(calcState.barista)adds.push(L?'Barista-Upgrade':'Barista upgrade'); if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+
+  // --- light validation: name + valid email ---
+  const nameEl=document.getElementById('n'), mailEl=document.getElementById('e');
+  let ok=true;
+  const emailOk=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g('e'));
+  nameEl.classList.toggle('err', !g('n'));
+  mailEl.classList.toggle('err', !emailOk);
+  if(!g('n') || !emailOk){
+    ok=false;
+    const first = !g('n') ? nameEl : mailEl;
+    first.focus();
+  }
+  if(!ok) return;
+
+  const dateStr = g('d') ? new Date(g('d')).toLocaleDateString(L?'de-AT':'en-GB',{day:'numeric',month:'long',year:'numeric'}) : (L?'offen':'open');
+
+  const body=[
+    (L?'Name: ':'Name: ')+g('n'),
+    (L?'Firma/Team: ':'Company/team: ')+(g('o')||'-'),
+    (L?'E-Mail: ':'Email: ')+g('e'),
+    (L?'Personen: ':'People: ')+calcState.people,
+    (L?'Leistung: ':'Service: ')+r.timeLbl+' · '+calcState.people+' '+(L?'Personen':'people'),
+    (L?'Zusatz: ':'Add-ons: ')+(adds.length?adds.join(', '):(L?'keine':'none')),
+    (L?'ca. Richtpreis: ':'approx. guide price: ')+'ca. '+fmt(r.total)+' € '+(L?'(exkl. USt., unverbindlich)':'(excl. VAT, non-binding)'),
+    (L?'Wunschdatum: ':'Preferred date: ')+dateStr,
+    '',
+    (L?'Details:':'Details:'), (g('m')||'-')
+  ].join('\n');
+  const subj=encodeURIComponent('phil space '+(L?'Anfrage':'enquiry')+(g('n')?(' - '+g('n')):''));
+  const mailHref='mailto:zilberberg.jonathan@gmail.com?subject='+subj+'&body='+encodeURIComponent(body);
+
+  // --- on-page confirmation so the user SEES it went through ---
+  const sent=document.getElementById('sent');
+  sent.innerHTML =
+    '<div class="sh"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'+
+      (L?'Anfrage zusammengestellt':'Enquiry ready')+'</div>'+
+    '<div class="ssum">'+
+      '<b>'+g('n')+'</b>'+(g('o')?' · '+g('o'):'')+'<br>'+
+      '<b>'+r.timeLbl+'</b> · <b>'+calcState.people+'</b> '+(L?'Personen':'people')+'<br>'+
+      (adds.length?((L?'Zusatz: ':'Add-ons: ')+adds.join(', ')+'<br>'):'')+
+      (L?'Wunschdatum: ':'Preferred date: ')+dateStr+'<br>'+
+      (L?'ca. Richtpreis: ':'approx. guide price: ')+'<b>ca. '+fmt(r.total)+' €</b> '+(L?'(unverbindlich)':'(non-binding)')+
+    '</div>'+
+    '<div class="smail">'+(L?'Dein Mailprogramm öffnet sich mit der fertigen Anfrage. Öffnet es nicht? ':'Your mail app opens with the prefilled enquiry. Didn’t open? ')+
+      '<a href="'+mailHref+'">'+(L?'hier klicken':'click here')+'</a>.</div>';
+  sent.classList.add('show');
+  sent.scrollIntoView({behavior:'smooth', block:'center'});
+
+  // open mail client
+  window.location.href=mailHref;
+});
+
+// clear error state as the user types
+['n','e'].forEach(id=>{ const el=document.getElementById(id); el && el.addEventListener('input',()=>el.classList.remove('err')); });
+
+recalc();
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){let s='de';try{s=localStorage.getItem('philspace_lang')||'de';}catch(e){}if(s!=='de')setLang(s);})();
+</script>
 </body>
 </html>
