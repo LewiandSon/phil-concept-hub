@@ -1077,10 +1077,9 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
         <p class="cpn" data-de="Preis je nach Menü, wir holen euch ein Angebot ein." data-en="Price depends on the menu, we get you a quote.">Preis je nach Menü, wir holen euch ein Angebot ein.</p>
       </div>
       <div class="cpack">
-        <div class="cph"><h4 data-de="Kuchen & Barista" data-en="Cake & barista">Kuchen & Barista</h4><span class="cpp">6 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
+        <div class="cph"><h4 data-de="Kuchen aus dem Haus" data-en="House cake">Kuchen aus dem Haus</h4><span class="cpp">6 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
         <ul>
           <li data-de="Hausgemachter Kuchen aus dem Cafe phil" data-en="Homemade cake from Cafe phil">Hausgemachter Kuchen aus dem Cafe phil</li>
-          <li data-de="Barista-Upgrade: Latte Art & Spezialitäten (120 € pauschal)" data-en="Barista upgrade: latte art & specialties (€120 flat)">Barista-Upgrade: Latte Art & Spezialitäten (120 € pauschal)</li>
           <li data-de="Der süße Rahmen für jede Pause" data-en="The sweet touch for any break">Der süße Rahmen für jede Pause</li>
         </ul>
       </div>
@@ -1172,10 +1171,6 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
             <div>
               <label class="cl" data-de="Optional dazubuchen" data-en="Optional add-ons" style="display:block;margin-bottom:8px">Optional dazubuchen</label>
               <div class="addons">
-                <div class="addon" data-addon="barista">
-                  <div class="ainfo"><span class="an" data-de="Barista-Upgrade" data-en="Barista upgrade">Barista-Upgrade</span><span class="ap" data-de="Latte Art, Spezialitäten · 120 € pauschal" data-en="Latte art, specialties · €120 flat">Latte Art, Spezialitäten · 120 € pauschal</span></div>
-                  <span class="sw"></span>
-                </div>
                 <div class="addon" data-addon="cake">
                   <div class="ainfo"><span class="an" data-de="Kuchen aus dem Haus" data-en="House cake">Kuchen aus dem Haus</span><span class="ap" data-de="6 € pro Person" data-en="€6 per person">6 € pro Person</span></div>
                   <span class="sw"></span>
@@ -1350,14 +1345,13 @@ const PRICING = {
     evening: 550          // Abend-Event
   },
   addons: {
-    barista:  { type:'flat',    amount:120 },  // pauschal
     cake:     { type:'perHead', amount:6 },     // pro Person
     catering: { type:'perHead', amount:16 }     // pro Person
   }
 };
 
 /* ---- calculator state ---- */
-const calcState = { time:'half', people:20, barista:false, cake:false, catering:false };
+const calcState = { time:'half', people:20, cake:false, catering:false };
 
 function fmt(n){ return n.toLocaleString('de-AT'); }
 
@@ -1374,7 +1368,6 @@ function recalc(){
   const lines = [];
   lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(room)} €`);
 
-  if(calcState.barista){ const a=PRICING.addons.barista.amount; total+=a; lines.push(`${L?'Barista-Upgrade':'Barista upgrade'} +${fmt(a)} €`); }
   if(calcState.cake){ const a=PRICING.addons.cake.amount*n; total+=a; lines.push(`${L?'Kuchen':'Cake'} ${n}×${PRICING.addons.cake.amount} € = +${fmt(a)} €`); }
   if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Fingerfood':'Finger food'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
 
@@ -1415,7 +1408,7 @@ document.getElementById('toStep2').addEventListener('click',()=>{
   const step2=document.getElementById('step2');
   step2.classList.remove('locked');
   // recap chip in step 2
-  const adds=[]; if(calcState.barista)adds.push(L?'Barista':'Barista'); if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
   const recap=document.getElementById('recap');
   recap.innerHTML='<span><b>'+r.timeLbl+'</b> · '+calcState.people+' '+(L?'Personen':'people')+(adds.length?' · '+adds.join(', '):'')+'</span><span class="chip">ca. '+fmt(r.total)+' €</span>';
   recap.classList.add('show');
@@ -1477,11 +1470,12 @@ document.getElementById('toStep2').addEventListener('click',()=>{
   window.__renderCal=render; // re-render on language switch
 })();
 
-/* ---- submit: include calculated package ---- */
-document.getElementById('send').addEventListener('click',()=>{
+/* ---- submit: send via Web3Forms (no mail client needed); mailto stays as fallback ---- */
+const W3F_KEY = "REPLACE_WITH_WEB3FORMS_ACCESS_KEY"; // kostenlos auf web3forms.com holen (deine E-Mail eintragen)
+document.getElementById('send').addEventListener('click',async ()=>{
   const lang=document.documentElement.lang; const g=id=>(document.getElementById(id).value||'').trim(); const L=lang==='de';
   const r=recalc();
-  const adds=[]; if(calcState.barista)adds.push(L?'Barista-Upgrade':'Barista upgrade'); if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
 
   // --- light validation: name + valid email ---
   const nameEl=document.getElementById('n'), mailEl=document.getElementById('e');
@@ -1513,25 +1507,44 @@ document.getElementById('send').addEventListener('click',()=>{
   const subj=encodeURIComponent('phil space '+(L?'Anfrage':'enquiry')+(g('n')?(' - '+g('n')):''));
   const mailHref='mailto:zilberberg.jonathan@gmail.com?subject='+subj+'&body='+encodeURIComponent(body);
 
-  // --- on-page confirmation so the user SEES it went through ---
+  // --- summary + real send via Web3Forms (works without a mail client) ---
   const sent=document.getElementById('sent');
-  sent.innerHTML =
-    '<div class="sh"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'+
-      (L?'Anfrage zusammengestellt':'Enquiry ready')+'</div>'+
+  const summaryHtml=
     '<div class="ssum">'+
       '<b>'+g('n')+'</b>'+(g('o')?' · '+g('o'):'')+'<br>'+
       '<b>'+r.timeLbl+'</b> · <b>'+calcState.people+'</b> '+(L?'Personen':'people')+'<br>'+
       (adds.length?((L?'Zusatz: ':'Add-ons: ')+adds.join(', ')+'<br>'):'')+
       (L?'Wunschdatum: ':'Preferred date: ')+dateStr+'<br>'+
       (L?'ca. Richtpreis: ':'approx. guide price: ')+'<b>ca. '+fmt(r.total)+' €</b> '+(L?'(unverbindlich)':'(non-binding)')+
-    '</div>'+
-    '<div class="smail">'+(L?'Dein Mailprogramm öffnet sich mit der fertigen Anfrage. Öffnet es nicht? ':'Your mail app opens with the prefilled enquiry. Didn’t open? ')+
-      '<a href="'+mailHref+'">'+(L?'hier klicken':'click here')+'</a>.</div>';
-  sent.classList.add('show');
-  sent.scrollIntoView({behavior:'smooth', block:'center'});
+    '</div>';
+  const show=(title,tail)=>{
+    sent.innerHTML='<div class="sh"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>'+title+'</div>'+summaryHtml+(tail||'');
+    sent.classList.add('show'); sent.scrollIntoView({behavior:'smooth', block:'center'});
+  };
+  const mailTail='<div class="smail">'+(L?'Oder direkt per Mailprogramm: ':'Or use your mail app: ')+'<a href="'+mailHref+'">'+(L?'hier klicken':'click here')+'</a>.</div>';
+  const btn=document.getElementById('send'), orig=btn.innerHTML;
 
-  // open mail client
-  window.location.href=mailHref;
+  if(W3F_KEY && W3F_KEY.indexOf('REPLACE')===-1){
+    btn.disabled=true; btn.textContent=(L?'Wird gesendet…':'Sending…');
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
+        access_key:W3F_KEY,
+        subject:'phil space '+(L?'Anfrage':'enquiry')+(g('n')?(' – '+g('n')):''),
+        from_name:'phil space Website', replyto:g('e'),
+        Name:g('n'), 'Firma/Team':g('o')||'-', 'E-Mail':g('e'), Personen:calcState.people,
+        Leistung:r.timeLbl, Zusatz:(adds.length?adds.join(', '):(L?'keine':'none')),
+        Richtpreis:'ca. '+fmt(r.total)+' € '+(L?'(exkl. USt., unverbindlich)':'(excl. VAT)'),
+        Wunschdatum:dateStr, Details:g('m')||'-', message:body
+      })});
+      const data=await res.json().catch(()=>({}));
+      if(data.success){ show((L?'Anfrage gesendet ✓':'Enquiry sent ✓'),'<div class="smail">'+(L?'Danke! Wir melden uns werktags binnen 24 Stunden.':'Thanks! We reply within 24 hours on working days.')+'</div>'); }
+      else { show((L?'Senden hat nicht geklappt':'Sending failed'),mailTail); }
+    }catch(e){ show((L?'Senden hat nicht geklappt':'Sending failed'),mailTail); }
+    finally{ btn.disabled=false; btn.innerHTML=orig; }
+  } else {
+    show((L?'Anfrage zusammengestellt':'Enquiry ready'),mailTail);
+    window.location.href=mailHref;
+  }
 });
 
 // clear error state as the user types
