@@ -499,6 +499,20 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   .use{grid-template-columns:1fr;}.use .when{font-size:1.25rem;}
   .hero-chip{flex-direction:column;align-items:flex-start;gap:6px;}
 }
+
+/* ===== v4: micro-UI sharpening (Vollkorn stays the single voice, like cafephil.at) ===== */
+:root{ --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; }
+.tag,.fcol h4,.bk-sub,.calc-note,.equip-note,.plan-cap,.price-note,.eq .ed,.loc-item .li-d,.cpn,.ap,.legal summary,.foot-base,.hero-view,.logos-note{font-weight:500;letter-spacing:0.006em;}
+.fcol h4,.tag{letter-spacing:0.02em;}
+/* tabular data -> system mono for crispness */
+.calc .breakdown,.ppl input{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+.calc .breakdown{font-size:0.82rem;letter-spacing:-0.005em;}
+/* static facts bar (replaces the auto-scroll marquee) */
+.facts-bar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 22px;font-family:'Vollkorn',Georgia,serif;font-size:1.05rem;color:var(--ink-3);text-align:center;}
+.facts-bar span{white-space:nowrap;}
+.facts-bar b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
+.facts-bar .sep{color:var(--acc);}
+@media(max-width:520px){.facts-bar{font-size:0.98rem;gap:4px 16px;}.facts-bar .sep{display:none;}}
 </style>
 </head>
 <body>
@@ -510,7 +524,6 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
       <a href="#top" class="logo">phil <i>space</i></a>
       <nav class="nav-mid" id="navMid">
         <a href="#nutzung" data-de="Nutzung" data-en="Uses">Nutzung</a>
-        <a href="#anlaesse" data-de="Anlässe" data-en="Occasions">Anlässe</a>
         <a href="#raum" data-de="Der Raum" data-en="The room">Der Raum</a>
         <a href="#grundriss" data-de="Grundriss" data-en="Floor plan">Grundriss</a>
         <a href="#galerie" data-de="Galerie" data-en="Gallery">Galerie</a>
@@ -555,7 +568,13 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
       </div>
     </figure>
   </div>
-  <div class="wrap"><div class="strip"><div class="track" id="track" aria-hidden="true"></div></div></div>
+  <div class="wrap"><div class="strip"><div class="facts-bar">
+    <span><b>66</b> m²</span><span class="sep">·</span>
+    <span><b>3,80 m</b> <span data-de="Raumhöhe" data-en="ceiling">Raumhöhe</span></span><span class="sep">·</span>
+    <span><span data-de="bis" data-en="up to">bis</span> <b>60</b> <span data-de="Personen" data-en="people">Personen</span></span><span class="sep">·</span>
+    <span><b>3</b> <span data-de="U-Bahnen fußläufig" data-en="subway lines">U-Bahnen fußläufig</span></span><span class="sep">·</span>
+    <span><span data-de="ab" data-en="from">ab</span> <b>390 €</b></span>
+  </div></div></div>
 </section>
 
 <section id="nutzung">
@@ -603,12 +622,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== ANLÄSSE ===== -->
-<section id="anlaesse">
-  <div class="wrap">
+    <div style="height:clamp(40px,6vw,68px)" aria-hidden="true"></div>
     <div class="lead-2 stack rv">
       <h2 data-de="Wofür phil space gebucht wird" data-en="What phil space gets booked for">Wofür phil space gebucht wird</h2>
       <p class="sub" data-de="Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren." data-en="One room, many formats. A few occasions that work especially well here.">Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren.</p>
@@ -1036,12 +1050,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
       </div>
     </div>
     <p class="price-note rv" style="text-align:center" data-de="Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen." data-en="All amounts excl. VAT · “from” prices for small groups. Bookable daily from 9 am, evening events until 11 pm. Build your exact guide price below in seconds.">Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen.</p>
-  </div>
-</section>
-
-<!-- ===== ESSEN & TRINKEN ===== -->
-<section id="catering">
-  <div class="wrap">
+    <div style="height:clamp(40px,6vw,68px)" aria-hidden="true"></div>
     <div class="lead-2 stack rv">
       <h2 data-de="Essen & Trinken dazu" data-en="Add food & drinks">Essen & Trinken dazu</h2>
       <p class="sub" data-de="Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner." data-en="Drinks, coffee, tea, fruit and snacks are always included. For more, add one of these packages and we arrange it through our partners.">Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner.</p>
@@ -1306,18 +1315,12 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 </footer>
 
 <script>
-(function(){
-  const items=[{de:'Strategieklausuren',en:'Strategy retreats'},{de:'Team-Offsites',en:'Team offsites'},{de:'Workshops',en:'Workshops'},{de:'Lesungen',en:'Readings'},{de:'Vernissagen',en:'Openings'},{de:'Schulungen',en:'Trainings'},{de:'Firmenfeiern',en:'Company parties'},{de:'Produkt-Launches',en:'Product launches'}];
-  window.__m=items; renderM('de');
-})();
-function renderM(lang){ const t=document.getElementById('track'); const one=window.__m.map(i=>`<span><b>${i[lang]}</b></span><span class="sep">·</span>`).join(''); t.innerHTML=one+one; }
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('lDe').classList.toggle('on',lang==='de');
   document.getElementById('lEn').classList.toggle('on',lang==='en');
   document.querySelectorAll('[data-de]').forEach(el=>{ const v=el.getAttribute('data-'+lang); if(v!==null) el.innerHTML=v; });
   document.querySelectorAll('[data-de-ph]').forEach(el=>{ const v=el.getAttribute('data-'+lang+'-ph'); if(v!==null) el.setAttribute('placeholder',v); });
-  renderM(lang);
   try{ if(window.__renderCal) window.__renderCal(); }catch(e){}
   try{ if(typeof recalc==='function') recalc(); }catch(e){}
   try{ localStorage.setItem('philspace_lang',lang);}catch(e){}
