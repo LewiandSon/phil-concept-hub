@@ -5,6 +5,7 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FEFCF8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 <title>phil space · Workshops & Seminare im Cafe phil, Wien</title>
 <meta name="description" content="phil space - der Seminar- und Veranstaltungsraum im Souterrain des Cafe phil, Gumpendorfer Straße, 1060 Wien. 115 m² exklusiv (66 m² Seminarraum), 3,80 m Raumhöhe, bis 60 Personen.">
 <meta property="og:title" content="phil space · Workshops & Seminare im Cafe phil">
@@ -516,6 +517,33 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 .facts-bar b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
 .facts-bar .sep{color:var(--acc);}
 @media(max-width:520px){.facts-bar{font-size:0.98rem;gap:4px 16px;}.facts-bar .sep{display:none;}}
+
+/* ===== v5 motion: scroll reveal (only with JS, respects reduced motion) ===== */
+.js .rv{opacity:0;translate:0 22px;transition:opacity .75s var(--ease) var(--d,0s),translate .75s var(--ease) var(--d,0s),transform .35s var(--ease),border-color .35s var(--ease),background-color .35s var(--ease),box-shadow .35s var(--ease);}
+.js .rv.in{opacity:1;translate:none;}
+.js .hero-figure.rv,.js .space-media.rv{opacity:1;translate:none;}
+.js .hero-figure.rv::after,.js .space-media.rv::after{content:'';position:absolute;inset:0;z-index:5;pointer-events:none;background:var(--bg);transform-origin:50% 0;transition:transform 1.15s var(--ease-soft) var(--d,0s);}
+.js .hero-figure.rv.in::after,.js .space-media.rv.in::after{transform:scaleY(0);}
+@media (prefers-reduced-motion: reduce){.js .rv{opacity:1;translate:none;transition:none;}.js .hero-figure.rv::after,.js .space-media.rv::after{display:none;}}
+
+/* nav: keep logo on one line on small phones */
+.logo{white-space:nowrap;}
+@media(max-width:420px){.nav-inner{padding:0 10px 0 14px;}.nav-end{gap:8px;}.lang button{padding:5px 6px;}}
+@media(max-width:380px){.nav .btn-sm{padding:9px 13px;}.nav .btn-sm .arr{display:none;}}
+
+/* occasions as chips (merged into Nutzung) */
+.occ-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(22px,3vw,32px);align-items:center;}
+.occ-chips .lbl{font-size:0.88rem;color:var(--ink-3);font-weight:500;margin-right:6px;}
+.occ-chips .oc{font-size:0.9rem;color:var(--ink-2);border:1px solid var(--line);background:var(--bg-2);border-radius:999px;padding:7px 14px;}
+
+/* coffee band */
+#kaffee{background:color-mix(in oklch, var(--bg-2) 45%, var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.coffee{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);align-items:center;max-width:900px;margin:0 auto;}
+.coffee-mark{width:clamp(76px,9vw,108px);height:clamp(76px,9vw,108px);border-radius:50%;display:grid;place-items:center;background:var(--acc);color:var(--on-acc);box-shadow:0 14px 34px -16px oklch(0.568 0.211 24 / 0.6);}
+.coffee h2{font-family:'Vollkorn';font-weight:400;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;}
+.coffee h2 .it{font-style:italic;color:var(--acc);}
+.coffee .sub{font-size:1.02rem;color:var(--ink-2);max-width:56ch;}
+@media(max-width:620px){.coffee{grid-template-columns:1fr;gap:18px;}}
 </style>
 </head>
 <body>
@@ -554,7 +582,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
     <div>
       <div class="place"><span class="pulse"></span><span data-de="Gumpendorfer Straße 10–12 · 1060 Wien" data-en="Gumpendorfer Straße 10–12 · Vienna 1060">Gumpendorfer Straße 10–12 · 1060 Wien</span></div>
       <h1 data-de='Der schönste <span class="it">Meetingraum</span> Wiens liegt unter einem Kaffeehaus.' data-en='Vienna’s finest <span class="it">meeting room</span> sits beneath a coffeehouse.'>Der schönste <span class="it">Meetingraum</span> Wiens liegt unter einem Kaffeehaus.</h1>
-      <p class="lede" data-de="phil space ist das ausgebaute Souterrain des Cafe phil — 115 m² exklusiv nur für euch, davon 66 m² Seminarraum unter 3,80 m hohen Decken, Tageslicht, bis zu 60 Personen. Espresso und Buchhandlung gibt es eine Stiege höher." data-en="phil space is the finished lower floor of Cafe phil — 115 m² exclusively yours, including a 66 m² seminar room under 3.8 m ceilings, daylight, up to 60 people. Espresso and a bookshop are one flight up.">phil space ist das ausgebaute Souterrain des Cafe phil — 115 m² exklusiv nur für euch, davon 66 m² Seminarraum unter 3,80 m hohen Decken, Tageslicht, bis zu 60 Personen. Espresso und Buchhandlung gibt es eine Stiege höher.</p>
+      <p class="lede" data-de="Das ganze Souterrain des Cafe phil, exklusiv für euch: 115 m², 3,80 m Raumhöhe, Tageslicht und Platz für bis zu 60 Personen. Kaffee aus unseren eigenen Bohnen ist inklusive." data-en="The entire lower floor of Cafe phil, exclusively yours: 115 m², 3.8 m ceilings, daylight and room for up to 60 people. Coffee from our own beans is included.">Das ganze Souterrain des Cafe phil, exklusiv für euch: 115 m², 3,80 m Raumhöhe, Tageslicht und Platz für bis zu 60 Personen. Kaffee aus unseren eigenen Bohnen ist inklusive.</p>
       <div class="hero-cta">
         <a href="#anfrage" class="btn btn-primary" data-de="Termin anfragen" data-en="Request a date">Termin anfragen<span class="arr">→</span></a>
         <a href="#raum" class="btn btn-glass" data-de="Raum ansehen" data-en="See the room">Raum ansehen</a>
@@ -576,86 +604,19 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
     <span><b>3,80 m</b> <span data-de="Raumhöhe" data-en="ceiling">Raumhöhe</span></span><span class="sep">·</span>
     <span><span data-de="bis" data-en="up to">bis</span> <b>60</b> <span data-de="Personen" data-en="people">Personen</span></span><span class="sep">·</span>
     <span><b>3</b> <span data-de="U-Bahnen fußläufig" data-en="subway lines">U-Bahnen fußläufig</span></span><span class="sep">·</span>
-    <span><span data-de="ab" data-en="from">ab</span> <b>390 €</b></span>
+    <span><span data-de="ab" data-en="from">ab</span> <b>650 €</b></span>
   </div></div></div>
 </section>
 
 <section id="nutzung">
   <div class="wrap">
-    <div class="lead-2 rv">
-      <h2 data-de="Gebucht wird der Tag, nicht der Tisch." data-en="You book the day, not the table.">Gebucht wird der Tag, nicht der Tisch.</h2>
-      <p class="sub" data-de="Ein Preis, eine Ansprechperson. <strong>Raum, Hauskaffee, Getränke, Obstkorb und Snacks sind inklusive</strong>, Technik steht bereit, Catering organisieren wir auf Wunsch dazu." data-en="One price, one contact. <strong>Room, house coffee, drinks, a fruit basket and snacks are included</strong>, tech is ready, catering arranged on request.">Ein Preis, eine Ansprechperson. <strong>Raum, Hauskaffee, Getränke, Obstkorb und Snacks sind inklusive</strong>, Technik steht bereit, Catering organisieren wir auf Wunsch dazu.</p>
-    </div>
+    <div class="lead-2 rv"><h2 data-de="Gebucht wird der Tag, nicht der Tisch." data-en="You book the day, not the table.">Gebucht wird der Tag, nicht der Tisch.</h2><p class="sub" data-de="Ein Fixpreis, eine Ansprechperson. &lt;strong&gt;Raum, Technik, Kaffee, Getränke und Snacks sind drin.&lt;/strong&gt;" data-en="One fixed price, one contact. &lt;strong&gt;Room, tech, coffee, drinks and snacks included.&lt;/strong&gt;">Ein Fixpreis, eine Ansprechperson. <strong>Raum, Technik, Kaffee, Getränke und Snacks sind drin.</strong></p></div>
     <div class="uses">
-      <div class="use rv">
-        <div class="when" data-de="tagsüber" data-en="daytime">tagsüber</div>
-        <div>
-          <h3 data-de="Seminare & Firmenworkshops" data-en="Seminars & company workshops">Seminare & Firmenworkshops</h3>
-          <p data-de="Tageslicht über zwei Lichtschächte, abseits des Gastraums. Bestuhlung frei wählbar, vom Stuhlkreis bis zur Workshop-Insel." data-en="Daylight through two shafts, set apart from the café floor. Seating your way, from a circle to workshop clusters.">Tageslicht über zwei Lichtschächte, abseits des Gastraums. Bestuhlung frei wählbar, vom Stuhlkreis bis zur Workshop-Insel.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Flatscreen</span><span class="tag">WLAN</span>
-          <span class="tag" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span>
-          <span class="tag" data-de="Pausenkaffee" data-en="Break coffee">Pausenkaffee</span>
-          <span class="tag" data-de="Obstkorb & Snacks" data-en="Fruit & snacks">Obstkorb & Snacks</span>
-        </div>
-      </div>
-      <div class="use rv">
-        <div class="when" data-de="abends" data-en="evenings">abends</div>
-        <div>
-          <h3 data-de="Firmen- & Kulturabende" data-en="Company & cultural evenings">Firmen- & Kulturabende</h3>
-          <p data-de="Firmenevents, Buchpräsentationen, Lesungen und Empfänge. Bei Lampenlicht wird der Raum warm und ruhig, auch für kleinere private Anlässe wie einen runden Geburtstag." data-en="Company events, book launches, readings and receptions. By lamplight the room turns warm and calm, and works for smaller private occasions such as a milestone birthday.">Firmenevents, Buchpräsentationen, Lesungen und Empfänge. Bei Lampenlicht wird der Raum warm und ruhig, auch für kleinere private Anlässe wie einen runden Geburtstag.</p>
-        </div>
-        <div class="tags">
-          <span class="tag" data-de="Empfang" data-en="Reception">Empfang</span>
-          <span class="tag" data-de="Sound & Mikro" data-en="Sound & mic">Sound & Mikro</span>
-          <span class="tag" data-de="Stimmungslicht" data-en="Mood lighting">Stimmungslicht</span>
-        </div>
-      </div>
-      <div class="use rv">
-        <div class="when" data-de="dazwischen" data-en="in between">dazwischen</div>
-        <div>
-          <h3 data-de="Lesungen, Vernissagen & Pop-ups" data-en="Readings, openings & pop-ups">Lesungen, Vernissagen & Pop-ups</h3>
-          <p data-de="Eine Buchhandlung über der Stiege, ein Raum für Ausstellungen darunter. Gemacht für Vernissagen, Lesungen und kleine Konzerte." data-en="A bookshop above the stairs, a room for shows below. Made for openings, readings and small concerts.">Eine Buchhandlung über der Stiege, ein Raum für Ausstellungen darunter. Gemacht für Vernissagen, Lesungen und kleine Konzerte.</p>
-        </div>
-        <div class="tags">
-          <span class="tag" data-de="Ausstellung" data-en="Exhibition">Ausstellung</span>
-          <span class="tag" data-de="Bühne" data-en="Stage">Bühne</span>
-          <span class="tag">Pop-up</span>
-        </div>
-      </div>
+      <div class="use rv"><div class="when" data-de="tagsüber" data-en="daytime">tagsüber</div><div><h3 data-de="Seminare &amp; Workshops" data-en="Seminars &amp; workshops">Seminare &amp; Workshops</h3><p data-de="Tageslicht über zwei Lichtschächte, Bestuhlung frei wählbar." data-en="Daylight through two light shafts, seating your way.">Tageslicht über zwei Lichtschächte, Bestuhlung frei wählbar.</p></div><div class="tags"><span class="tag" data-de="Flatscreen" data-en="Flatscreen">Flatscreen</span><span class="tag" data-de="WLAN" data-en="Wi-Fi">WLAN</span><span class="tag" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span><span class="tag" data-de="Flipchart" data-en="Flipchart">Flipchart</span></div></div>
+      <div class="use rv"><div class="when" data-de="abends" data-en="evenings">abends</div><div><h3 data-de="Firmenevents &amp; Empfänge" data-en="Company events &amp; receptions">Firmenevents &amp; Empfänge</h3><p data-de="Bei Lampenlicht wird der Raum warm und ruhig. Für Feiern, Launches und Networking." data-en="By lamplight the room turns warm and calm. For parties, launches and networking.">Bei Lampenlicht wird der Raum warm und ruhig. Für Feiern, Launches und Networking.</p></div><div class="tags"><span class="tag" data-de="Sound &amp; Mikro" data-en="Sound &amp; mic">Sound &amp; Mikro</span><span class="tag" data-de="Stimmungslicht" data-en="Mood lighting">Stimmungslicht</span><span class="tag" data-de="Empfang" data-en="Reception">Empfang</span></div></div>
+      <div class="use rv"><div class="when" data-de="dazwischen" data-en="in between">dazwischen</div><div><h3 data-de="Lesungen &amp; Vernissagen" data-en="Readings &amp; openings">Lesungen &amp; Vernissagen</h3><p data-de="Oben die Buchhandlung, unten die Bühne. Für Literatur, Kunst und kleine Konzerte." data-en="Bookshop upstairs, stage downstairs. For literature, art and small concerts.">Oben die Buchhandlung, unten die Bühne. Für Literatur, Kunst und kleine Konzerte.</p></div><div class="tags"><span class="tag" data-de="Ausstellung" data-en="Exhibition">Ausstellung</span><span class="tag" data-de="Bühne" data-en="Stage">Bühne</span><span class="tag" data-de="Pop-up" data-en="Pop-up">Pop-up</span></div></div>
     </div>
-    <div style="height:clamp(40px,6vw,68px)" aria-hidden="true"></div>
-    <div class="lead-2 stack rv">
-      <h2 data-de="Wofür phil space gebucht wird" data-en="What phil space gets booked for">Wofür phil space gebucht wird</h2>
-      <p class="sub" data-de="Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren." data-en="One room, many formats. A few occasions that work especially well here.">Ein Raum, viele Formate. Ein paar Anlässe, die hier besonders gut funktionieren.</p>
-    </div>
-    <div class="occasions rv">
-      <div class="occ">
-        <h4 data-de="Team-Offsite" data-en="Team offsite">Team-Offsite</h4>
-        <p data-de="Raus aus dem Büro, rein ins Kaffeehaus. Ein ganzer Tag ungestört, mit Pausen bei Espresso eine Stiege höher." data-en="Out of the office, into the coffeehouse. A full undisturbed day, with breaks over espresso one flight up.">Raus aus dem Büro, rein ins Kaffeehaus. Ein ganzer Tag ungestört, mit Pausen bei Espresso eine Stiege höher.</p>
-      </div>
-      <div class="occ">
-        <h4 data-de="Strategie-Klausur" data-en="Strategy session">Strategie-Klausur</h4>
-        <p data-de="Exklusiv und vertraulich, abseits des Gastraums. Der ruhige Rahmen für Entscheidungen, die Konzentration brauchen." data-en="Exclusive and confidential, away from the café floor. The quiet setting for decisions that need focus.">Exklusiv und vertraulich, abseits des Gastraums. Der ruhige Rahmen für Entscheidungen, die Konzentration brauchen.</p>
-      </div>
-      <div class="occ">
-        <h4 data-de="Workshop & Training" data-en="Workshop & training">Workshop & Training</h4>
-        <p data-de="Flexible Bestuhlung, Flatscreen, Moderationskoffer und Tageslicht. Von der Workshop-Insel bis zur Schulung in Reihen." data-en="Flexible seating, a flatscreen, facilitation kit and daylight. From workshop clusters to classroom rows.">Flexible Bestuhlung, Flatscreen, Moderationskoffer und Tageslicht. Von der Workshop-Insel bis zur Schulung in Reihen.</p>
-      </div>
-      <div class="occ">
-        <h4 data-de="Produkt-Launch & Präsentation" data-en="Product launch & presentation">Produkt-Launch & Präsentation</h4>
-        <p data-de="Großbildschirm, Sound und ein Raum mit Charakter. Für Keynotes, Pressetermine und Vorstellungen mit Wow-Effekt." data-en="A flatscreen, sound and a room with character. For keynotes, press dates and launches with a wow.">Großbildschirm, Sound und ein Raum mit Charakter. Für Keynotes, Pressetermine und Vorstellungen mit Wow-Effekt.</p>
-      </div>
-      <div class="occ">
-        <h4 data-de="Buchpräsentation & Lesung" data-en="Book launch & reading">Buchpräsentation & Lesung</h4>
-        <p data-de="Eine Buchhandlung über der Stiege, ein Raum darunter. Die naheliegendste Bühne Wiens für Literatur und Gespräch." data-en="A bookshop above the stairs, a room below. Vienna’s most natural stage for literature and conversation.">Eine Buchhandlung über der Stiege, ein Raum darunter. Die naheliegendste Bühne Wiens für Literatur und Gespräch.</p>
-      </div>
-      <div class="occ">
-        <h4 data-de="Firmenempfang & Networking" data-en="Company reception & networking">Firmenempfang & Networking</h4>
-        <p data-de="Am Abend wird der Raum warm und einladend. Stehempfang für bis zu 60 Gäste, mit Getränken und Fingerfood dazu." data-en="In the evening the room turns warm and inviting. Standing reception for up to 60 guests, with drinks and finger food.">Am Abend wird der Raum warm und einladend. Stehempfang für bis zu 60 Gäste, mit Getränken und Fingerfood dazu.</p>
-      </div>
-    </div>
+    <div class="occ-chips rv"><span class="lbl" data-de="Oft gebucht für" data-en="Often booked for">Oft gebucht für</span><span class="oc" data-de="Team-Offsite" data-en="Team offsite">Team-Offsite</span><span class="oc" data-de="Strategie-Klausur" data-en="Strategy retreat">Strategie-Klausur</span><span class="oc" data-de="Training" data-en="Training">Training</span><span class="oc" data-de="Produkt-Launch" data-en="Product launch">Produkt-Launch</span><span class="oc" data-de="Buchpräsentation" data-en="Book launch">Buchpräsentation</span><span class="oc" data-de="Firmenfeier" data-en="Company party">Firmenfeier</span></div>
   </div>
 </section>
 
@@ -681,14 +642,9 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
       <span class="frame"></span>
     </figure>
     <div>
-      <h2 class="rv" data-de="Ein Souterrain mit Raumhöhe statt Kellergefühl." data-en="A lower floor with real height, not a cellar feel.">Ein Souterrain mit Raumhöhe statt Kellergefühl.</h2>
-      <p class="body rv" data-de="115 m² Souterrain, davon 66 m² Seminarraum. 3,80 m hohe Decken, natürlich belichtet und belüftet über zwei Lichtschächte, mit eigener Garderobe, WC und Teeküche. Erreicht über eine neue Stahlwangentreppe, direkt aus dem Kaffeehaus. Während eurer Buchung exklusiv: Das Souterrain gehört euch allein, ruhig und ungestört." data-en="115 m² of Souterrain, 66 m² of it the seminar room. 3.8 m ceilings, naturally lit and ventilated through two light shafts, with its own cloakroom, WC and tea kitchen. Reached by a new steel staircase straight from the coffeehouse. Exclusively yours during your booking, quiet and undisturbed.">115 m² Souterrain, davon 66 m² Seminarraum. 3,80 m hohe Decken, natürlich belichtet und belüftet über zwei Lichtschächte, mit eigener Garderobe, WC und Teeküche. Erreicht über eine neue Stahlwangentreppe, direkt aus dem Kaffeehaus. Während eurer Buchung exklusiv: Das Souterrain gehört euch allein, ruhig und ungestört.</p>
-      <div class="facts rv">
-        <div class="fact"><div class="n">66 <small>m²</small></div><div class="l" data-de="Seminarraum" data-en="Seminar room">Seminarraum</div></div>
-        <div class="fact"><div class="n">3,80 <small>m</small></div><div class="l" data-de="Raumhöhe" data-en="Ceiling height">Raumhöhe</div></div>
-        <div class="fact"><div class="n">60</div><div class="l" data-de="Personen, maximal" data-en="People, maximum">Personen, maximal</div></div>
-        <div class="fact"><div class="n">49 <small>m²</small></div><div class="l" data-de="Nebenraum: Garderobe, WC, Teeküche" data-en="Annexe: cloakroom, WC, tea kitchen">Nebenraum: Garderobe, WC, Teeküche</div></div>
-      </div>
+      <h2 class="rv" data-de="Souterrain mit Raumhöhe statt Kellergefühl." data-en="A lower floor with real height, not a cellar feel.">Souterrain mit Raumhöhe statt Kellergefühl.</h2>
+      <p class="body rv" data-de="115 m², davon 66 m² Seminarraum. 3,80 m hohe Decken, Tageslicht und frische Luft über zwei Lichtschächte, eigene Garderobe, WCs und Küche. Über die Stahltreppe direkt aus dem Kaffeehaus erreichbar, und während eurer Buchung gehört alles euch." data-en="115 m², 66 m² of it the seminar room. 3.8 m ceilings, daylight and fresh air through two light shafts, your own cloakroom, WCs and kitchen. Reached by the steel staircase straight from the coffeehouse, and during your booking it is all yours.">115 m², davon 66 m² Seminarraum. 3,80 m hohe Decken, Tageslicht und frische Luft über zwei Lichtschächte, eigene Garderobe, WCs und Küche. Über die Stahltreppe direkt aus dem Kaffeehaus erreichbar, und während eurer Buchung gehört alles euch.</p>
+      <div class="facts rv"><div class="fact"><div class="n">115 <small>m²</small></div><div class="l" data-de="Gesamt, exklusiv für euch" data-en="Total, exclusively yours">Gesamt, exklusiv für euch</div></div><div class="fact"><div class="n">66 <small>m²</small></div><div class="l" data-de="Seminarraum" data-en="Seminar room">Seminarraum</div></div><div class="fact"><div class="n">3,80 <small>m</small></div><div class="l" data-de="Raumhöhe" data-en="Ceiling height">Raumhöhe</div></div><div class="fact"><div class="n">60</div><div class="l" data-de="Personen, maximal" data-en="People, maximum">Personen, maximal</div></div></div>
     </div>
   </div>
 </section>
@@ -697,8 +653,8 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 <section id="grundriss" class="space">
   <div class="wrap">
     <div class="lead-2 rv">
-      <h2 data-de="Der Grundriss" data-en="The floor plan">Der Grundriss</h2>
-      <p class="sub" data-de="Der Hauptraum mit 66 m² ist das Herzstück: Großbildschirm an der Stirnseite, fixe Sitzbänke längs, frei bestuhlbar. Daneben Entree mit Treppe, zwei WCs und die Küche im runden Erker, die als Breakout-Area mitgenutzt wird." data-en="The 66 m² main room is the heart: a flatscreen at the end wall, fixed benches along the sides, freely seated. Alongside, the entrance with stairs, two WCs and the kitchen in the rounded bay, doubling as a breakout area.">Der Hauptraum mit 66 m² ist das Herzstück: Großbildschirm an der Stirnseite, fixe Sitzbänke längs, frei bestuhlbar. Daneben Entree mit Treppe, zwei WCs und die Küche im runden Erker, die als Breakout-Area mitgenutzt wird.</p>
+      <h2 data-de="So ist der Raum geschnitten." data-en="How the space is laid out.">So ist der Raum geschnitten.</h2>
+      <p class="sub" data-de="Herzstück ist der Hauptraum mit dem Großbildschirm an der Stirnseite. Daneben Entree, zwei WCs und die Küche im runden Erker, eure Breakout-Zone." data-en="The heart is the main room with the large screen on the end wall. Alongside: the entrance, two WCs and the kitchen in the round bay, your breakout zone.">Herzstück ist der Hauptraum mit dem Großbildschirm an der Stirnseite. Daneben Entree, zwei WCs und die Küche im runden Erker, eure Breakout-Zone.</p>
     </div>
     <div class="plan-wrap rv">
             <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grundriss phil space Eventbereich">
@@ -864,53 +820,28 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 <!-- ===== AUSSTATTUNG ===== -->
 <section id="ausstattung">
   <div class="wrap">
-    <div class="lead-2 stack rv">
-      <h2 data-de="Alles da, was ein Workshop braucht" data-en="Everything a workshop needs">Alles da, was ein Workshop braucht</h2>
-      <p class="sub" data-de="Komplett ausgestattet und im Preis enthalten. Anstecken, loslegen, keine Technik-Überraschungen am Morgen." data-en="Fully equipped and included in the price. Plug in, start, no tech surprises in the morning.">Komplett ausgestattet und im Preis enthalten. Anstecken, loslegen, keine Technik-Überraschungen am Morgen.</p>
-    </div>
+    <div class="lead-2 stack rv"><h2 data-de="Anstecken, loslegen." data-en="Plug in, get going.">Anstecken, loslegen.</h2><p class="sub" data-de="Alles da und im Preis drin. Keine Technik-Überraschungen am Morgen." data-en="Everything is here and included. No tech surprises in the morning.">Alles da und im Preis drin. Keine Technik-Überraschungen am Morgen.</p></div>
     <div class="equip rv">
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg>
-        <span class="en" data-de="Großer Flatscreen" data-en="Large flatscreen">Großer Flatscreen</span>
-        <span class="ed" data-de="Anschluss über HDMI & USB-C" data-en="Connect via HDMI & USB-C">Anschluss über HDMI & USB-C</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
-        <span class="en" data-de="Schnelles WLAN" data-en="Fast Wi-Fi">Schnelles WLAN</span>
-        <span class="ed" data-de="Stabil für hybride Calls über euren Laptop" data-en="Stable for hybrid calls via your laptop">Stabil für hybride Calls über euren Laptop</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
-        <span class="en" data-de="Sound & Mikrofon" data-en="Sound & microphone">Sound & Mikrofon</span>
-        <span class="ed" data-de="Musik, Stimme und Präsentationston" data-en="Music, voice and presentation audio">Musik, Stimme und Präsentationston</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="13" rx="1.5"/><path d="M12 16v5M8 21h8"/></svg>
-        <span class="en" data-de="Flipchart & Whiteboard" data-en="Flipchart & whiteboard">Flipchart & Whiteboard</span>
-        <span class="ed" data-de="Inklusive Papier und Stiften" data-en="Paper and pens included">Inklusive Papier und Stiften</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-        <span class="en" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span>
-        <span class="ed" data-de="Karten, Marker, Klebepunkte, Pins" data-en="Cards, markers, dots, pins">Karten, Marker, Klebepunkte, Pins</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <span class="en" data-de="Szenenbeleuchtung" data-en="Scene lighting">Szenenbeleuchtung</span>
-        <span class="ed" data-de="Dimmbar, von Workshop bis Abendlicht" data-en="Dimmable, from workshop to evening mood">Dimmbar, von Workshop bis Abendlicht</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg>
-        <span class="en" data-de="Teeküche" data-en="Tea kitchen">Teeküche</span>
-        <span class="ed" data-de="Kühlschränke, Ofen, Geschirrspüler" data-en="Fridges, oven, dishwasher">Kühlschränke, Ofen, Geschirrspüler</span>
-      </div>
-      <div class="eq">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
-        <span class="en" data-de="Eigene Lüftung" data-en="Own ventilation">Eigene Lüftung</span>
-        <span class="ed" data-de="Frische Luft, auch bei vollem Raum" data-en="Fresh air, even with a full room">Frische Luft, auch bei vollem Raum</span>
-      </div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg><span class="en" data-de="Großer Flatscreen" data-en="Large flatscreen">Großer Flatscreen</span><span class="ed" data-de="HDMI &amp; USB-C" data-en="HDMI &amp; USB-C">HDMI &amp; USB-C</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg><span class="en" data-de="Schnelles WLAN" data-en="Fast Wi-Fi">Schnelles WLAN</span><span class="ed" data-de="Stabil für hybride Calls" data-en="Stable for hybrid calls">Stabil für hybride Calls</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg><span class="en" data-de="Sound &amp; Mikrofon" data-en="Sound &amp; microphone">Sound &amp; Mikrofon</span><span class="ed" data-de="Für Vortrag und Musik" data-en="For talks and music">Für Vortrag und Musik</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="13" rx="1.5"/><path d="M12 16v5M8 21h8"/></svg><span class="en" data-de="Flipchart &amp; Whiteboard" data-en="Flipchart &amp; whiteboard">Flipchart &amp; Whiteboard</span><span class="ed" data-de="Papier und Stifte inklusive" data-en="Paper and pens included">Papier und Stifte inklusive</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span class="en" data-de="Moderationskoffer" data-en="Facilitation kit">Moderationskoffer</span><span class="ed" data-de="Karten, Marker, Pins" data-en="Cards, markers, pins">Karten, Marker, Pins</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><span class="en" data-de="Dimmbares Licht" data-en="Dimmable lighting">Dimmbares Licht</span><span class="ed" data-de="Von Workshop bis Abend" data-en="From workshop to evening">Von Workshop bis Abend</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg><span class="en" data-de="Eigene Küche" data-en="Own kitchen">Eigene Küche</span><span class="ed" data-de="Kühlschrank, Ofen, Geschirrspüler" data-en="Fridge, oven, dishwasher">Kühlschrank, Ofen, Geschirrspüler</span></div>
+      <div class="eq"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg><span class="en" data-de="Eigene Lüftung" data-en="Own ventilation">Eigene Lüftung</span><span class="ed" data-de="Frische Luft, auch bei vollem Raum" data-en="Fresh air, even when full">Frische Luft, auch bei vollem Raum</span></div>
     </div>
-    <p class="equip-note rv" data-de="Exklusiv und ungestört: Während eurer Buchung gehört das Souterrain nur euch, vom Kaffeehaus hört man nichts. Kein fixes Videokonferenz-Setup vor Ort, hybride Calls laufen über euren Laptop, Flatscreen und WLAN." data-en="Exclusive and undisturbed: during your booking the Souterrain is yours alone, and you won’t hear the coffeehouse. No fixed video-conference rig on site, hybrid calls run via your laptop, a flatscreen and Wi-Fi.">Exklusiv und ungestört: Während eurer Buchung gehört das Souterrain nur euch, vom Kaffeehaus hört man nichts. Kein fixes Videokonferenz-Setup vor Ort, hybride Calls laufen über euren Laptop, Flatscreen und WLAN.</p>
+    <p class="equip-note rv" data-de="Kein fixes Videokonferenz-Setup: Hybride Calls laufen über euren Laptop am Flatscreen." data-en="No fixed video-conference rig: hybrid calls run via your laptop on the flatscreen.">Kein fixes Videokonferenz-Setup: Hybride Calls laufen über euren Laptop am Flatscreen.</p>
+  </div>
+</section>
+
+<!-- ===== KAFFEE ===== -->
+<section id="kaffee">
+  <div class="wrap">
+    <div class="coffee rv">
+      <div class="coffee-mark" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 9h1.5a3 3 0 0 1 0 6H17"/><path d="M4 9h13v6.5A4.5 4.5 0 0 1 12.5 20h-4A4.5 4.5 0 0 1 4 15.5V9z"/><path d="M8 3.5c0 1 .9 1.4.9 2.5M12 3.5c0 1 .9 1.4.9 2.5"/></svg></div>
+      <div><h2 data-de="Guter Kaffee, &lt;span class=&quot;it&quot;&gt;bessere&lt;/span&gt; Ideen." data-en="Good coffee, &lt;span class=&quot;it&quot;&gt;better&lt;/span&gt; ideas.">Guter Kaffee, <span class="it">bessere</span> Ideen.</h2><p class="sub" data-de="Unsere hauseigenen Bohnen, frisch gemahlen von einer Schweizer Eversys: Siebträger-Qualität auf Knopfdruck, den ganzen Tag. Espresso, Cappuccino &amp; Co. sind im Preis inklusive." data-en="Our own house beans, freshly ground by a Swiss Eversys: portafilter quality at the touch of a button, all day long. Espresso, cappuccino &amp; co. are included in the price.">Unsere hauseigenen Bohnen, frisch gemahlen von einer Schweizer Eversys: Siebträger-Qualität auf Knopfdruck, den ganzen Tag. Espresso, Cappuccino &amp; Co. sind im Preis inklusive.</p></div>
+    </div>
   </div>
 </section>
 
@@ -919,7 +850,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   <div class="wrap">
     <div class="lead-2 stack rv">
       <h2 data-de="Ein Rundgang in Bewegung" data-en="A walkthrough in motion">Ein Rundgang in Bewegung</h2>
-      <p class="sub" data-de="Wie der Raum wirkt, wenn das Licht durch die Schächte fällt und sich der Tisch füllt. Am besten als kurzes Video." data-en="How the room feels when light pours through the shafts and the table fills up. Best seen as a short clip.">Wie der Raum wirkt, wenn das Licht durch die Schächte fällt und sich der Tisch füllt. Am besten als kurzes Video.</p>
+      <p class="sub" data-de="So wirkt der Raum, wenn das Licht durch die Schächte fällt." data-en="How the room feels when light falls through the shafts.">So wirkt der Raum, wenn das Licht durch die Schächte fällt.</p>
     </div>
     <div class="video-wrap rv">
       <!-- TODO: Video einsetzen. Zwei Möglichkeiten:
@@ -941,7 +872,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   <div class="wrap">
     <div class="lead-2 stack rv">
       <h2 data-de="Der Raum in Bildern" data-en="The room in pictures">Der Raum in Bildern</h2>
-      <p class="sub" data-de="Tageslicht, Stiege, Bestuhlung, Breakout. Ein Eindruck von oben bis unten." data-en="Daylight, staircase, seating, breakout. An impression from top to bottom.">Tageslicht, Stiege, Bestuhlung, Breakout. Ein Eindruck von oben bis unten.</p>
+      <p class="sub" data-de="Tageslicht, Stiege, Bestuhlung, Breakout." data-en="Daylight, staircase, seating, breakout.">Tageslicht, Stiege, Bestuhlung, Breakout.</p>
     </div>
     <div class="gallery rv">
       <!-- TODO: Jeweils <img src="..."> einsetzen und das .ph-Div darin löschen. 6 Plätze. -->
@@ -960,7 +891,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   <div class="wrap">
     <div class="lead-2 rv">
       <h2 data-de="Mitten im 6. Bezirk" data-en="Right in the 6th district">Mitten im 6. Bezirk</h2>
-      <p class="sub" data-de="phil space liegt am unteren Ende der Mariahilfer Straße, wenige Schritte vom Naschmarkt und vom MuseumsQuartier. Drei U-Bahn-Linien sind fußläufig, eure Gäste kommen aus ganz Wien unkompliziert an." data-en="phil space sits at the lower end of Mariahilfer Straße, a few steps from Naschmarkt and the MuseumsQuartier. Three subway lines are within walking distance, so your guests reach you easily from anywhere in Vienna.">phil space liegt am unteren Ende der Mariahilfer Straße, wenige Schritte vom Naschmarkt und vom MuseumsQuartier. Drei U-Bahn-Linien sind fußläufig, eure Gäste kommen aus ganz Wien unkompliziert an.</p>
+      <p class="sub" data-de="Am unteren Ende der Mariahilfer Straße, ein paar Schritte vom Naschmarkt und vom MQ. Drei U-Bahn-Linien sind zu Fuß erreichbar." data-en="At the lower end of Mariahilfer Straße, a few steps from Naschmarkt and the MQ. Three subway lines are within walking distance.">Am unteren Ende der Mariahilfer Straße, ein paar Schritte vom Naschmarkt und vom MQ. Drei U-Bahn-Linien sind zu Fuß erreichbar.</p>
     </div>
     <div class="loc-grid rv">
       <div class="loc-map">
@@ -999,7 +930,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   <div class="wrap">
     <div class="lead-2 stack rv">
       <h2 data-de="Was Gäste sagen" data-en="What guests say">Was Gäste sagen</h2>
-      <p class="sub" data-de="Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier, sobald die ersten Firmen bei uns getagt haben." data-en="Our first events are getting underway. Real quotes will appear here once the first companies have met with us.">Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier, sobald die ersten Firmen bei uns getagt haben.</p>
+      <p class="sub" data-de="Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier bald." data-en="Our first events are underway. Real quotes coming soon.">Die ersten Veranstaltungen laufen an. Echte Stimmen folgen hier bald.</p>
     </div>
     <div class="quotes rv">
       <div class="q placeholder"><div class="qt" data-de="Platz für ein echtes Kundenzitat" data-en="Space for a real client quote">Platz für ein echtes Kundenzitat</div></div>
@@ -1011,119 +942,36 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 
 <section id="preise">
   <div class="wrap">
-    <div class="lead-2 rv">
-      <h2 data-de="Klare Preise, ein fixer Mietpreis" data-en="Clear prices, one fixed rate">Klare Preise, ein fixer Mietpreis</h2>
-      <p class="sub" data-de="Drei Zeiten, ein fixer Mietpreis. Keine Kosten pro Person auf die Miete, Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer dabei. Nur Kuchen und Fingerfood rechnen wir pro Gast." data-en="Three time slots, one fixed rental price. No per-person cost on the room, and drinks, coffee, tea, fruit and snacks are always included. Only cake and finger food are charged per guest.">Drei Zeiten, ein fixer Mietpreis. Keine Kosten pro Person auf die Miete, Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer dabei. Nur Kuchen und Fingerfood rechnen wir pro Gast.</p>
-    </div>
+    <div class="lead-2 rv"><h2 data-de="Ein Preis. Alles drin." data-en="One price. Everything included.">Ein Preis. Alles drin.</h2><p class="sub" data-de="Fixe Raummiete, keine Kosten pro Kopf. Kaffee, Getränke, Obstkorb und Snacks sind immer dabei." data-en="A fixed room rate, no per-head charge. Coffee, drinks, fruit and snacks are always included.">Fixe Raummiete, keine Kosten pro Kopf. Kaffee, Getränke, Obstkorb und Snacks sind immer dabei.</p></div>
     <div class="abcards rv">
-      <div class="abcard">
-        <div class="ab-k" data-de="Halbtag" data-en="Half day">Halbtag</div>
-        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 390 €</div>
-        <div class="ab-d" data-de="bis 4 Stunden · ab 9:00 Uhr" data-en="up to 4 hours · from 9 am">bis 4 Stunden · ab 9:00 Uhr</div>
-        <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Setup, Technik & Reinigung" data-en="Room, setup, tech & cleaning">Raum, Setup, Technik & Reinigung</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Getränke, Kaffee, Tee inkl." data-en="Drinks, coffee, tea incl.">Getränke, Kaffee, Tee inkl.</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb & Snacks inkl." data-en="Fruit & snacks incl.">Obstkorb & Snacks inkl.</span></li>
-        </ul>
-        <div class="pcta"><a href="#anfrage" data-time-jump="half" data-de="Halbtag rechnen" data-en="Calculate half day">Halbtag rechnen <span class="arr">→</span></a></div>
-      </div>
-      <div class="abcard feat">
-        <div class="ab-top"><div class="ab-k" data-de="Ganztag" data-en="Full day">Ganztag</div><span class="badge" data-de="Beliebt" data-en="Popular">Beliebt</span></div>
-        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 650 €</div>
-        <div class="ab-d" data-de="bis 8 Stunden · ab 9:00 Uhr" data-en="up to 8 hours · from 9 am">bis 8 Stunden · ab 9:00 Uhr</div>
-        <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Setup, Technik & Reinigung" data-en="Room, setup, tech & cleaning">Raum, Setup, Technik & Reinigung</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Getränke, Kaffee, Tee inkl." data-en="Drinks, coffee, tea incl.">Getränke, Kaffee, Tee inkl.</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb & Snacks inkl." data-en="Fruit & snacks incl.">Obstkorb & Snacks inkl.</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Voller Tag, ungestört" data-en="Full uninterrupted day">Voller Tag, ungestört</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Bestuhlung nach Wunsch" data-en="Seating your way">Bestuhlung nach Wunsch</span></li>
-        </ul>
-        <div class="pcta"><a href="#anfrage" data-time-jump="full" data-de="Ganztag rechnen" data-en="Calculate full day">Ganztag rechnen <span class="arr">→</span></a></div>
-      </div>
-      <div class="abcard">
-        <div class="ab-k" data-de="Abend-Event" data-en="Evening event">Abend-Event</div>
-        <div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 550 €</div>
-        <div class="ab-d" data-de="18:00 bis 23:00 Uhr" data-en="6 pm to 11 pm">18:00 bis 23:00 Uhr</div>
-        <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Event-Bestuhlung & Empfang" data-en="Event seating & reception">Event-Bestuhlung & Empfang</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Mikro, Sound, Stimmungslicht" data-en="Mic, sound, mood lighting">Mikro, Sound, Stimmungslicht</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Endreinigung inkl." data-en="Final cleaning incl.">Endreinigung inkl.</span></li>
-        </ul>
-        <div class="pcta"><a href="#anfrage" data-time-jump="evening" data-de="Abend rechnen" data-en="Calculate evening">Abend rechnen <span class="arr">→</span></a></div>
-      </div>
+      <div class="abcard"><div class="ab-k" data-de="Vormittag" data-en="Morning">Vormittag</div><div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 650 €</div><div class="ab-d" data-de="Halbtag · 08:00 bis 15:00 Uhr" data-en="Half day · 8 am to 3 pm">Halbtag · 08:00 bis 15:00 Uhr</div><ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Technik &amp; Reinigung" data-en="Room, tech &amp; cleaning">Raum, Technik &amp; Reinigung</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Kaffee aus Hausbohnen &amp; Getränke" data-en="House-bean coffee &amp; drinks">Kaffee aus Hausbohnen &amp; Getränke</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb &amp; Snacks" data-en="Fruit &amp; snacks">Obstkorb &amp; Snacks</span></li></ul><div class="pcta"><a href="#anfrage" data-time-jump="half" data-de="Vormittag rechnen" data-en="Calculate morning">Vormittag rechnen <span class="arr">→</span></a></div></div>
+      <div class="abcard feat"><div class="ab-top"><div class="ab-k" data-de="Ganztag" data-en="Full day">Ganztag</div><span class="badge" data-de="Beliebt" data-en="Popular">Beliebt</span></div><div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 950 €</div><div class="ab-d" data-de="08:00 bis 22:00 Uhr" data-en="8 am to 10 pm">08:00 bis 22:00 Uhr</div><ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Raum, Technik &amp; Reinigung" data-en="Room, tech &amp; cleaning">Raum, Technik &amp; Reinigung</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Kaffee aus Hausbohnen &amp; Getränke" data-en="House-bean coffee &amp; drinks">Kaffee aus Hausbohnen &amp; Getränke</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Obstkorb &amp; Snacks" data-en="Fruit &amp; snacks">Obstkorb &amp; Snacks</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Vom Workshop bis zum Abendevent" data-en="From workshop to evening event">Vom Workshop bis zum Abendevent</span></li></ul><div class="pcta"><a href="#anfrage" data-time-jump="full" data-de="Ganztag rechnen" data-en="Calculate full day">Ganztag rechnen <span class="arr">→</span></a></div></div>
+      <div class="abcard"><div class="ab-k" data-de="Nachmittag &amp; Abend" data-en="Afternoon &amp; evening">Nachmittag &amp; Abend</div><div class="ab-amt"><span class="ab-pre" data-de="ab" data-en="from">ab</span> 650 €</div><div class="ab-d" data-de="Halbtag · 15:00 bis 22:00 Uhr" data-en="Half day · 3 pm to 10 pm">Halbtag · 15:00 bis 22:00 Uhr</div><ul><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Event-Bestuhlung &amp; Empfang" data-en="Event seating &amp; reception">Event-Bestuhlung &amp; Empfang</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Sound, Mikro &amp; Stimmungslicht" data-en="Sound, mic &amp; mood lighting">Sound, Mikro &amp; Stimmungslicht</span></li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 6"/></svg><span data-de="Kaffee, Getränke &amp; Snacks" data-en="Coffee, drinks &amp; snacks">Kaffee, Getränke &amp; Snacks</span></li></ul><div class="pcta"><a href="#anfrage" data-time-jump="evening" data-de="Abend rechnen" data-en="Calculate evening">Abend rechnen <span class="arr">→</span></a></div></div>
     </div>
-    <p class="price-note rv" style="text-align:center" data-de="Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen." data-en="All amounts excl. VAT · “from” prices for small groups. Bookable daily from 9 am, evening events until 11 pm. Build your exact guide price below in seconds.">Alle Beträge exkl. USt. · „ab“-Preise für kleine Gruppen. Buchbar täglich ab 9:00 Uhr, Abend-Events bis 23:00 Uhr. Den genauen Richtpreis stellst du dir unten in Sekunden zusammen.</p>
+    <p class="price-note rv" style="text-align:center" data-de="Alle Preise exkl. USt. · Buchbar täglich von 08:00 bis 22:00 Uhr. Den genauen Richtpreis stellt ihr euch unten in Sekunden zusammen." data-en="All prices excl. VAT · bookable daily from 8 am to 10 pm. Build your exact guide price below in seconds.">Alle Preise exkl. USt. · Buchbar täglich von 08:00 bis 22:00 Uhr. Den genauen Richtpreis stellt ihr euch unten in Sekunden zusammen.</p>
     <div style="height:clamp(40px,6vw,68px)" aria-hidden="true"></div>
-    <div class="lead-2 stack rv">
-      <h2 data-de="Essen & Trinken dazu" data-en="Add food & drinks">Essen & Trinken dazu</h2>
-      <p class="sub" data-de="Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner." data-en="Drinks, coffee, tea, fruit and snacks are always included. For more, add one of these packages and we arrange it through our partners.">Getränke, Kaffee, Tee, Obstkorb und Snacks sind immer inklusive. Wer mehr braucht, kombiniert eines dieser Pakete dazu, wir organisieren es über unsere Partner.</p>
-    </div>
+    <div class="lead-2 stack rv"><h2 data-de="Essen dazu?" data-en="Add food?">Essen dazu?</h2><p class="sub" data-de="Für mehr als Snacks organisieren wir:" data-en="For more than snacks, we arrange:">Für mehr als Snacks organisieren wir:</p></div>
     <div class="cater rv">
-      <div class="cpack">
-        <div class="cph"><h4 data-de="Fingerfood & Sandwiches" data-en="Finger food & sandwiches">Fingerfood & Sandwiches</h4><span class="cpp">16 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
-        <ul>
-          <li data-de="Belegte Brote, Wraps & herzhafte Häppchen" data-en="Sandwiches, wraps & savoury bites">Belegte Brote, Wraps & herzhafte Häppchen</li>
-          <li data-de="Vegetarische Auswahl inklusive" data-en="Vegetarian selection included">Vegetarische Auswahl inklusive</li>
-          <li data-de="Ideal für Workshops & Empfänge" data-en="Ideal for workshops & receptions">Ideal für Workshops & Empfänge</li>
-        </ul>
-      </div>
-      <div class="cpack">
-        <div class="cph"><h4 data-de="Warmes Mittagessen" data-en="Hot lunch">Warmes Mittagessen</h4><span class="cpp" data-de="auf Anfrage" data-en="on request">auf Anfrage</span></div>
-        <ul>
-          <li data-de="Warmes Gericht, Salat & Dessert" data-en="Hot dish, salad & dessert">Warmes Gericht, Salat & Dessert</li>
-          <li data-de="Fleisch, Fisch oder vegetarisch" data-en="Meat, fish or vegetarian">Fleisch, Fisch oder vegetarisch</li>
-          <li data-de="Über unsere Catering-Partner" data-en="Through our catering partners">Über unsere Catering-Partner</li>
-        </ul>
-        <p class="cpn" data-de="Preis je nach Menü, wir holen euch ein Angebot ein." data-en="Price depends on the menu, we get you a quote.">Preis je nach Menü, wir holen euch ein Angebot ein.</p>
-      </div>
-      <div class="cpack">
-        <div class="cph"><h4 data-de="Kuchen aus dem Haus" data-en="House cake">Kuchen aus dem Haus</h4><span class="cpp">6 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div>
-        <ul>
-          <li data-de="Hausgemachter Kuchen aus dem Cafe phil" data-en="Homemade cake from Cafe phil">Hausgemachter Kuchen aus dem Cafe phil</li>
-          <li data-de="Der süße Rahmen für jede Pause" data-en="The sweet touch for any break">Der süße Rahmen für jede Pause</li>
-        </ul>
-      </div>
+      <div class="cpack"><div class="cph"><h4 data-de="Fingerfood &amp; Sandwiches" data-en="Finger food &amp; sandwiches">Fingerfood &amp; Sandwiches</h4><span class="cpp">16 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div><ul><li data-de="Belegte Brote, Wraps &amp; Häppchen" data-en="Sandwiches, wraps &amp; bites">Belegte Brote, Wraps &amp; Häppchen</li><li data-de="Vegetarisch inklusive" data-en="Vegetarian included">Vegetarisch inklusive</li></ul></div>
+      <div class="cpack"><div class="cph"><h4 data-de="Warmes Mittagessen" data-en="Hot lunch">Warmes Mittagessen</h4><span class="cpp" data-de="auf Anfrage" data-en="on request">auf Anfrage</span></div><ul><li data-de="Gericht, Salat &amp; Dessert" data-en="Main, salad &amp; dessert">Gericht, Salat &amp; Dessert</li><li data-de="Über unsere Catering-Partner" data-en="Via our catering partners">Über unsere Catering-Partner</li></ul></div>
+      <div class="cpack"><div class="cph"><h4 data-de="Kuchen aus dem Haus" data-en="House cake">Kuchen aus dem Haus</h4><span class="cpp">6 €<small style="font-size:0.7rem;color:var(--ink-3)"> p.P.</small></span></div><ul><li data-de="Hausgemacht im Cafe phil" data-en="Homemade at Cafe phil">Hausgemacht im Cafe phil</li><li data-de="Der süße Rahmen für jede Pause" data-en="The sweet touch for any break">Der süße Rahmen für jede Pause</li></ul></div>
     </div>
-    <p class="logos-note rv" style="margin-top:22px;margin-bottom:0" data-de="Alle Angaben exkl. USt. · Beträge sind Richtwerte, den genauen Preis nennen wir mit dem Angebot." data-en="All prices excl. VAT · amounts are guide values, we confirm the exact price with your quote.">Alle Angaben exkl. USt. · Beträge sind Richtwerte, den genauen Preis nennen wir mit dem Angebot.</p>
+    <p class="logos-note rv" style="margin-top:22px;margin-bottom:0" data-de="Alle Angaben exkl. USt., Richtwerte." data-en="All prices excl. VAT, guide values.">Alle Angaben exkl. USt., Richtwerte.</p>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
 <section id="faq">
   <div class="wrap">
-    <div class="lead-2 stack rv">
-      <h2 data-de="Häufige Fragen" data-en="Frequently asked">Häufige Fragen</h2>
-      <p class="sub" data-de="Das Wichtigste vorab. Fehlt etwas, schreibt uns einfach." data-en="The essentials up front. If something’s missing, just ask.">Das Wichtigste vorab. Fehlt etwas, schreibt uns einfach.</p>
-    </div>
+    <div class="lead-2 stack rv"><h2 data-de="Häufige Fragen" data-en="Frequently asked">Häufige Fragen</h2><p class="sub" data-de="Fehlt etwas? Schreibt uns einfach." data-en="Something missing? Just ask.">Fehlt etwas? Schreibt uns einfach.</p></div>
     <div class="faq rv">
-      <details>
-        <summary data-de="Ist der Raum barrierefrei zugänglich?" data-en="Is the space wheelchair accessible?">Ist der Raum barrierefrei zugänglich?</summary>
-        <div class="fa" data-de="Ehrlich gesagt nein: phil space liegt im Souterrain und ist nur über die Stahlwangentreppe erreichbar, es gibt keinen Lift und keine Rampe. Für Gäste, die keine Treppen steigen können, ist der Raum daher leider nicht geeignet. Sprecht uns bei Fragen gern an, wir beraten offen." data-en="Honestly, no: phil space is on the lower level and reached only via the steel staircase, with no lift or ramp. It is therefore not suitable for guests who cannot use stairs. Do get in touch with any questions, we’ll advise you openly.">Ehrlich gesagt nein: phil space liegt im Souterrain und ist nur über die Stahlwangentreppe erreichbar, es gibt keinen Lift und keine Rampe. Für Gäste, die keine Treppen steigen können, ist der Raum daher leider nicht geeignet. Sprecht uns bei Fragen gern an, wir beraten offen.</div>
-      </details>
-      <details>
-        <summary data-de="Wie ist die Stornoregelung?" data-en="What is the cancellation policy?">Wie ist die Stornoregelung?</summary>
-        <div class="fa" data-de="Bis 14 Tage vor dem Termin ist die Stornierung kostenlos. Danach verrechnen wir 50 % der Raummiete, ab 3 Tagen vor dem Termin 100 %. Ein bereits gebuchter Termin lässt sich in Absprache aber gern kostenfrei verschieben, sprecht uns einfach frühzeitig an, wir finden fast immer eine Lösung." data-en="Cancellation is free up to 14 days before your date. After that we charge 50 % of the room rental, and 100 % from 3 days before. A booked date can usually be rescheduled free of charge by arrangement, just reach out early and we’ll almost always find a solution.">Bis 14 Tage vor dem Termin ist die Stornierung kostenlos. Danach verrechnen wir 50 % der Raummiete, ab 3 Tagen vor dem Termin 100 %. Ein bereits gebuchter Termin lässt sich in Absprache aber gern kostenfrei verschieben, sprecht uns einfach frühzeitig an, wir finden fast immer eine Lösung.</div>
-      </details>
-      <details>
-        <summary data-de="Bekommen wir auch Mittagessen oder nur Fingerfood?" data-en="Can we get lunch, or only finger food?">Bekommen wir auch Mittagessen oder nur Fingerfood?</summary>
-        <div class="fa" data-de="Kuchen und Fingerfood buchst du direkt im Rechner dazu. Ein warmes Mittagessen oder ein Buffet organisieren wir auf Wunsch über unsere Catering-Partner, schreib es einfach in die Anfrage." data-en="Cake and finger food can be added right in the calculator. For a hot lunch or a buffet we arrange catering through our partners on request, just note it in your enquiry.">Kuchen und Fingerfood buchst du direkt im Rechner dazu. Ein warmes Mittagessen oder ein Buffet organisieren wir auf Wunsch über unsere Catering-Partner, schreib es einfach in die Anfrage.</div>
-      </details>
-      <details>
-        <summary data-de="Wie viele WCs gibt es?" data-en="How many restrooms are there?">Wie viele WCs gibt es?</summary>
-        <div class="fa" data-de="Zwei getrennte WCs (Damen und Herren) mit gemeinsamem Vorraum, direkt im Souterrain, plus die Gäste-WCs des Kaffeehauses eine Stiege höher." data-en="Two separate restrooms (ladies and gents) with a shared anteroom, right in the Souterrain, plus the coffeehouse restrooms one flight up.">Zwei getrennte WCs (Damen und Herren) mit gemeinsamem Vorraum, direkt im Souterrain, plus die Gäste-WCs des Kaffeehauses eine Stiege höher.</div>
-      </details>
-      <details>
-        <summary data-de="Wo können Gäste parken, wo wird angeliefert?" data-en="Where can guests park, where are deliveries?">Wo können Gäste parken, wo wird angeliefert?</summary>
-        <div class="fa" data-de="Direkt vor der Tür gibt es einen Lieferantenparkplatz für die Anlieferung. Für anreisende Gäste empfehlen sich die öffentlichen Garagen in der Umgebung, alle drei U-Bahn-Linien sind fußläufig, die meisten kommen ohnehin am besten öffentlich." data-en="There is a supplier parking spot right outside for deliveries. Arriving guests are best served by the nearby public garages, and with three subway lines within walking distance most come by public transport anyway.">Direkt vor der Tür gibt es einen Lieferantenparkplatz für die Anlieferung. Für anreisende Gäste empfehlen sich die öffentlichen Garagen in der Umgebung, alle drei U-Bahn-Linien sind fußläufig, die meisten kommen ohnehin am besten öffentlich.</div>
-      </details>
-      <details>
-        <summary data-de="Haben wir den Raum exklusiv?" data-en="Do we have the space to ourselves?">Haben wir den Raum exklusiv?</summary>
-        <div class="fa" data-de="Ja. Während eurer Buchung gehört das Souterrain euch allein, abseits des Gastraums, ruhig und ungestört. Vom Kaffeehaus hört man nichts." data-en="Yes. During your booking the Souterrain is yours alone, away from the café floor, quiet and undisturbed. You won’t hear the coffeehouse.">Ja. Während eurer Buchung gehört das Souterrain euch allein, abseits des Gastraums, ruhig und ungestört. Vom Kaffeehaus hört man nichts.</div>
-      </details>
-      <details>
-        <summary data-de="Gibt es ein Videokonferenz-Setup für hybride Meetings?" data-en="Is there a video-conference setup for hybrid meetings?">Gibt es ein Videokonferenz-Setup für hybride Meetings?</summary>
-        <div class="fa" data-de="Kein fest installiertes Kamera-Setup vor Ort. Hybride Calls laufen zuverlässig über euren Laptop mit unserem Flatscreen und schnellem WLAN." data-en="No fixed camera rig on site. Hybrid calls run reliably via your laptop with our flatscreen and fast Wi-Fi.">Kein fest installiertes Kamera-Setup vor Ort. Hybride Calls laufen zuverlässig über euren Laptop mit unserem Flatscreen und schnellem WLAN.</div>
-      </details>
+      <details><summary data-de="Ist der Raum barrierefrei zugänglich?" data-en="Is the space wheelchair accessible?">Ist der Raum barrierefrei zugänglich?</summary><div class="fa" data-de="Leider nein: phil space liegt im Souterrain und ist nur über eine Treppe erreichbar, ohne Lift oder Rampe. Bei Fragen beraten wir euch gern offen." data-en="Unfortunately not: phil space is on the lower floor, reachable only by stairs, with no lift or ramp. We are happy to advise openly.">Leider nein: phil space liegt im Souterrain und ist nur über eine Treppe erreichbar, ohne Lift oder Rampe. Bei Fragen beraten wir euch gern offen.</div></details>
+      <details><summary data-de="Wie ist die Stornoregelung?" data-en="What is the cancellation policy?">Wie ist die Stornoregelung?</summary><div class="fa" data-de="Bis 14 Tage vorher kostenlos, danach 50 % der Raummiete, ab 3 Tagen vorher 100 %. Verschieben geht in Absprache meist kostenfrei." data-en="Free up to 14 days before, then 50 % of the room rate, 100 % from 3 days before. Rescheduling is usually free by arrangement.">Bis 14 Tage vorher kostenlos, danach 50 % der Raummiete, ab 3 Tagen vorher 100 %. Verschieben geht in Absprache meist kostenfrei.</div></details>
+      <details><summary data-de="Bekommen wir auch Mittagessen?" data-en="Can we get lunch?">Bekommen wir auch Mittagessen?</summary><div class="fa" data-de="Kuchen und Fingerfood bucht ihr im Rechner dazu, ein warmes Mittagessen organisieren wir über unsere Catering-Partner." data-en="Add cake and finger food in the calculator; we arrange a hot lunch through our catering partners.">Kuchen und Fingerfood bucht ihr im Rechner dazu, ein warmes Mittagessen organisieren wir über unsere Catering-Partner.</div></details>
+      <details><summary data-de="Wie viele WCs gibt es?" data-en="How many restrooms are there?">Wie viele WCs gibt es?</summary><div class="fa" data-de="Zwei getrennte WCs direkt im Souterrain, dazu die Gäste-WCs im Kaffeehaus." data-en="Two separate WCs right on the lower floor, plus the café restrooms upstairs.">Zwei getrennte WCs direkt im Souterrain, dazu die Gäste-WCs im Kaffeehaus.</div></details>
+      <details><summary data-de="Wo können Gäste parken, wo wird angeliefert?" data-en="Where can guests park, where are deliveries?">Wo können Gäste parken, wo wird angeliefert?</summary><div class="fa" data-de="Lieferantenparkplatz direkt vor der Tür. Gäste parken in den Garagen der Umgebung oder kommen öffentlich, drei U-Bahn-Linien sind fußläufig." data-en="Supplier parking right outside. Guests use nearby garages or public transport, three subway lines are within walking distance.">Lieferantenparkplatz direkt vor der Tür. Gäste parken in den Garagen der Umgebung oder kommen öffentlich, drei U-Bahn-Linien sind fußläufig.</div></details>
+      <details><summary data-de="Haben wir den Raum exklusiv?" data-en="Do we have the space to ourselves?">Haben wir den Raum exklusiv?</summary><div class="fa" data-de="Ja. Während eurer Buchung gehört das ganze Souterrain euch, vom Kaffeehaus hört man nichts." data-en="Yes. During your booking the whole lower floor is yours, and you won’t hear the café.">Ja. Während eurer Buchung gehört das ganze Souterrain euch, vom Kaffeehaus hört man nichts.</div></details>
+      <details><summary data-de="Gibt es ein Videokonferenz-Setup?" data-en="Is there a video-conference setup?">Gibt es ein Videokonferenz-Setup?</summary><div class="fa" data-de="Kein fixes Kamera-Setup. Hybride Calls laufen über euren Laptop, unseren Flatscreen und schnelles WLAN." data-en="No fixed camera rig. Hybrid calls run via your laptop, our flatscreen and fast Wi-Fi.">Kein fixes Kamera-Setup. Hybride Calls laufen über euren Laptop, unseren Flatscreen und schnelles WLAN.</div></details>
     </div>
   </div>
 </section>
@@ -1132,7 +980,7 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
   <div class="wrap">
     <div class="lead-2 rv" style="margin-bottom:32px">
       <h2 data-de="Termin & Richtpreis" data-en="Date & guide price">Termin & Richtpreis</h2>
-      <p class="sub" data-de="In zwei Schritten: zuerst den Richtpreis zusammenstellen, dann den Kontakt ausfüllen und absenden. Werktags binnen 24 Stunden kommt die verbindliche Rückmeldung." data-en="In two steps: build your guide price first, then fill in your contact details and send. You’ll get a binding reply within 24 hours on working days.">In zwei Schritten: zuerst den Richtpreis zusammenstellen, dann den Kontakt ausfüllen und absenden. Werktags binnen 24 Stunden kommt die verbindliche Rückmeldung.</p>
+      <p class="sub" data-de="Erst den Richtpreis zusammenstellen, dann absenden. Werktags antworten wir binnen 24 Stunden verbindlich." data-en="Build your guide price, then send. On working days we reply bindingly within 24 hours.">Erst den Richtpreis zusammenstellen, dann absenden. Werktags antworten wir binnen 24 Stunden verbindlich.</p>
     </div>
 
     <div class="booking rv">
@@ -1152,9 +1000,9 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
             <div>
               <label class="cl" data-de="Zeit" data-en="Time" style="display:block;margin-bottom:8px">Zeit</label>
               <div class="seg" id="segTime">
-                <button data-time="half" class="on" data-de="Halbtag · 390 €" data-en="Half day · €390">Halbtag · 390 €</button>
-                <button data-time="full" data-de="Ganztag · 650 €" data-en="Full day · €650">Ganztag · 650 €</button>
-                <button data-time="evening" data-de="Abend · 550 €" data-en="Evening · €550">Abend · 550 €</button>
+                <button data-time="half" class="on" data-de="Vormittag · 650 €" data-en="Morning · €650">Vormittag · 650 €</button>
+                <button data-time="full" data-de="Ganztag · 950 €" data-en="Full day · €950">Ganztag · 950 €</button>
+                <button data-time="evening" data-de="Abend · 650 €" data-en="Evening · €650">Abend · 650 €</button>
               </div>
             </div>
 
@@ -1313,11 +1161,31 @@ footer .about{font-size:0.95rem;color:var(--ink-3);max-width:38ch;}
 </footer>
 
 <script>
+/* scroll reveal: staggered fade/slide-in, clip-wipe for hero & room image.
+   Own block, so an error elsewhere can never leave content hidden. */
+(function(){
+  var root=document.documentElement;
+  try{
+    var stag='.uses,.equip,.abcards,.cater,.gallery,.quotes,.facts,.seatings,.loc-list,.faq,.logos,.occ-chips,.facts-bar';
+    document.querySelectorAll(stag).forEach(function(g){ g.classList.remove('rv'); Array.prototype.forEach.call(g.children,function(c,i){ c.classList.add('rv'); c.style.setProperty('--d',Math.min(i,8)*70+'ms'); }); });
+    [['.hero .place',0],['.hero h1',90],['.hero .lede',180],['.hero-cta',270],['.hero-view',360],['.hero-figure',120]].forEach(function(p){ var el=document.querySelector(p[0]); if(el){ el.classList.add('rv'); el.style.setProperty('--d',p[1]+'ms'); } });
+    var els=document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -6% 0px',threshold:0});
+    els.forEach(function(e){ io.observe(e); });
+    /* safety sweep: reveal whatever is already on screen once fonts/layout settle */
+    var sweep=function(){ els.forEach(function(e){ if(e.classList.contains('in')) return; var r=e.getBoundingClientRect(); if(r.top<innerHeight && r.bottom>0){ e.classList.add('in'); io.unobserve(e); } }); };
+    window.addEventListener('load',sweep);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(sweep);
+  }catch(err){ root.classList.remove('js'); }
+})();
+</script>
+<script>
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('lDe').classList.toggle('on',lang==='de');
   document.getElementById('lEn').classList.toggle('on',lang==='en');
-  document.querySelectorAll('[data-de]').forEach(el=>{ const v=el.getAttribute('data-'+lang); if(v!==null) el.innerHTML=v; });
+  document.querySelectorAll('[data-de]').forEach(el=>{ const v=el.getAttribute('data-'+lang); if(v===null) return; const arr=el.querySelector(':scope > .arr'); el.innerHTML=v; if(arr && !el.querySelector('.arr')) el.appendChild(arr); });
   document.querySelectorAll('[data-de-ph]').forEach(el=>{ const v=el.getAttribute('data-'+lang+'-ph'); if(v!==null) el.setAttribute('placeholder',v); });
   try{ if(window.__renderCal) window.__renderCal(); }catch(e){}
   try{ if(typeof recalc==='function') recalc(); }catch(e){}
@@ -1340,9 +1208,9 @@ document.querySelectorAll('#navMid a').forEach(a=>a.addEventListener('click',()=
    ========================================================= */
 const PRICING = {
   room: {                 // fixe Raummiete je Zeitfenster
-    half:    390,         // Halbtag
-    full:    650,         // Ganztag
-    evening: 550          // Abend-Event
+    half:    650,         // Vormittag 08-15 (Halbtag)
+    full:    950,         // Ganztag 08-22
+    evening: 650          // Nachmittag & Abend 15-22 (Halbtag)
   },
   addons: {
     cake:     { type:'perHead', amount:6 },     // pro Person
@@ -1360,8 +1228,8 @@ function recalc(){
   const n = Math.max(1, Math.min(60, calcState.people||1));
 
   const roomLbl = calcState.time==='full' ? (L?'Ganztag':'Full day')
-                : calcState.time==='evening' ? (L?'Abend-Event':'Evening')
-                : (L?'Halbtag':'Half day');
+                : calcState.time==='evening' ? (L?'Nachmittag & Abend':'Afternoon & evening')
+                : (L?'Vormittag':'Morning');
   const room = PRICING.room[calcState.time] || PRICING.room.half;
 
   let total = room;
