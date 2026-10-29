@@ -2,7 +2,7 @@
 /* =========================================================
    PREISE - alle Beträge an EINER Stelle. Hier anpassen.
    Raummiete = FIXPREIS je Zeitfenster (kein Aufschlag pro Person).
-   Pro-Kopf nur bei Kuchen und Fingerfood.
+   Pro-Kopf nur bei Kuchen und Catering.
    ========================================================= */
 const PRICING = {
   room: {                 // fixe Raummiete je Zeitfenster
@@ -35,7 +35,7 @@ function recalc(){
   lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(room)} €`);
 
   if(calcState.cake){ const a=PRICING.addons.cake.amount*n; total+=a; lines.push(`${L?'Kuchen':'Cake'} ${n}×${PRICING.addons.cake.amount} € = +${fmt(a)} €`); }
-  if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Fingerfood':'Finger food'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
+  if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Catering':'Catering'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
 
   document.getElementById('totalNum').innerHTML = 'ca. '+fmt(total)+' €<small>'+(L?'unverbindlich':'non-binding')+'</small>';
   document.getElementById('breakdown').innerHTML = lines.join('<br>');
@@ -74,7 +74,7 @@ document.getElementById('toStep2').addEventListener('click',()=>{
   const step2=document.getElementById('step2');
   step2.classList.remove('locked');
   // recap chip in step 2
-  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Catering':'Catering');
   const recap=document.getElementById('recap');
   recap.innerHTML='<span><b>'+r.timeLbl+'</b> · '+calcState.people+' '+(L?'Personen':'people')+(adds.length?' · '+adds.join(', '):'')+'</span><span class="chip">ca. '+fmt(r.total)+' €</span>';
   recap.classList.add('show');
@@ -141,7 +141,7 @@ const W3F_KEY = "REPLACE_WITH_WEB3FORMS_ACCESS_KEY"; // kostenlos auf web3forms.
 document.getElementById('send').addEventListener('click',async ()=>{
   const lang=document.documentElement.lang; const g=id=>(document.getElementById(id).value||'').trim(); const L=lang==='de';
   const r=recalc();
-  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Fingerfood':'Finger food');
+  const adds=[]; if(calcState.cake)adds.push(L?'Kuchen':'Cake'); if(calcState.catering)adds.push(L?'Catering':'Catering');
 
   // --- light validation: name + valid email ---
   const nameEl=document.getElementById('n'), mailEl=document.getElementById('e');
