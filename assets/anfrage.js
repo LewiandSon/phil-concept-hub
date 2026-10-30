@@ -5,11 +5,14 @@
    jede weitere Person kostet `extra`. Kuchen und Catering pro Person.
    ========================================================= */
 const PRICING = {
-  room: {                                     // Grundpreis inkl. 15 Pers. + je weitere Person
-    half:    { base:400, incl:15, extra:12 },  // Vormittag 09-15 (Halbtag)
-    full:    { base:600, incl:15, extra:18 },  // Ganztag 09-22
-    evening: { base:400, incl:15, extra:12 }   // Nachmittag & Abend 15-22 (Halbtag)
+  room: {                                       // Grundpreis inkl. 15 Pers. + je weitere Person (netto)
+    am:      { base:480,  incl:15, extra:15 },   // Vormittag 09-14 (Halbtag, 5 h)
+    pm:      { base:480,  incl:15, extra:15 },   // Nachmittag 14-19 (Halbtag, 5 h)
+    full:    { base:780,  incl:15, extra:20 },   // Ganztag 09-18 (9 h)
+    evening: { base:480,  incl:15, extra:15 },   // Abend 18-22 (4 h)
+    dayeve:  { base:1050, incl:15, extra:25 }    // Tag + Abend 09-22 (13 h, Bundle)
   },
+  drinksValue: '6–15 €',                        // Marktwert der inkludierten Getränkeflat p. P. (nur Anzeige)
   addons: {
     cake:     { type:'perHead', amount:6 },     // pro Person
     catering: { type:'perHead', amount:16 }     // pro Person
@@ -17,7 +20,7 @@ const PRICING = {
 };
 
 /* ---- calculator state ---- */
-const calcState = { time:'half', people:20, cake:false, catering:false };
+const calcState = { time:'am', people:20, cake:false, catering:false };
 
 function fmt(n){ return n.toLocaleString('de-AT'); }
 
@@ -25,16 +28,16 @@ function recalc(){
   const L = document.documentElement.lang==='de';
   const n = Math.max(1, Math.min(60, calcState.people||1));
 
-  const roomLbl = calcState.time==='full' ? (L?'Ganztag':'Full day')
-                : calcState.time==='evening' ? (L?'Nachmittag & Abend':'Afternoon & evening')
-                : (L?'Vormittag':'Morning');
-  const R = PRICING.room[calcState.time] || PRICING.room.half;
+  const LBL = { am:['Vormittag','Morning'], pm:['Nachmittag','Afternoon'], full:['Ganztag','Full day'], evening:['Abend','Evening'], dayeve:['Tag + Abend','Day + evening'] };
+  const roomLbl = (LBL[calcState.time] || LBL.am)[L?0:1];
+  const R = PRICING.room[calcState.time] || PRICING.room.am;
   const extraP = Math.max(0, n - R.incl);
 
   let total = R.base + extraP*R.extra;
   const lines = [];
   lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(R.base)} € (${L?'inkl.':'incl.'} ${R.incl} ${L?'Pers.':'ppl'})`);
   if(extraP) lines.push(`${L?'Weitere Personen':'Additional people'} ${extraP}×${R.extra} € = +${fmt(extraP*R.extra)} €`);
+  lines.push(`${L?'Kaffee & Getränke für':'Coffee & drinks for'} ${n} ${L?'Pers.':'ppl'} · <b>${L?'inklusive':'included'}</b> (${L?'sonst':'elsewhere'} ${PRICING.drinksValue} ${L?'p. P.':'p.p.'})`);
 
   if(calcState.cake){ const a=PRICING.addons.cake.amount*n; total+=a; lines.push(`${L?'Kuchen':'Cake'} ${n}×${PRICING.addons.cake.amount} € = +${fmt(a)} €`); }
   if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Catering':'Catering'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
@@ -218,7 +221,7 @@ document.getElementById('send').addEventListener('click',async ()=>{
 // clear error state as the user types
 ['n','e'].forEach(id=>{ const el=document.getElementById(id); el && el.addEventListener('input',()=>el.classList.remove('err')); });
 
-/* ---- preselect time slot from ?zeit=half|full|evening (links from the home page) ---- */
+/* ---- preselect time slot from ?zeit=am|pm|full|evening|dayeve (links from the home page) ---- */
 (function(){ const z=new URLSearchParams(location.search).get('zeit'); if(!z || !PRICING.room[z]) return;
   document.querySelectorAll('#segTime button').forEach(x=>x.classList.toggle('on', x.dataset.time===z)); calcState.time=z; })();
 recalc();
