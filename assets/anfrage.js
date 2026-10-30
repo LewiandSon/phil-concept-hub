@@ -1,14 +1,14 @@
 /* phil space - pricing calculator, calendar & enquiry form (anfrage page only) */
 /* =========================================================
    PREISE - alle Beträge an EINER Stelle. Hier anpassen.
-   Raummiete = FIXPREIS je Zeitfenster (kein Aufschlag pro Person).
-   Pro-Kopf nur bei Kuchen und Catering.
+   Raummiete = Grundpreis je Zeitfenster inkl. `incl` Personen,
+   jede weitere Person kostet `extra`. Kuchen und Catering pro Person.
    ========================================================= */
 const PRICING = {
-  room: {                 // fixe Raummiete je Zeitfenster
-    half:    650,         // Vormittag 09-15 (Halbtag)
-    full:    950,         // Ganztag 09-22
-    evening: 650          // Nachmittag & Abend 15-22 (Halbtag)
+  room: {                                     // Grundpreis inkl. 15 Pers. + je weitere Person
+    half:    { base:400, incl:15, extra:12 },  // Vormittag 09-15 (Halbtag)
+    full:    { base:600, incl:15, extra:18 },  // Ganztag 09-22
+    evening: { base:400, incl:15, extra:12 }   // Nachmittag & Abend 15-22 (Halbtag)
   },
   addons: {
     cake:     { type:'perHead', amount:6 },     // pro Person
@@ -28,11 +28,13 @@ function recalc(){
   const roomLbl = calcState.time==='full' ? (L?'Ganztag':'Full day')
                 : calcState.time==='evening' ? (L?'Nachmittag & Abend':'Afternoon & evening')
                 : (L?'Vormittag':'Morning');
-  const room = PRICING.room[calcState.time] || PRICING.room.half;
+  const R = PRICING.room[calcState.time] || PRICING.room.half;
+  const extraP = Math.max(0, n - R.incl);
 
-  let total = room;
+  let total = R.base + extraP*R.extra;
   const lines = [];
-  lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(room)} €`);
+  lines.push(`<b>${L?'Raummiete':'Room'}</b> ${roomLbl} ${fmt(R.base)} € (${L?'inkl.':'incl.'} ${R.incl} ${L?'Pers.':'ppl'})`);
+  if(extraP) lines.push(`${L?'Weitere Personen':'Additional people'} ${extraP}×${R.extra} € = +${fmt(extraP*R.extra)} €`);
 
   if(calcState.cake){ const a=PRICING.addons.cake.amount*n; total+=a; lines.push(`${L?'Kuchen':'Cake'} ${n}×${PRICING.addons.cake.amount} € = +${fmt(a)} €`); }
   if(calcState.catering){ const a=PRICING.addons.catering.amount*n; total+=a; lines.push(`${L?'Catering':'Catering'} ${n}×${PRICING.addons.catering.amount} € = +${fmt(a)} €`); }
