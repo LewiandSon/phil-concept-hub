@@ -5,7 +5,7 @@ window.__reveal=true;
 (function(){
   var root=document.documentElement;
   try{
-    var stag='.uses,.equip,.abcards,.cater,.gallery,.quotes,.facts,.seatings,.loc-list,.faq,.logos,.occ-chips,.facts-bar,.tiles,.pteaser,.gstrip';
+    var stag='.uses,.equip,.abcards,.cater,.gallery,.quotes,.facts,.seatings,.loc-list,.faq,.logos,.occ-chips,.facts-bar,.tiles,.pteaser,.mosaic';
     document.querySelectorAll(stag).forEach(function(g){ g.classList.remove('rv'); Array.prototype.forEach.call(g.children,function(c,i){ c.classList.add('rv'); c.style.setProperty('--d',Math.min(i,8)*70+'ms'); }); });
     [['.hero .place',0],['.hero h1',90],['.hero .lede',180],['.hero-cta',270],['.hero-view',360],['.hero-figure',120],['.page-hero .kicker',0],['.page-hero h1',90],['.page-hero .lede',180]].forEach(function(p){ var el=document.querySelector(p[0]); if(el){ el.classList.add('rv'); el.style.setProperty('--d',p[1]+'ms'); } });
     var els=document.querySelectorAll('.rv');
