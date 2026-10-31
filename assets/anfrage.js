@@ -90,10 +90,12 @@ document.getElementById('toStep2').addEventListener('click',()=>{
 /* =========================================================
    CUSTOM CALENDAR
    ========================================================= */
-(function(){
-  const btn=document.getElementById('dateBtn'), cal=document.getElementById('cal');
-  const txt=document.getElementById('dateText'), hidden=document.getElementById('d');
-  const title=document.getElementById('calTitle'), dowRow=document.getElementById('calDow'), daysRow=document.getElementById('calDays');
+const CALS=[];
+function makeCal(sfx){
+  const $=id=>document.getElementById(id+sfx);
+  const btn=$('dateBtn'), cal=$('cal'), txt=$('dateText'), hidden=$('d');
+  const title=$('calTitle'), dowRow=$('calDow'), daysRow=$('calDays');
+  if(!btn||!cal) return null;
   const today=new Date(); today.setHours(0,0,0,0);
   let view=new Date(today.getFullYear(),today.getMonth(),1);
   let selected=null;
@@ -102,11 +104,18 @@ document.getElementById('toStep2').addEventListener('click',()=>{
   const dowDe=['M','D','M','D','F','S','S'], dowEn=['M','T','W','T','F','S','S'];
 
   function lang(){ return document.documentElement.lang==='de'?'de':'en'; }
+  function fmtSel(){ return selected.toLocaleDateString(lang()==='de'?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'}); }
   function renderDow(){ const d=lang()==='de'?dowDe:dowEn; dowRow.innerHTML=d.map(x=>`<div class="cal-dow">${x}</div>`).join(''); }
+  function setSel(d){
+    selected=d;
+    if(d){ txt.textContent=fmtSel(); btn.classList.remove('empty'); hidden.value=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+    else { txt.textContent=lang()==='de'?'Datum wählen':'Pick a date'; btn.classList.add('empty'); hidden.value=''; }
+  }
   function render(){
     const L=lang()==='de';
     title.textContent=(L?monthsDe:monthsEn)[view.getMonth()]+' '+view.getFullYear();
     renderDow();
+    if(selected) txt.textContent=fmtSel(); else txt.textContent=L?'Datum wählen':'Pick a date';
     const first=new Date(view.getFullYear(),view.getMonth(),1);
     let start=(first.getDay()+6)%7; // Monday-first
     const dim=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
@@ -121,24 +130,31 @@ document.getElementById('toStep2').addEventListener('click',()=>{
     }
     daysRow.innerHTML=html;
     daysRow.querySelectorAll('.cal-day:not(:disabled)').forEach(b=>b.addEventListener('click',()=>{
-      selected=new Date(view.getFullYear(),view.getMonth(),parseInt(b.dataset.d,10));
-      const L=lang()==='de';
-      const fmtd=selected.toLocaleDateString(L?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
-      txt.textContent=fmtd; btn.classList.remove('empty');
-      hidden.value=selected.toISOString().slice(0,10);
+      setSel(new Date(view.getFullYear(),view.getMonth(),parseInt(b.dataset.d,10)));
       render(); close();
     }));
   }
-  function open(){ cal.classList.add('open'); render(); }
+  function open(){ CALS.forEach(c=>{ if(c!==api) c.close(); }); cal.classList.add('open'); render(); }
   function close(){ cal.classList.remove('open'); }
   btn.addEventListener('click',()=> cal.classList.contains('open')?close():open());
   btn.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
-  document.getElementById('calPrev').addEventListener('click',()=>{ view.setMonth(view.getMonth()-1); render(); });
-  document.getElementById('calNext').addEventListener('click',()=>{ view.setMonth(view.getMonth()+1); render(); });
-  document.getElementById('calToday').addEventListener('click',()=>{ view=new Date(today.getFullYear(),today.getMonth(),1); selected=new Date(today); const L=lang()==='de'; txt.textContent=selected.toLocaleDateString(L?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'}); btn.classList.remove('empty'); hidden.value=selected.toISOString().slice(0,10); render(); close(); });
-  document.getElementById('calClear').addEventListener('click',()=>{ selected=null; hidden.value=''; const L=lang()==='de'; txt.textContent=L?'Datum wählen':'Pick a date'; btn.classList.add('empty'); render(); close(); });
+  $('calPrev').addEventListener('click',()=>{ view.setMonth(view.getMonth()-1); render(); });
+  $('calNext').addEventListener('click',()=>{ view.setMonth(view.getMonth()+1); render(); });
+  $('calToday').addEventListener('click',()=>{ view=new Date(today.getFullYear(),today.getMonth(),1); setSel(new Date(today)); render(); close(); });
+  $('calClear').addEventListener('click',()=>{ setSel(null); render(); close(); });
   document.addEventListener('click',e=>{ if(!cal.contains(e.target)&&!btn.contains(e.target)) close(); });
-  window.__renderCal=render; // re-render on language switch
+  const api={render,close};
+  CALS.push(api);
+  return api;
+}
+makeCal(''); makeCal('2');
+window.__renderCal=()=>CALS.forEach(c=>c.render()); // re-render on language switch
+
+/* alternative date: revealed on demand */
+(function(){
+  const t=document.getElementById('altToggle'), w=document.getElementById('altWrap');
+  if(!t||!w) return;
+  t.addEventListener('click',()=>{ w.hidden=false; t.hidden=true; const b=document.getElementById('dateBtn2'); if(b) b.focus(); });
 })();
 
 /* ---- submit: send via Web3Forms (no mail client needed); mailto stays as fallback ---- */
@@ -161,7 +177,10 @@ document.getElementById('send').addEventListener('click',async ()=>{
   }
   if(!ok) return;
 
-  const dateStr = g('d') ? new Date(g('d')).toLocaleDateString(L?'de-AT':'en-GB',{day:'numeric',month:'long',year:'numeric'}) : (L?'offen':'open');
+  const parseD=s=>{ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
+  const fmtD=s=>parseD(s).toLocaleDateString(L?'de-AT':'en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+  const dateStr = g('d') ? fmtD(g('d')) : (L?'offen':'open');
+  const altStr = g('d2') ? fmtD(g('d2')) : '';
 
   const body=[
     (L?'Name: ':'Name: ')+g('n'),
@@ -171,12 +190,12 @@ document.getElementById('send').addEventListener('click',async ()=>{
     (L?'Leistung: ':'Service: ')+r.timeLbl+' · '+calcState.people+' '+(L?'Personen':'people'),
     (L?'Zusatz: ':'Add-ons: ')+(adds.length?adds.join(', '):(L?'keine':'none')),
     (L?'ca. Richtpreis: ':'approx. guide price: ')+'ca. '+fmt(r.total)+' € '+(L?'(exkl. USt., unverbindlich)':'(excl. VAT, non-binding)'),
-    (L?'Wunschdatum: ':'Preferred date: ')+dateStr,
+    (L?'Wunschdatum: ':'Preferred date: ')+dateStr+(altStr?('\n'+(L?'Ersatztermin: ':'Alternative date: ')+altStr):''),
     '',
     (L?'Details:':'Details:'), (g('m')||'-')
   ].join('\n');
   const subj=encodeURIComponent('phil space '+(L?'Anfrage':'enquiry')+(g('n')?(' - '+g('n')):''));
-  const mailHref='mailto:zilberberg.jonathan@gmail.com?subject='+subj+'&body='+encodeURIComponent(body);
+  const mailHref='mailto:events@phil.info?subject='+subj+'&body='+encodeURIComponent(body);
 
   // --- summary + real send via Web3Forms (works without a mail client) ---
   const sent=document.getElementById('sent');
@@ -185,7 +204,7 @@ document.getElementById('send').addEventListener('click',async ()=>{
       '<b>'+g('n')+'</b>'+(g('o')?' · '+g('o'):'')+'<br>'+
       '<b>'+r.timeLbl+'</b> · <b>'+calcState.people+'</b> '+(L?'Personen':'people')+'<br>'+
       (adds.length?((L?'Zusatz: ':'Add-ons: ')+adds.join(', ')+'<br>'):'')+
-      (L?'Wunschdatum: ':'Preferred date: ')+dateStr+'<br>'+
+      (L?'Wunschdatum: ':'Preferred date: ')+dateStr+(altStr?(' · '+(L?'Ersatztermin: ':'alternative: ')+altStr):'')+'<br>'+
       (L?'ca. Richtpreis: ':'approx. guide price: ')+'<b>ca. '+fmt(r.total)+' €</b> '+(L?'(unverbindlich)':'(non-binding)')+
     '</div>';
   const show=(title,tail)=>{
@@ -205,7 +224,7 @@ document.getElementById('send').addEventListener('click',async ()=>{
         Name:g('n'), 'Firma/Team':g('o')||'-', 'E-Mail':g('e'), Personen:calcState.people,
         Leistung:r.timeLbl, Zusatz:(adds.length?adds.join(', '):(L?'keine':'none')),
         Richtpreis:'ca. '+fmt(r.total)+' € '+(L?'(exkl. USt., unverbindlich)':'(excl. VAT)'),
-        Wunschdatum:dateStr, Details:g('m')||'-', message:body
+        Wunschdatum:dateStr, Ersatztermin:altStr||'-', Details:g('m')||'-', message:body
       })});
       const data=await res.json().catch(()=>({}));
       if(data.success){ show((L?'Anfrage gesendet ✓':'Enquiry sent ✓'),'<div class="smail">'+(L?'Danke! Wir melden uns werktags binnen 24 Stunden.':'Thanks! We reply within 24 hours on working days.')+'</div>'); }
